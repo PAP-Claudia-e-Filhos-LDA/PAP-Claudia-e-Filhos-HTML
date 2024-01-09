@@ -51,9 +51,9 @@
     }
 
     .about-container{
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(1, 1fr);
         .right-about{
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(1, 1fr);
             padding-top: 2.5rem;
         }
         .left-about{
@@ -62,10 +62,6 @@
                 padding-left: 0;
             }
         }
-    }
-
-    .section{
-        padding: 2rem 2.5rem !important;
     }
 
     .timeline{
