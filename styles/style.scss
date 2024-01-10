@@ -588,7 +588,7 @@ section {
       }
       .submit-btn {
           display: flex;
-          justify-content: flex-start;
+          justify-content: center;
       }
   }
 }
@@ -609,7 +609,7 @@ section {
   align-self: flex-start;
   align-items: center;
   overflow: hidden;
-  .btn-text { padding: 0 2rem; }
+  .btn-text { padding: 0.4rem 2rem; }
   .btn-icon {
       background-color: var(--color-secondary);
       display: flex;
