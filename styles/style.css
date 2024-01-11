@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   list-style: none;
+  scroll-behavior: smooth;
 }
 
 :root {
@@ -75,15 +76,15 @@ section {
 
 .active {
   display: block;
-  animation: appear 1s ease-in-out;
+  animation: appear 0.6s ease-in-out;
   transform: translateY(0) scaleY(1);
 }
 @keyframes appear {
   0% {
-    transform: translateY(-100%) scaleY(0);
+    transform: translateX(-100%) scalex(0);
   }
   100% {
-    transform: translateY(0) scaleY(1);
+    transform: translatex(0) scalex(1);
   }
 }
 
@@ -471,29 +472,29 @@ section {
   transform: scale(1);
 }
 
-.blogs {
+.catalogos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
   margin-top: 3rem;
 }
-.blogs .blog {
+.catalogos .catalogo {
   position: relative;
   background-color: var(--color-grey-5);
   border-radius: 5px;
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.4s ease-in-out;
 }
-.blogs .blog:hover {
+.catalogos .catalogo:hover {
   box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.3);
   transform: translateY(-5px);
   transition: all 0.4s ease-in-out;
 }
-.blogs .blog:hover img {
+.catalogos .catalogo:hover img {
   transform: scale(1.1);
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);
 }
-.blogs .blog img {
+.catalogos .catalogo img {
   width: 100%;
   height: 300px;
   -o-object-fit: cover;
@@ -502,21 +503,21 @@ section {
   border-top-right-radius: 5px;
   transition: all 0.4s ease-in-out;
 }
-.blogs .blog .blog-text {
+.catalogos .catalogo .catalogo-text {
   margin-top: -7px;
   padding: 1.1rem;
   border-top: 8px solid var(--color-secondary);
 }
-.blogs .blog .blog-text h4 {
+.catalogos .catalogo .catalogo-text h4 {
   font-size: 1.5rem;
   margin-bottom: 0.7rem;
   transition: all 0.4s ease-in-out;
   cursor: pointer;
 }
-.blogs .blog .blog-text h4:hover {
+.catalogos .catalogo .catalogo-text h4:hover {
   color: var(--color-secondary);
 }
-.blogs .blog .blog-text p {
+.catalogos .catalogo .catalogo-text p {
   color: var(--color-grey-2);
   line-height: 2rem;
   padding-bottom: 1rem;
@@ -616,6 +617,7 @@ section {
   justify-content: center;
 }
 
+/*login*/
 /*Independed components*/
 .btn-con {
   display: flex;
@@ -758,12 +760,7 @@ section {
   .about-stats .progress-bars {
     grid-template-columns: repeat(1, 1fr);
   }
-  .portfolios {
-    grid-template-columns: repeat(1, 1fr);
-    padding-bottom: 6rem;
-    margin-top: 1rem;
-  }
-  .blogs {
+  .catalogos {
     grid-template-columns: repeat(1, 1fr);
     padding-bottom: 6rem;
   }
@@ -834,22 +831,16 @@ section {
   }
 }
 @media screen and (max-width: 1250px) {
-  .blogs {
+  .catalogos {
     grid-template-columns: repeat(2, 1fr);
     margin-top: 6rem;
-  }
-  .portfolios {
-    grid-template-columns: repeat(2, 1fr);
   }
   .header-content .right-header {
     padding-right: 9rem;
   }
 }
 @media screen and (max-width: 660px) {
-  .blogs {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .portfolios {
+  .catalogos {
     grid-template-columns: repeat(1, 1fr);
   }
 }
