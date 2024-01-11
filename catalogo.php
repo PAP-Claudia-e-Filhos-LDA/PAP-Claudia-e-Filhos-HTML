@@ -10,7 +10,7 @@ $catalogos = array();
 // Loop para obter os resultados da consulta
 while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
   // Adiciona cada produto ao array $catalogos
-  $catalogos[] = array($row['caminho_imagem'], $row['nome_produto'], $row['desc'],$row['preco']);
+  $catalogos[] = array($row['caminho_imagem'], $row['nome_produto'], $row['desc'], $row['preco']);
 }
 ?>
 
@@ -22,7 +22,7 @@ while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Claudia & Filhos</title>
-  <link rel="stylesheet" href="styles/style.css"/>
+  <link rel="stylesheet" href="styles/style.css" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -31,7 +31,7 @@ while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
 </head>
 
 <body class="main-content">
-<main>
+  <main>
     <section class="container active" id="catalogo">
       <div class="catalogos-content">
 
@@ -46,7 +46,7 @@ while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
             <div class="catalogo">
               <img src="<?php echo $catalogo[0]; ?>" alt="" />
               <div class="catalogo-text">
-                <h4><?php echo $catalogo[1];?> <?php  echo $catalogo[3]?>€</h4>
+                <h4><?php echo $catalogo[1]; ?> <?php echo $catalogo[3] ?>€</h4>
                 <p><?php echo $catalogo[2]; ?></p>
                 <div class="btn-con">
                   <a href="#" class="main-btn">
@@ -83,18 +83,15 @@ while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
         <i class="far fa-envelope-open"></i>
       </div>
     </a>
-    <a href="profile.php">
-      <div class="control" data-id="profile">
-        <i class="fas fa-user"></i>
-      </div>
-    </a>
     <div class="control" data-id="home">
       <i class="fas fa-shopping-cart"></i>
     </div>
   </div>
-  <div class="theme-btn">
-    <i class="fas fa-adjust"></i>
-  </div>
+  <a href="profile.php">
+    <div class="profile-btn">
+      <i class="fas fa-user"></i>
+    </div>
+  </a>
   <script src="js/app.js"></script>
 </body>
 

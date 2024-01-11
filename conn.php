@@ -1,12 +1,13 @@
-<?php
-class MyDB extends SQLite3{
-  function __construct()
+  <?php
+  class MyDB extends SQLite3
   {
-    $this->open('BD/Rissois.db');
+    function __construct()
+    {
+      $this->open('BD/Rissois.db');
+    }
   }
-}
-$db = new MyDB();
-if(!$db){
-  echo $db->lastErrorMsg();
-}
-?>
+  $db = new MyDB();
+  if (!$db) {
+    echo $db->lastErrorMsg();
+  }
+  ?>

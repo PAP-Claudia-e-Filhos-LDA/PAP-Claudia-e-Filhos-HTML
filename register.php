@@ -1,28 +1,23 @@
 <?php
-include('conn.php'); // Certifique-se de incluir o arquivo de conexão com o banco de dados
+include('conn.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Verifica se o formulário foi enviado via método POST
 
-    // Obtém os valores dos campos do formulário
-    $emailOrPhone = $_POST['email_or_phone'];
+    $username = $_POST['username'];
+    $phoneNumber = $_POST['phone_number'];
     $password = $_POST['password'];
 
-    // Consulta na tabela "Clientes" para verificar os dados de login
-    $query = "SELECT * FROM Clientes WHERE (nome_cliente = '$emailOrPhone' OR contacto = '$emailOrPhone') AND pass = '$password'";
-    $result = $db->query($query);
+    $insertQuery = "INSERT INTO Clientes (nome_cliente, contacto, pass) VALUES ('$username', '$phoneNumber', '$password')";
+    $result = $db->exec($insertQuery);
 
     if ($result) {
-        if ($row = $result->fetchArray(SQLITE3_ASSOC)) {
-            echo "Login realizado com sucesso!";
-        } else {
-            echo "Credenciais inválidas. Por favor, tente novamente.";
-        }
+        echo "Registro realizado com sucesso!";
     } else {
-        echo "Erro ao processar a solicitação. Por favor, tente novamente.";
+        echo "Erro ao registrar. Por favor, tente novamente.";
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,12 +37,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 
     <div class="container-login active">
+
         <div class="wrapper">
-            <div class="title"><span>LOGIN</span></div>
-            <form action="login.php" method="post"> <!-- Adiciona action e method ao formulário -->
+            <div class="title"><span>REGISTER</span></div>
+            <form action="register.php" method="post">
                 <div class="row">
                     <i class="fas fa-user"></i>
-                    <input type="text" name="email_or_phone" placeholder="Email or Phone" required>
+                    <input type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class="row">
+                    <i class="fas fa-phone"></i>
+                    <input type="text" name="phone_number" placeholder="Phone Number" required>
                 </div>
                 <div class="row">
                     <i class="fas fa-lock"></i>
@@ -55,10 +55,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
                 <div class="pass"><a href="#">Forgot password?</a></div>
                 <div class="row button">
-                    <input type="submit" value="Login">
+                    <input type="submit" value="Register">
                 </div>
-                <div class="signup-link">Not a member? <a href="register.php">Signup now</a></div>
+                <div class="signup-link">A member? <a href="login.php">Login now</a></div>
             </form>
+
         </div>
     </div>
     <div class="controls">
@@ -86,7 +87,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <i class="fas fa-shopping-cart"></i>
         </div>
     </div>
-
 </body>
 
 </html>
