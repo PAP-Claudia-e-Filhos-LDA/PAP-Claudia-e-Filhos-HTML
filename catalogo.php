@@ -1,5 +1,5 @@
 <?php
-include('conn.php');
+include('includes/conn.php');
 
 // Consulta à base de dados para obter os produtos
 $result = $db->query('SELECT * FROM Produtos');

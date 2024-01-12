@@ -1,27 +1,5 @@
 <?php
-include('conn.php'); // Certifique-se de incluir o arquivo de conexão com o banco de dados
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Verifica se o formulário foi enviado via método POST
-
-    // Obtém os valores dos campos do formulário
-    $emailOrPhone = $_POST['email_or_phone'];
-    $password = $_POST['password'];
-
-    // Consulta na tabela "Clientes" para verificar os dados de login
-    $query = "SELECT * FROM Clientes WHERE (nome_cliente = '$emailOrPhone' OR contacto = '$emailOrPhone') AND pass = '$password'";
-    $result = $db->query($query);
-
-    if ($result) {
-        if ($row = $result->fetchArray(SQLITE3_ASSOC)) {
-            echo "Login realizado com sucesso!";
-        } else {
-            echo "Credenciais inválidas. Por favor, tente novamente.";
-        }
-    } else {
-        echo "Erro ao processar a solicitação. Por favor, tente novamente.";
-    }
-}
+include('includes/conn.php'); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container-login active">
         <div class="wrapper">
             <div class="title"><span>LOGIN</span></div>
-            <form action="login.php" method="post"> <!-- Adiciona action e method ao formulário -->
+            <form action="includes/process_login.php" method="post"> 
                 <div class="row">
                     <i class="fas fa-user"></i>
                     <input type="text" name="email_or_phone" placeholder="Email or Phone" required>

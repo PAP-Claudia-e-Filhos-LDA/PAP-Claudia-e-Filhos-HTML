@@ -1,21 +1,5 @@
 <?php
-include('conn.php');
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    $username = $_POST['username'];
-    $phoneNumber = $_POST['phone_number'];
-    $password = $_POST['password'];
-
-    $insertQuery = "INSERT INTO Clientes (nome_cliente, contacto, pass) VALUES ('$username', '$phoneNumber', '$password')";
-    $result = $db->exec($insertQuery);
-
-    if ($result) {
-        header("location:index.php");
-    } else {
-        echo "Erro ao registrar. Por favor, tente novamente.";
-    }
-}
+include('includes/conn.php');
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="wrapper">
             <div class="title"><span>REGISTER</span></div>
-            <form action="register.php" method="post">
+            <form action="includes/process_regiser.php" method="post">
                 <div class="row">
                     <i class="fas fa-user"></i>
                     <input type="text" name="username" placeholder="Username" required>

@@ -3,7 +3,7 @@
   {
     function __construct()
     {
-      $this->open('BD/Rissois.db');
+      $this->open(__DIR__ . '/../BD/Rissois.db');
     }
   }
   $db = new MyDB();
