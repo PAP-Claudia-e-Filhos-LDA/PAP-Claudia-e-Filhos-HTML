@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $db->exec($insertQuery);
 
     if ($result) {
-        echo "Registro realizado com sucesso!";
+        header("location:index.php");
     } else {
         echo "Erro ao registrar. Por favor, tente novamente.";
     }

@@ -26,7 +26,7 @@
       <div class="right-header">
         <h1 class="name">
           Welcome to
-          <span><br />
+          <span>
             Claudia & Filhos</span>
         </h1>
         <p>
@@ -71,11 +71,7 @@
       <i class="fas fa-shopping-cart"></i>
     </div>
   </div>
-  <a href="profile.php">
-    <div class="profile-btn">
-      <i class="fas fa-user"></i>
-    </div>
-  </a>
+
   <script src="js/app.js"></script>
 </body>
 
