@@ -1,3 +1,6 @@
+<?php
+include('../includes/catalogo_inc.php')
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Claudia & Filhos</title>
-  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="../styles/style.css" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,13 +19,36 @@
 
 <body class="main-content">
   <main>
-    <section class="container active" id="profile">
-      <div class="main-title">
-        <h2>Your <span>Profile</span><span class="bg-text">Profile</span></h2>
+    <section class="container active" id="catalogo">
+      <div class="catalogos-content">
+
+        <div class="main-title">
+          <h2>Our <span>Catalogo</span><span class="bg-text">Catalogo</span></h2>
+        </div>
+        <div class="catalogos">
+          <?php
+          // Loop para gerar os catálogos
+          foreach ($catalogos as $catalogo) {
+          ?>
+            <div class="catalogo">
+              <img src="<?php echo $catalogo[0]; ?>" alt="" />
+              <div class="catalogo-text">
+                <h4><?php echo $catalogo[1]; ?> <?php echo $catalogo[3] ?>€</h4>
+                <p><?php echo $catalogo[2]; ?></p>
+                <div class="btn-con">
+                  <a href="#" class="main-btn">
+                    <span class="btn-text">Add</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          <?php
+          }
+          ?>
+        </div>
       </div>
     </section>
   </main>
-
   <div class="controls">
     <a href="index.php">
       <div class="control" data-id="home">
@@ -35,7 +61,7 @@
       </div>
     </a>
     <a href="catalogo.php">
-      <div class="control" data-id="catalogo">
+      <div class="control active-btn" data-id="catalogo">
         <i class="fas fa-book"></i>
       </div>
     </a>

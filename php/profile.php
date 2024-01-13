@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Claudia & Filhos</title>
-  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="../styles/style.css" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,39 +15,17 @@
 </head>
 
 <body class="main-content">
-  <header class="container header active" id="home">
-    <div class="header-content">
-      <div class="left-header">
-        <div class="h-shape"></div>
-        <div class="image">
-          <img src="img/ewq.png" alt="" />
-        </div>
+  <main>
+    <section class="container active" id="profile">
+      <div class="main-title">
+        <h2>Your <span>Profile</span><span class="bg-text">Profile</span></h2>
       </div>
-      <div class="right-header">
-        <h1 class="name">
-          Welcome to
-          <span>
-            Claudia & Filhos</span>
-        </h1>
-        <p>
-          I'm a Web Developer, I love to create beautiful and functional
-          websites. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Officia, libero? Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Neque blanditiis sed aut!
-        </p>
-        <div class="btn-con">
-          <a href="catalogo.php" class="main-btn">
-            <span class="btn-text">Catalogo</span>
-            <span class="btn-icon"><i class="fas fa-download"></i></span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </header>
+    </section>
+  </main>
 
   <div class="controls">
     <a href="index.php">
-      <div class="control active-btn" data-id="home">
+      <div class="control" data-id="home">
         <i class="fas fa-home"></i>
       </div>
     </a>
@@ -66,12 +44,15 @@
         <i class="far fa-envelope-open"></i>
       </div>
     </a>
-    </a>
     <div class="control" data-id="home">
       <i class="fas fa-shopping-cart"></i>
     </div>
   </div>
-
+  <a href="profile.php">
+    <div class="profile-btn">
+      <i class="fas fa-user"></i>
+    </div>
+  </a>
   <script src="js/app.js"></script>
 </body>
 

@@ -1,6 +1,7 @@
 <?php
-include('includes/conn.php'); 
+include('../includes/conn.php');
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +10,7 @@ include('includes/conn.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Claudia & Filhos</title>
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,14 +19,17 @@ include('includes/conn.php');
 </head>
 
 <body>
-
     <div class="container-login active">
         <div class="wrapper">
-            <div class="title"><span>LOGIN</span></div>
-            <form action="includes/process_login.php" method="post"> 
+            <div class="title"><span>REGISTER</span></div>
+            <form action="../includes/process_register.php" method="post">
                 <div class="row">
                     <i class="fas fa-user"></i>
-                    <input type="text" name="email_or_phone" placeholder="Email or Phone" required>
+                    <input type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class="row">
+                    <i class="fas fa-phone"></i>
+                    <input type="text" name="phone_number" placeholder="Phone Number" required>
                 </div>
                 <div class="row">
                     <i class="fas fa-lock"></i>
@@ -33,12 +37,25 @@ include('includes/conn.php');
                 </div>
                 <div class="pass"><a href="#">Forgot password?</a></div>
                 <div class="row button">
-                    <input type="submit" value="Login">
+                    <input type="submit" value="Register">
                 </div>
-                <div class="signup-link">Not a member? <a href="register.php">Signup now</a></div>
+                <div class="signup-link">A member? <a href="login.php">Login now</a></div>
             </form>
+            <?php
+            if (isset($_GET["error"])) {
+                if ($_GET["error"] == "unkown") {
+                    echo "<h1> Error desconhecido </h1>";
+                } else if ($_GET["error"] == "taken") {
+                    echo "<h1> username ou numero ja existem </h1>";
+                } else if ($_GET["error"] == "none") {
+                    echo "<h1> sucess </h1>";
+                }
+            }
+            ?>
         </div>
     </div>
+
+
     <div class="controls">
         <a href="index.php">
             <div class="control" data-id="home">
@@ -65,6 +82,7 @@ include('includes/conn.php');
         </div>
     </div>
 
+    <script src="../js/app.js   "></script>
 </body>
 
 </html>

@@ -1,7 +1,6 @@
 <?php
-include('includes/conn.php');
+include('../includes/conn.php');
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +9,7 @@ include('includes/conn.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Claudia & Filhos</title>
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,17 +20,12 @@ include('includes/conn.php');
 <body>
 
     <div class="container-login active">
-
         <div class="wrapper">
-            <div class="title"><span>REGISTER</span></div>
-            <form action="includes/process_regiser.php" method="post">
+            <div class="title"><span>LOGIN</span></div>
+            <form action="includes/process_login.php" method="post">
                 <div class="row">
                     <i class="fas fa-user"></i>
-                    <input type="text" name="username" placeholder="Username" required>
-                </div>
-                <div class="row">
-                    <i class="fas fa-phone"></i>
-                    <input type="text" name="phone_number" placeholder="Phone Number" required>
+                    <input type="text" name="email_or_phone" placeholder="Email or Phone" required>
                 </div>
                 <div class="row">
                     <i class="fas fa-lock"></i>
@@ -39,11 +33,10 @@ include('includes/conn.php');
                 </div>
                 <div class="pass"><a href="#">Forgot password?</a></div>
                 <div class="row button">
-                    <input type="submit" value="Register">
+                    <input type="submit" value="Login">
                 </div>
-                <div class="signup-link">A member? <a href="login.php">Login now</a></div>
+                <div class="signup-link">Not a member? <a href="register.php">Signup now</a></div>
             </form>
-
         </div>
     </div>
     <div class="controls">
@@ -71,6 +64,7 @@ include('includes/conn.php');
             <i class="fas fa-shopping-cart"></i>
         </div>
     </div>
+
 </body>
 
 </html>
