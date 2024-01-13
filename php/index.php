@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,11 +70,17 @@
         <i class="far fa-envelope-open"></i>
       </div>
     </a>
+    <a href="index.php">
+      <div class="control" data-id="home">
+        <i class="fas fa-shopping-cart"></i>
+      </div>
     </a>
-    <div class="control" data-id="home">
-      <i class="fas fa-shopping-cart"></i>
-    </div>
   </div>
+  <a href="profile.php" style="float:right">
+    <div class="profile-btn">
+      <i class="fas fa-user"></i>
+    </div>
+  </a>
 
   <script src="js/app.js"></script>
 </body>

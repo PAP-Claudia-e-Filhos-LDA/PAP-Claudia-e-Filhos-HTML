@@ -1,5 +1,5 @@
 <?php
-include('../includes/conn.php');
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,10 +22,10 @@ include('../includes/conn.php');
     <div class="container-login active">
         <div class="wrapper">
             <div class="title"><span>LOGIN</span></div>
-            <form action="includes/process_login.php" method="post">
+            <form action="../includes/process_login.php" method="post">
                 <div class="row">
                     <i class="fas fa-user"></i>
-                    <input type="text" name="email_or_phone" placeholder="Email or Phone" required>
+                    <input type="text" name="username" placeholder="username or Phone" required>
                 </div>
                 <div class="row">
                     <i class="fas fa-lock"></i>
@@ -36,6 +36,15 @@ include('../includes/conn.php');
                     <input type="submit" value="Login">
                 </div>
                 <div class="signup-link">Not a member? <a href="register.php">Signup now</a></div>
+                <?php
+                if (isset($_GET["error"])) {
+                    if ($_GET["error"] == "wronglogin") {
+                        echo '<p class="signup-link"> Dados inseridos nao encontrados! </p>';
+                    } else if ($_GET["error"] == "emptyinput") {
+                        echo '<p class="signup-link"> Preencha todos os campos! </p>';
+                    }
+                }
+                ?>
             </form>
         </div>
     </div>

@@ -80,3 +80,38 @@ function createUser($db, $username, $phoneNumber, $password)
     header("location: ../php/register.php?error=none");
     exit();
 }
+
+
+
+function emptyInputLogin($username, $password)
+{
+    $result = false;
+    if (empty($username) || empty($password)) {
+        $result = true;
+    }
+    return $result;
+}
+
+function loginUser($db, $username, $password)
+{
+    $userExists = userExists($db, $username, $username);
+
+    if ($userExists === false) {
+        header("location: ../php/login.php?error=wronglogin");
+        exit();
+    }
+
+    // Obtenha a senha armazenada no banco de dados
+    $storedPassword = $userExists["pass"];
+
+    // Compare a senha fornecida com a senha armazenada (sem hash)
+    if ($password !== $storedPassword) {
+        header("location: ../php/login.php?error=wronglogin");
+        exit();
+    }
+    session_start();
+    $_SESSION["userid"] = $userExists["id_clientes"];
+    $_SESSION["username"] = $userExists["nome_cliente"];
+    header("location: ../php/index.php");
+    exit();
+}

@@ -44,6 +44,8 @@ include('../includes/conn.php');
                 if (isset($_GET["error"])) {
                     if ($_GET["error"] == "ivalidusername") {
                         echo '<p class="signup-link"> Escolha um username válido! </p>';
+                    } else if ($_GET["error"] == "emptyinput") {
+                        echo '<p class="signup-link"> Preencha todos os campos! </p>';
                     } else if ($_GET["error"] == "ivalidphone") {
                         echo '<p class="signup-link"> Número de telefone inválido! </p>';
                     } else if ($_GET["error"] == "userexists") {
