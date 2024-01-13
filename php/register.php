@@ -40,18 +40,22 @@ include('../includes/conn.php');
                     <input type="submit" value="Register">
                 </div>
                 <div class="signup-link">A member? <a href="login.php">Login now</a></div>
-            </form>
-            <?php
-            if (isset($_GET["error"])) {
-                if ($_GET["error"] == "unkown") {
-                    echo "<h1> Error desconhecido </h1>";
-                } else if ($_GET["error"] == "taken") {
-                    echo "<h1> username ou numero ja existem </h1>";
-                } else if ($_GET["error"] == "none") {
-                    echo "<h1> sucess </h1>";
+                <?php
+                if (isset($_GET["error"])) {
+                    if ($_GET["error"] == "ivalidusername") {
+                        echo '<p class="signup-link"> Escolha um username válido! </p>';
+                    } else if ($_GET["error"] == "ivalidphone") {
+                        echo '<p class="signup-link"> Número de telefone inválido! </p>';
+                    } else if ($_GET["error"] == "userexists") {
+                        echo '<p class="signup-link"> Dados inseridos já existem! </p>';
+                    } else if ($_GET["error"] == "stmtfailded") {
+                        echo '<p class="signup-link"> Erro desconhecido! </p>';
+                    } else if ($_GET["error"] == "none") {
+                        echo '<p class="signup-link"> Registrado com sucesso! </p>';
+                    }
                 }
-            }
-            ?>
+                ?>
+            </form>
         </div>
     </div>
 
