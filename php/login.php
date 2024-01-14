@@ -56,12 +56,12 @@ session_start();
         </a>
         <a href="about.php">
             <div class="control" data-id="about">
-                <i class="fas fa-user"></i>
+                <i class="fas fa-book"></i>
             </div>
         </a>
         <a href="catalogo.php">
             <div class="control" data-id="catalogo">
-                <i class="fas fa-book"></i>
+                <i class="fas fa-lemon"></i>
             </div>
         </a>
         <a href="contact.php">

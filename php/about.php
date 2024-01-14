@@ -159,12 +159,12 @@
     </a>
     <a href="about.php">
       <div class="control active-btn" data-id="about">
-        <i class="fas fa-user"></i>
+        <i class="fas fa-book"></i>
       </div>
     </a>
     <a href="catalogo.php">
       <div class="control" data-id="catalogo">
-        <i class="fas fa-book"></i>
+        <i class="fas fa-lemon"></i>
       </div>
     </a>
     <a href="contact.php">
@@ -172,16 +172,17 @@
         <i class="far fa-envelope-open"></i>
       </div>
     </a>
-    <div class="control" data-id="home">
+    <a href="profile.php">
+      <div class="control" data-id="home">
+        <i class="fas fa-user"></i>
+      </div>
+    </a>
+  </div>
+  <a href="#" style="float:right">
+    <div class="profile-btn">
       <i class="fas fa-shopping-cart"></i>
     </div>
-  </div>
-  <a href="profile.php">
-    <div class="profile-btn">
-      <i class="fas fa-user"></i>
-    </div>
-  </a>
-  <script src="js/app.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

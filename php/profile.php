@@ -33,6 +33,12 @@ if (!isset($_SESSION["username"])) {
       <div class="main-title">
         <h2>Your <span>Profile</span><span class="bg-text">Profile</span></h2>
       </div>
+      <div class="btn-con">
+        <a href="../includes/logout_inc.php" class="main-btn">
+          <span class="btn-text">LogOut</span>
+          <span class="btn-icon"><i class="fas fa-download"></i></span>
+        </a>
+      </div>
     </section>
   </main>
 
@@ -44,12 +50,12 @@ if (!isset($_SESSION["username"])) {
     </a>
     <a href="about.php">
       <div class="control" data-id="about">
-        <i class="fas fa-user"></i>
+        <i class="fas fa-book"></i>
       </div>
     </a>
     <a href="catalogo.php">
       <div class="control" data-id="catalogo">
-        <i class="fas fa-book"></i>
+        <i class="fas fa-lemon"></i>
       </div>
     </a>
     <a href="contact.php">
@@ -57,16 +63,17 @@ if (!isset($_SESSION["username"])) {
         <i class="far fa-envelope-open"></i>
       </div>
     </a>
-    <div class="control" data-id="home">
+    <a href="profile.php">
+      <div class="control active-btn" data-id="home">
+        <i class="fas fa-user"></i>
+      </div>
+    </a>
+  </div>
+  <a href="#" style="float:right">
+    <div class="profile-btn">
       <i class="fas fa-shopping-cart"></i>
     </div>
-  </div>
-  <a href="profile.php">
-    <div class="profile-btn">
-      <i class="fas fa-user"></i>
-    </div>
-  </a>
-  <script src="js/app.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

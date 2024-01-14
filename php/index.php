@@ -30,8 +30,8 @@ session_start();
       <div class="right-header">
         <h1 class="name">
           Welcome to
-          <span>
-            Claudia & Filhos</span>
+          <span><br>
+            Claúdia & Filhos</span>
         </h1>
         <p>
           I'm a Web Developer, I love to create beautiful and functional
@@ -57,12 +57,12 @@ session_start();
     </a>
     <a href="about.php">
       <div class="control" data-id="about">
-        <i class="fas fa-user"></i>
+        <i class="fas fa-book"></i>
       </div>
     </a>
     <a href="catalogo.php">
       <div class="control" data-id="catalogo">
-        <i class="fas fa-book"></i>
+        <i class="fas fa-lemon"></i>
       </div>
     </a>
     <a href="contact.php">
@@ -70,15 +70,15 @@ session_start();
         <i class="far fa-envelope-open"></i>
       </div>
     </a>
-    <a href="index.php">
+    <a href="profile.php">
       <div class="control" data-id="home">
-        <i class="fas fa-shopping-cart"></i>
+        <i class="fas fa-user"></i>
       </div>
     </a>
   </div>
-  <a href="profile.php" style="float:right">
+  <a href="#" style="float:right">
     <div class="profile-btn">
-      <i class="fas fa-user"></i>
+      <i class="fas fa-shopping-cart"></i>
     </div>
   </a>
 
