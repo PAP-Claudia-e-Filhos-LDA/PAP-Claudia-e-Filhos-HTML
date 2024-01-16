@@ -2,6 +2,8 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // Obter dados do formulário
   $username = $_POST['username'];
+  $nome = $_POST['nome'];
+  $email = $_POST['email'];
   $phoneNumber = $_POST['phone_number'];
   $password = $_POST['password'];
 
@@ -26,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit();
   }
 
-  createUser($db, $username, $phoneNumber, $password);
+  createUser($db,$username,$nome,$email,$phoneNumber,$password);
 } else {
   header("location: ../php/register.php");
   exit();

@@ -95,10 +95,10 @@ section {
 }
 @keyframes appear {
   0% {
-    transform: translateY(-100%) scaleY(0);
+    transform: translateX(-100%) scaleX(0);
   }
   100% {
-    transform: translateY(0) scaleY(1);
+    transform: translateX(0) scaleX(1);
   }
 }
 
@@ -762,18 +762,6 @@ form .signup-link a:hover {
   transform: translate(-50%, -50%);
   font-weight: 800;
   font-size: 6.3rem;
-}
-
-.toast {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  background-color: #333;
-  color: #fff;
-  padding: 15px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  z-index: 9999;
 }
 
 .about-container .left-about p {

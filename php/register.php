@@ -28,8 +28,16 @@ include('../includes/conn.php');
                     <input type="text" name="username" placeholder="Username" required>
                 </div>
                 <div class="row">
+                    <i class="fas fa-user"></i>
+                    <input type="text" name="nome" placeholder="Nome Completo" required>
+                </div>
+                <div class="row">
                     <i class="fas fa-phone"></i>
-                    <input type="text" name="phone_number" placeholder="Phone Number" required>
+                    <input type="text" name="phone_number" placeholder="Número de telemovel" required>
+                </div>
+                <div class="row">
+                    <i class="fas fa-lock"></i>
+                    <input type="text" name="email" placeholder="Email (opcional)">
                 </div>
                 <div class="row">
                     <i class="fas fa-lock"></i>

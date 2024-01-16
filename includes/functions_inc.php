@@ -13,7 +13,7 @@ function emptyInputSignup($username, $phoneNumber, $password)
 
 function invalidUsername($username)
 {
-    return !preg_match("/^[a-zA-Z0-9]*$/", $username);
+    return !preg_match("/^[a-zA-Z0-9_]*$/", $username);
 }
 
 
@@ -25,7 +25,7 @@ function invalidPhone($phoneNumber)
 
 function userExists($db, $username, $phoneNumber)
 {
-    $sql = "SELECT * FROM Clientes WHERE nome_cliente = :username OR contacto = :phoneNumber";
+    $sql = "SELECT * FROM Clientes WHERE username = :username OR contacto = :phoneNumber";
     $stmt = $db->prepare($sql);
 
     if (!$stmt) {
@@ -51,9 +51,9 @@ function userExists($db, $username, $phoneNumber)
 }
 
 
-function createUser($db, $username, $phoneNumber, $password)
+function createUser($db,$username,$nome,$email,$phoneNumber,$password)
 {
-    $sql = "INSERT INTO clientes(nome_cliente, contacto, pass) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO clientes(username,nome_cliente,contacto,email, pass) VALUES (?, ?, ?, ?, ?)";
     $stmt = $db->prepare($sql);
 
     if (!$stmt) {
@@ -63,8 +63,10 @@ function createUser($db, $username, $phoneNumber, $password)
 
 
     $stmt->bindParam(1, $username, SQLITE3_TEXT);
-    $stmt->bindParam(2, $phoneNumber, SQLITE3_TEXT);
-    $stmt->bindParam(3, $password, SQLITE3_TEXT);
+    $stmt->bindParam(2, $nome, SQLITE3_TEXT);
+    $stmt->bindParam(3, $phoneNumber, SQLITE3_TEXT);
+    $stmt->bindParam(4, $email, SQLITE3_TEXT);
+    $stmt->bindParam(5, $password, SQLITE3_TEXT);
 
     $result = $stmt->execute();
 
@@ -111,7 +113,7 @@ function loginUser($db, $username, $password)
     }
     session_start();
     $_SESSION["userid"] = $userExists["id_clientes"];
-    $_SESSION["username"] = $userExists["nome_cliente"];
+    $_SESSION["username"] = $userExists["username"];
     header("location: ../php/index.php");
     exit();
 }
