@@ -19,6 +19,7 @@ include('../includes/conn.php');
 </head>
 
 <body>
+
     <div class="container-login active">
         <div class="wrapper">
             <div class="title"><span>REGISTER</span></div>

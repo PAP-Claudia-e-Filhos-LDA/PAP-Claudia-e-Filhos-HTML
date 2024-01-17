@@ -18,7 +18,6 @@ session_start();
 </head>
 
 <body>
-
     <div class="container-login active">
         <div class="wrapper">
             <div class="title"><span>LOGIN</span></div>
@@ -48,6 +47,7 @@ session_start();
             </form>
         </div>
     </div>
+
     <div class="controls">
         <a href="index.php">
             <div class="control" data-id="home">

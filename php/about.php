@@ -12,6 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body class="main-content">
@@ -79,73 +80,87 @@
           </div>
         </div>
       </div>
-      <h4 class="stat-title">My Timeline</h4>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="tl-icon">
-            <i class="fas fa-briefcase"></i>
+      <div class="testimonals">
+        <div class="container-testimonal">
+          <div class="stat-title testimonal-header">
+            <h2>O que falam de nós</h2>
           </div>
-          <p class="tl-duration">2010 - present</p>
-          <h5>Web Developer<span> - Vircrosoft</span></h5>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
-            quasi vero fugit.
-          </p>
-        </div>
-        <div class="timeline-item">
-          <div class="tl-icon">
-            <i class="fas fa-briefcase"></i>
+          <div class="testimonal-content">
+            <div class="swiper testimonals-slider  js-testimonal-slider">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide testimonals-item">
+                  <div class="info">
+                    <img src="../img/windoh.jpg" alt="">
+                    <div class="text-box">
+                      <h3 class="name">Jonhy bigodes</h3>
+                      <span class="job">trabalhador</span>
+                    </div>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae ad a repellat eos, velit rem sapiente magnam, repudiandae culpa blanditiis. Eveniet corporis, adipisci eius fugiat natus dolore ea in!</p>
+                  <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                  </div>
+                </div>
+                <div class="swiper-slide testimonals-item">
+                  <div class="info">
+                    <img src="../img/windoh.jpg" alt="">
+                    <div class="text-box">
+                      <h3 class="name">Jonhy bigodes</h3>
+                      <span class="job">trabalhador</span>
+                    </div>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae ad a repellat eos, velit rem sapiente magnam, repudiandae culpa blanditiis. Eveniet corporis, adipisci eius fugiat natus dolore ea in!</p>
+                  <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                  </div>
+                </div>
+                <div class="swiper-slide testimonals-item">
+                  <div class="info">
+                    <img src="../img/windoh.jpg" alt="">
+                    <div class="text-box">
+                      <h3 class="name">Jonhy bigodes</h3>
+                      <span class="job">trabalhador</span>
+                    </div>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae ad a repellat eos, velit rem sapiente magnam, repudiandae culpa blanditiis. Eveniet corporis, adipisci eius fugiat natus dolore ea in!</p>
+                  <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                  </div>
+                </div>
+                <div class="swiper-slide testimonals-item">
+                  <div class="info">
+                    <img src="../img/windoh.jpg" alt="">
+                    <div class="text-box">
+                      <h3 class="name">Jonhy bigodes</h3>
+                      <span class="job">trabalhador</span>
+                    </div>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae ad a repellat eos, velit rem sapiente magnam, repudiandae culpa blanditiis. Eveniet corporis, adipisci eius fugiat natus dolore ea in!</p>
+                  <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                  </div>
+                </div>
+
+              </div>
+            </div>
           </div>
-          <p class="tl-duration">2008 - 2011</p>
-          <h5>Software Engineer<span> - Boogle, Inc.</span></h5>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
-            quasi vero fugit.
-          </p>
-        </div>
-        <div class="timeline-item">
-          <div class="tl-icon">
-            <i class="fas fa-briefcase"></i>
-          </div>
-          <p class="tl-duration">2016 - 2017</p>
-          <h5>C++ Programmer<span> - Slime Tech</span></h5>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
-            quasi vero fugit.
-          </p>
-        </div>
-        <div class="timeline-item">
-          <div class="tl-icon">
-            <i class="fas fa-briefcase"></i>
-          </div>
-          <p class="tl-duration">2009 - 2013</p>
-          <h5>Business Degree<span> - Sussex University</span></h5>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
-            quasi vero fugit.
-          </p>
-        </div>
-        <div class="timeline-item">
-          <div class="tl-icon">
-            <i class="fas fa-briefcase"></i>
-          </div>
-          <p class="tl-duration">2013 - 2016</p>
-          <h5>Computer Science Degree<span> - Brookes University</span></h5>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
-            quasi vero fugit.
-          </p>
-        </div>
-        <div class="timeline-item">
-          <div class="tl-icon">
-            <i class="fas fa-briefcase"></i>
-          </div>
-          <p class="tl-duration">2017 - present</p>
-          <h5>3d Animation<span> - Brighton University</span></h5>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
-            quasi vero fugit.
-          </p>
+          <div class="swiper-pagination js-testimonals-pagination"></div>
         </div>
       </div>
     </section>
@@ -182,7 +197,8 @@
     <div class="profile-btn">
       <i class="fas fa-shopping-cart"></i>
     </div>
-    <script src="js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../js/app.js"></script>
 </body>
 
 </html>

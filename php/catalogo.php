@@ -21,9 +21,12 @@ include('../includes/catalogo_inc.php')
   <main>
     <section class="container active" id="catalogo">
       <div class="catalogos-content">
-
         <div class="main-title">
           <h2>Our <span>Catalogo</span><span class="bg-text">Catalogo</span></h2>
+        </div>
+        <div class="search-box">
+          <button class="btn-search"><i class="fas fa-search"></i></button>
+          <input type="text" class="input-search" placeholder="Procure alguma coisa...">
         </div>
         <div class="catalogos">
           <?php

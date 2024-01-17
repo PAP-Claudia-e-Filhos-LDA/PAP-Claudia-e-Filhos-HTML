@@ -764,6 +764,141 @@ form .signup-link a:hover {
   font-size: 6.3rem;
 }
 
+.container-testimonal {
+  max-width: 1170px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+.testimonal-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.testimonals {
+  padding: 100px 0;
+}
+
+.testimonals-item {
+  background-color: var(--color-grey-5);
+  padding: 30px;
+  border-radius: 30px;
+}
+
+.testimonals-item .info {
+  display: flex;
+  align-items: center;
+}
+
+.testimonals-item img {
+  max-width: 80px;
+  border-radius: 50%;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+
+.testimonals-item .name {
+  text-transform: capitalize;
+  font-weight: 600;
+  color: var(--color-white);
+  line-height: 1.2;
+}
+
+.testimonals-item .job {
+  text-transform: capitalize;
+  color: var(--color-white);
+}
+
+.testimonals-item p {
+  margin-top: 20px;
+  color: var(--color-white);
+}
+
+.testimonals-item .rating {
+  margin-top: 15px;
+  font-size: 14px;
+  color: hsl(36, 88%, 66%);
+}
+
+.testimonlas .swiper-pagination {
+  position: relative;
+  margin-top: 40px;
+  bottom: auto;
+}
+
+.testimonals .swiper-pagination-bullet {
+  height: 12px;
+  width: 12px;
+  background-color: var(--color-secondary);
+}
+
+.search-box {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: relative;
+}
+
+.input-search {
+  height: 50px;
+  width: 50px;
+  border-style: none;
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  outline: none;
+  border-radius: 25px;
+  transition: all 0.5s ease-in-out;
+  background-color: var(--color-secondary);
+  padding-right: 40px;
+  color: #fff;
+}
+
+.input-search::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.input-search::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.btn-search {
+  width: 50px;
+  height: 50px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  color: #ffffff;
+  background-color: transparent;
+  pointer-events: painted;
+}
+
+.btn-search:focus ~ .input-search {
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+
+.input-search:focus {
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+
 .about-container .left-about p {
   padding-left: 0;
 }
