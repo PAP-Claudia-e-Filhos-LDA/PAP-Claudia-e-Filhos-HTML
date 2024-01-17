@@ -76,13 +76,8 @@ session_start();
       </div>
     </a>
   </div>
-  <a href="#" style="float:right">
-    <div class="profile-btn">
-      <i class="fas fa-shopping-cart"></i>
-    </div>
-  </a>
 
-  <script src="js/app.js"></script>
+
 </body>
 
 </html>

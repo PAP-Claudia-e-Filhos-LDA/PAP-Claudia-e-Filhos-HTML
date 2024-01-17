@@ -193,12 +193,8 @@
       </div>
     </a>
   </div>
-  <a href="#" style="float:right">
-    <div class="profile-btn">
-      <i class="fas fa-shopping-cart"></i>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="../js/app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="../js/app.js"></script>
 </body>
 
 </html>

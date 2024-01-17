@@ -104,7 +104,7 @@ section {
 
 .controls {
   position: fixed;
-  z-index: 10;
+  z-index: 0;
   top: 50%;
   right: 3%;
   display: flex;
@@ -158,6 +158,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 0;
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
   transition: all 0.1s ease-in-out;
 }
@@ -697,6 +698,7 @@ form .signup-link a:hover {
   border-radius: 30px;
   color: inherit;
   font-weight: 600;
+  cursor: pointer;
   position: relative;
   border: 1px solid var(--color-secondary);
   display: flex;
@@ -914,6 +916,27 @@ form .signup-link a:hover {
 
 .cart.active {
   left: 0;
+  position: fixed;
+  z-index: 10000;
+  /* Ajuste para um valor maior do que qualquer outro elemento */
+  transition: all 0.4s ease-in-out;
+}
+
+.cart-badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  background-color: var(--color-secondary);
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .cart-title {
@@ -958,6 +981,22 @@ form .signup-link a:hover {
   width: 2.4rem;
   text-align: center;
   font-size: 1rem;
+  padding: 0.5rem;
+  /* Ajuste o padding conforme necessário */
+  border-radius: 5px;
+  /* Adicione borda arredondada conforme necessário */
+}
+
+/* Estiliza as setas para navegadores que suportam pseudo-elementos */
+.cart-quantity::-webkit-inner-spin-button,
+.cart-quantity::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Estiliza as setas para Firefox */
+.cart-quantity[type=number] {
+  -moz-appearance: textfield;
 }
 
 .cart-remove {

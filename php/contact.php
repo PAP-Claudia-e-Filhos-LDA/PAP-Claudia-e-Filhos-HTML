@@ -123,11 +123,6 @@
       </div>
     </a>
   </div>
-  <a href="#" style="float:right">
-    <div class="profile-btn">
-      <i class="fas fa-shopping-cart"></i>
-    </div>
-    <script src="js/app.js"></script>
 </body>
 
 </html>
