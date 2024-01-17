@@ -19,21 +19,19 @@
   <main>
     <section class="container about active" id="about">
       <div class="main-title">
-        <h2>About <span>Us</span><span class="bg-text">my stats</span></h2>
+        <h2>Sobre <span>Nós</span><span class="bg-text">SOBRE</span></h2>
       </div>
       <div class="about-container">
         <div class="left-about">
-          <h4>Information About me</h4>
+          <h4>Quem somos?</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
-            labore nihil obcaecati consequatur. Debitis error doloremque, vero
-            eos vel nemo eius voluptatem dicta tenetur modi. <br />
+            Somos uma família apaixonada pela arte de cozinhar e encantar paladares com os nossos deliciosos rissois. Cada membro da nossa equipa traz consigo uma paixão única pela culinária, dedicando-se a proporcionar experiências gastronómicas memoráveis a todos os nossos clientes.
             <br />
-            La musica delectus dolore fugiat exercitationem a, ipsum quidem
-            quo enim natus accusamus labore dolores nam. Unde. Lorem ipsum
-            dolor sit amet consectetur, adipisicing elit. Harum non
-            necessitatibus deleniti eum soluta.
+            <br />
+            A nossa jornada na cozinha vai além de um simples trabalho; é uma expressão de amor e dedicação. Acreditamos que a comida tem o poder de criar laços e momentos especiais, e é por isso que nos esforçamos por fazer cada cliente feliz através dos sabores irresistíveis dos nossos rissois.
           </p>
+          <p>
+            Em cada receita, colocamos não apenas ingredientes de alta qualidade, mas também o carinho e a atenção que só uma verdadeira família pode oferecer. Queremos que cada dentada seja uma experiência única, repleta de sabores autênticos e momentos de satisfação.
           <div class="btn-con">
             <a href="#" class="main-btn">
               <span class="btn-text">Catalogo</span>
@@ -90,13 +88,13 @@
               <div class="swiper-wrapper">
                 <div class="swiper-slide testimonals-item">
                   <div class="info">
-                    <img src="../img/windoh.jpg" alt="">
+                    <img src="../img/image00001.jpeg" alt="">
                     <div class="text-box">
-                      <h3 class="name">Jonhy bigodes</h3>
+                      <h3 class="name">Eric Fragona</h3>
                       <span class="job">trabalhador</span>
                     </div>
                   </div>
-                  <p></p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, similique reprehenderit asperiores quas vel accusantium maxime debitis eius eum repudiandae consequuntur temporibus? Nam corrupti odit quibusdam nostrum reiciendis fugiat nihil. </p>
                   <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -107,9 +105,25 @@
                 </div>
                 <div class="swiper-slide testimonals-item">
                   <div class="info">
-                    <img src="../img/windoh.jpg" alt="">
+                    <img src="../img/image00002.jpeg" alt="">
                     <div class="text-box">
-                      <h3 class="name">Jonhy bigodes</h3>
+                      <h3 class="name">João Reis</h3>
+                      <span class="job">Comprador</span>
+                    </div>
+                  </div>
+                  <p>"Gostei bastante do rissol de camrão porem não recomendo a ninguem, quando comi queimei me e fui para o hospital, mas do resto tudo muito bom !"</p>
+                  <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                  </div>
+                </div>
+                <div class="swiper-slide testimonals-item">
+                  <div class="info">
+                    <img src="../img/image00003.jpeg" alt="">
+                    <div class="text-box">
+                      <h3 class="name">Tiago Nazário</h3>
                       <span class="job">trabalhador</span>
                     </div>
                   </div>
@@ -124,9 +138,9 @@
                 </div>
                 <div class="swiper-slide testimonals-item">
                   <div class="info">
-                    <img src="../img/windoh.jpg" alt="">
+                    <img src="../img/image00004.jpeg" alt="">
                     <div class="text-box">
-                      <h3 class="name">Jonhy bigodes</h3>
+                      <h3 class="name">Pedro Azevedo</h3>
                       <span class="job">trabalhador</span>
                     </div>
                   </div>
@@ -141,9 +155,9 @@
                 </div>
                 <div class="swiper-slide testimonals-item">
                   <div class="info">
-                    <img src="../img/windoh.jpg" alt="">
+                    <img src="../img/image00005.jpeg" alt="">
                     <div class="text-box">
-                      <h3 class="name">Jonhy bigodes</h3>
+                      <h3 class="name">Tiago Figueredo</h3>
                       <span class="job">trabalhador</span>
                     </div>
                   </div>

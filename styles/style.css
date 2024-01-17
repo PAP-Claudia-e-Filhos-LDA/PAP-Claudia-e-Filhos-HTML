@@ -908,18 +908,18 @@ form .signup-link a:hover {
   width: 360px;
   min-height: 100vh;
   padding: 20px;
-  z-index: 9999;
+  z-index: 499;
   background-color: var(--color-primary);
   box-shadow: var(--box-shadow-1);
-  transition: all 0.4s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .cart.active {
   left: 0;
   position: fixed;
-  z-index: 10000;
+  z-index: 500;
   /* Ajuste para um valor maior do que qualquer outro elemento */
-  transition: all 0.4s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .cart-badge {
@@ -1084,6 +1084,7 @@ form .signup-link a:hover {
     flex-direction: row;
     justify-content: center;
     left: 50%;
+    z-index: 999;
     transform: translateX(-50%);
     width: 100%;
     background-color: var(--color-grey-5);

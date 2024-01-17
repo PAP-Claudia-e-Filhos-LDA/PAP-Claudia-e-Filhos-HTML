@@ -35,7 +35,7 @@
       <section class="container active" id="catalogo">
         <div class="catalogos-content">
           <div class="main-title">
-            <h2>Our <span>Catalogo</span><span class="bg-text">Catalogo</span></h2>
+            <h2>O nosso <span>Catalogo</span><span class="bg-text">Catalogo</span></h2>
           </div>
 
           <div class="search-box">

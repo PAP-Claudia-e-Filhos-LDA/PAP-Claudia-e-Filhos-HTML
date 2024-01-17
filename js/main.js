@@ -67,7 +67,7 @@ $(document).ready(function() {
     if (isNaN(input.value) || input.value <= 0) {
       input.value = 1;
     }
-    updateTotal(); // Corrija aqui para usar "updateTotal" com "T" maiúsculo
+    updateTotal(); 
   }
 
   function addCartClicked() {
@@ -90,7 +90,7 @@ $(document).ready(function() {
     addProductToCart(title, price, productImg);
     updateTotal();
 
-    updateCartBadge(); // Adicione esta linha para atualizar a bola laranja
+    updateCartBadge();
   }
 
   function updateCartBadge() {

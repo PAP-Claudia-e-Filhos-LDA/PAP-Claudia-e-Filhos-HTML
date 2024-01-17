@@ -12,7 +12,7 @@ const swiper = new Swiper('.js-testimonal-slider', {
     loop: true, // Adiciona um loop infinito
     breakpoints: {
       767: {
-        slidesPerView: 2
+        slidesPerView:2
       }
     }
 });
