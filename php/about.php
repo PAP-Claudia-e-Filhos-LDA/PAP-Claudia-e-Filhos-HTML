@@ -30,8 +30,6 @@
             <br />
             A nossa jornada na cozinha vai além de um simples trabalho; é uma expressão de amor e dedicação. Acreditamos que a comida tem o poder de criar laços e momentos especiais, e é por isso que nos esforçamos por fazer cada cliente feliz através dos sabores irresistíveis dos nossos rissois.
           </p>
-          <p>
-            Em cada receita, colocamos não apenas ingredientes de alta qualidade, mas também o carinho e a atenção que só uma verdadeira família pode oferecer. Queremos que cada dentada seja uma experiência única, repleta de sabores autênticos e momentos de satisfação.
           <div class="btn-con">
             <a href="#" class="main-btn">
               <span class="btn-text">Catalogo</span>
@@ -78,6 +76,7 @@
           </div>
         </div>
       </div>
+      
       <div class="testimonals">
         <div class="container-testimonal">
           <div class="stat-title testimonal-header">
@@ -88,7 +87,7 @@
               <div class="swiper-wrapper">
                 <div class="swiper-slide testimonals-item">
                   <div class="info">
-                    <img src="../img/image00001.jpeg" alt="">
+                    <img src="../img/eric.jpeg" alt="">
                     <div class="text-box">
                       <h3 class="name">Eric Fragona</h3>
                       <span class="job">trabalhador</span>
@@ -105,7 +104,7 @@
                 </div>
                 <div class="swiper-slide testimonals-item">
                   <div class="info">
-                    <img src="../img/image00002.jpeg" alt="">
+                    <img src="../img/reis.jpeg" alt="">
                     <div class="text-box">
                       <h3 class="name">João Reis</h3>
                       <span class="job">Comprador</span>
@@ -121,7 +120,7 @@
                 </div>
                 <div class="swiper-slide testimonals-item">
                   <div class="info">
-                    <img src="../img/image00003.jpeg" alt="">
+                    <img src="../img/tiagoN.jpeg" alt="">
                     <div class="text-box">
                       <h3 class="name">Tiago Nazário</h3>
                       <span class="job">trabalhador</span>
@@ -138,7 +137,7 @@
                 </div>
                 <div class="swiper-slide testimonals-item">
                   <div class="info">
-                    <img src="../img/image00004.jpeg" alt="">
+                    <img src="../img/pedro.jpeg" alt="">
                     <div class="text-box">
                       <h3 class="name">Pedro Azevedo</h3>
                       <span class="job">trabalhador</span>
@@ -155,7 +154,7 @@
                 </div>
                 <div class="swiper-slide testimonals-item">
                   <div class="info">
-                    <img src="../img/image00005.jpeg" alt="">
+                    <img src="../img/tiagoS.jpeg" alt="">
                     <div class="text-box">
                       <h3 class="name">Tiago Figueredo</h3>
                       <span class="job">trabalhador</span>
@@ -170,7 +169,40 @@
                     <i class="fa fa-star"></i>
                   </div>
                 </div>
-
+                <div class="swiper-slide testimonals-item">
+                  <div class="info">
+                    <img src="../img/tyzh.jpeg" alt="">
+                    <div class="text-box">
+                      <h3 class="name">Tyzh</h3>
+                      <span class="job">trabalhador</span>
+                    </div>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae ad a repellat eos, velit rem sapiente magnam, repudiandae culpa blanditiis. Eveniet corporis, adipisci eius fugiat natus dolore ea in!</p>
+                  <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                  </div>
+                </div>
+                <div class="swiper-slide testimonals-item">
+                  <div class="info">
+                    <img src="../img/luis.jpeg" alt="">
+                    <div class="text-box">
+                      <h3 class="name">Luis Inacio</h3>
+                      <span class="job">trabalhador</span>
+                    </div>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae ad a repellat eos, velit rem sapiente magnam, repudiandae culpa blanditiis. Eveniet corporis, adipisci eius fugiat natus dolore ea in!</p>
+                  <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

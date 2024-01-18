@@ -13,10 +13,11 @@
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--color-grey-4);
+  background-color: var(--color-primary);
 }
 
 ::-webkit-scrollbar-thumb {
+  border-radius: 20px;
   background-color: var(--color-secondary);
 }
 
@@ -902,23 +903,28 @@ form .signup-link a:hover {
 }
 
 .cart {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: -100%;
   width: 360px;
-  min-height: 100vh;
+  height: 100vh; /* Ajuste conforme necessário */
+  overflow-y: scroll;
+  overflow-x: hidden;
   padding: 20px;
   z-index: 499;
   background-color: var(--color-primary);
   box-shadow: var(--box-shadow-1);
   transition: all 0.5s ease-in-out;
 }
+.cart::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 20px;
+}
 
 .cart.active {
   left: 0;
   position: fixed;
   z-index: 500;
-  /* Ajuste para um valor maior do que qualquer outro elemento */
   transition: all 0.5s ease-in-out;
 }
 
@@ -994,7 +1000,6 @@ form .signup-link a:hover {
   margin: 0;
 }
 
-/* Estiliza as setas para Firefox */
 .cart-quantity[type=number] {
   -moz-appearance: textfield;
 }
@@ -1044,6 +1049,31 @@ form .signup-link a:hover {
   cursor: pointer;
 }
 
+.slide-in {
+  animation: slideIn 0.5s ease-out;
+  transform: translateY(0) scaleY(1);
+}
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%) scaleX(0);
+  }
+  100% {
+    transform: translateX(0) scaleX(1);
+  }
+}
+
+.slide-out {
+  animation: slideOut 0.5s ease-in-out;
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateX(0) scaleX(1);
+  }
+  100% {
+    transform: translateX(-100%) scaleX(0);
+  }
+}
 .about-container .left-about p {
   padding-left: 0;
 }
@@ -1052,7 +1082,15 @@ form .signup-link a:hover {
   header {
     padding: 0 !important;
   }
-  .theme-btn {
+  .btn-buy {
+    margin-bottom: 150px;
+  }
+  .cart-badge {
+    width: 15px;
+    height: 15px;
+    font-size: 10px;
+  }
+  .profile-btn {
     width: 50px;
     height: 50px;
   }
@@ -1220,6 +1258,9 @@ form .signup-link a:hover {
   .container {
     padding: 7rem 6rem;
   }
+  .cart {
+    width: 300px;
+  }
   .about-container .left-about {
     padding-right: 0rem;
   }
@@ -1249,6 +1290,9 @@ form .signup-link a:hover {
 @media screen and (max-width: 700px) {
   .container {
     padding: 7rem 3rem;
+  }
+  .cart {
+    width: 300px;
   }
   .about-stats .progress-bars {
     grid-template-columns: repeat(1, 1fr);

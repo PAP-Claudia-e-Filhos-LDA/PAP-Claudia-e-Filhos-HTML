@@ -11,23 +11,21 @@ $(document).ready(function() {
     });
   });
 
+  
   let cartIcon = document.querySelector('#cart-icon');
   let cart = document.querySelector('.cart');
   let closeCart = document.querySelector('#close-cart');
 
-
   cartIcon.onclick = () => {
-    if (cart.classList.contains("active")) {
-      cart.classList.remove("active");
-    } else {
-      cart.classList.add("active");
-    }
+    cart.classList.toggle("active");
+    // Não é mais necessário adicionar/remover a classe 'no-scroll' diretamente
+    // O CSS deve ser ajustado para desativar o scroll quando o carrinho estiver ativo
   };
-
+  
   closeCart.onclick = () => {
     cart.classList.remove("active");
+    // A remoção da classe 'no-scroll' não é mais necessária aqui
   };
-
 
   if (document.readyState == "loading") {
     document.addEventListener("DOMContentLoaded", ready);
@@ -57,11 +55,13 @@ $(document).ready(function() {
   function removeCartItem() {
     var buttonClicked = event.target;
     var cartBox = buttonClicked.parentElement;
-    cartBox.remove();
-    updateTotal();
-    updateCartBadge()
+    cartBox.classList.add('slide-out'); 
+    cartBox.addEventListener('animationend', function () {
+      cartBox.remove();
+      updateTotal();
+      updateCartBadge();
+    });
   }
-
   function quantityChange(event) {
     var input = event.target;
     if (isNaN(input.value) || input.value <= 0) {
@@ -114,18 +114,18 @@ $(document).ready(function() {
 
   function addProductToCart(title, price, productImg) {
     var cartShopBox = document.createElement('div');
-    cartShopBox.classList.add('cart-box');
+    cartShopBox.classList.add('cart-box', 'slide-in');
 
     // Corrija a referência a 'shopProducts' para 'cartShopBox'
-    var cartBoxContent = `
-  <img src="${productImg}" alt="" class="cart-img">
-  <div class="detail-box">
-    <div class="cart-product-title">${title}</div>
-    <div class="cart-price">${price} €</div>
-    <input type="number" value="1" class="cart-quantity">
-  </div>
-  <i class="fas fa-trash-alt cart-remove"></i>
-`;
+ var cartBoxContent = `
+    <img src="${productImg}" alt="" class="cart-img">
+    <div class="detail-box">
+      <div class="cart-product-title">${title}</div>
+      <div class="cart-price">${price} €</div>
+      <input type="number" value="1" class="cart-quantity">
+    </div>
+    <i class="fas fa-trash-alt cart-remove"></i>
+  `;
 
     cartShopBox.innerHTML = cartBoxContent;
     var cartItems = document.querySelector('.cart-content');

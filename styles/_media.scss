@@ -7,7 +7,16 @@
         padding: 0 !important;
     }
 
-    .theme-btn {
+    .btn-buy {
+        margin-bottom: 150px;
+    }
+
+    .cart-badge{
+        width: 15px;
+        height: 15px;
+        font-size: 10px;
+    }
+    .profile-btn {
         width: 50px;
         height: 50px;
     }
@@ -239,6 +248,10 @@
         padding: 7rem 6rem;
     }
 
+    .cart{
+        width: 300px;
+    }
+
     .about-container .left-about {
         padding-right: 0rem;
     }
@@ -279,6 +292,9 @@
         padding: 7rem 3rem;
     }
 
+    .cart{
+        width: 300px;
+    }
     .about-stats .progress-bars {
         grid-template-columns: repeat(1, 1fr);
     }
