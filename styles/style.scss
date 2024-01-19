@@ -1219,7 +1219,9 @@ form .signup-link a:hover {
 }
 
 
-
+.slide-up {
+  transition: transform 0.3s ease-out;
+}
 
 
 @import "./media";

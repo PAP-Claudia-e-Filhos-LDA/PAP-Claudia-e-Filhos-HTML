@@ -58,10 +58,9 @@ $userLoggedIn = isset($_SESSION['userid'])
           <?php
           include('../includes/catalogo_inc.php');
 
-          // Obtém o valor do parâmetro de pesquisa, se estiver presente
           $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
 
-          // Loop para gerar os catálogos com filtro de pesquisa
+
           foreach ($catalogos as $catalogo) {
             if (empty($searchTerm) || stripos($catalogo[1], $searchTerm) !== false) {
           ?>
@@ -74,7 +73,7 @@ $userLoggedIn = isset($_SESSION['userid'])
                   <div class="btn-con">
                     <?php if ($userLoggedIn) { ?>
                       <a class="main-btn add-cart">
-                        <span class="btn-text">Add</span>
+                        <span class="btn-text">Adicionar</span>
                       </a>
                     <?php } else { ?>
 

@@ -1121,6 +1121,10 @@ form .signup-link a:hover {
   pointer-events: none !important;
 }
 
+.slide-up {
+  transition: transform 0.3s ease-out;
+}
+
 .about-container .left-about p {
   padding-left: 0;
 }
