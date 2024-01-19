@@ -51,7 +51,7 @@ function userExists($db, $username, $phoneNumber)
 }
 
 
-function createUser($db,$username,$nome,$email,$phoneNumber,$password)
+function createUser($db, $username, $nome, $email, $phoneNumber, $password)
 {
     $sql = "INSERT INTO clientes(username,nome_cliente,contacto,email, pass) VALUES (?, ?, ?, ?, ?)";
     $stmt = $db->prepare($sql);

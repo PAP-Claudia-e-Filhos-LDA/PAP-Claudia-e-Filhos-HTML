@@ -571,16 +571,24 @@ section {
 
 /*login*/
 .container-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 95vh;
   max-width: 440px;
   padding: 0 20px;
-  margin: 170px auto;
+  margin: 0 auto;
 }
 
 .wrapper {
+  position: relative;
   width: 100%;
   background: var(--color-primary);
   border-radius: 20px;
   box-shadow: var(--box-shadow-1);
+  scale: 1;
+  transition: all 0.4s ease-in-out;
 }
 
 .wrapper .title {
@@ -907,7 +915,7 @@ form .signup-link a:hover {
   top: 0;
   left: -100%;
   width: 360px;
-  height: 100vh; /* Ajuste conforme necessário */
+  height: 100vh;
   overflow-y: scroll;
   overflow-x: hidden;
   padding: 20px;
@@ -951,18 +959,33 @@ form .signup-link a:hover {
 
 .cart-box {
   display: grid;
-  grid-template-columns: 32% 50% 18%;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
   align-items: center;
   gap: 1rem;
-  margin-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  padding-top: 1rem;
+}
+
+.cart-img-box {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .cart-img {
-  width: 100px;
-  height: 100px;
-  -o-object-fit: contain;
-     object-fit: contain;
-  padding: 10px;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .detail-box {
@@ -979,29 +1002,25 @@ form .signup-link a:hover {
   font-weight: 500;
 }
 
+.cart-quantity-box {
+  display: flex;
+  align-items: center;
+}
+
 .cart-quantity {
   border: 1px solid var(--color-secondary);
   background-color: var(--color-primary);
   color: white;
-  outline-color: wheat;
   width: 2.4rem;
   text-align: center;
   font-size: 1rem;
   padding: 0.5rem;
-  /* Ajuste o padding conforme necessário */
   border-radius: 5px;
-  /* Adicione borda arredondada conforme necessário */
+  margin-left: 0.5rem;
 }
 
-/* Estiliza as setas para navegadores que suportam pseudo-elementos */
-.cart-quantity::-webkit-inner-spin-button,
-.cart-quantity::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.cart-quantity[type=number] {
-  -moz-appearance: textfield;
+.cart-remove-box {
+  justify-self: flex-end;
 }
 
 .cart-remove {
@@ -1014,6 +1033,7 @@ form .signup-link a:hover {
   display: flex;
   justify-content: flex-end;
   margin-top: 1.5rem;
+  padding-top: 1rem;
   border-top: 1px solid var(--color-secondary);
 }
 
@@ -1050,7 +1070,7 @@ form .signup-link a:hover {
 }
 
 .slide-in {
-  animation: slideIn 0.5s ease-out;
+  animation: slideIn 0.4s ease-out;
   transform: translateY(0) scaleY(1);
 }
 @keyframes slideIn {
@@ -1063,7 +1083,7 @@ form .signup-link a:hover {
 }
 
 .slide-out {
-  animation: slideOut 0.5s ease-in-out;
+  animation: slideOut 0.4s ease-in-out;
 }
 
 @keyframes slideOut {
@@ -1074,6 +1094,33 @@ form .signup-link a:hover {
     transform: translateX(-100%) scaleX(0);
   }
 }
+.custom-toast-class {
+  margin-top: 10px !important;
+  border-radius: 10px !important;
+  background-color: var(--color-grey-5) !important;
+  opacity: 1 !important;
+  box-shadow: var(--box-shadow-1) !important;
+  color: #fff !important;
+}
+
+.custom-toast-class .toast-title {
+  font-weight: bold !important;
+}
+
+.custom-toast-class .toast-message {
+  font-weight: normal !important;
+}
+
+.custom-toast-class .toast-close-button {
+  color: #fff !important;
+}
+
+.custom-toast-class .toast-progress {
+  background-color: var(--color-secondary) !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+}
+
 .about-container .left-about p {
   padding-left: 0;
 }
@@ -1081,6 +1128,16 @@ form .signup-link a:hover {
 @media screen and (max-width: 600px) {
   header {
     padding: 0 !important;
+  }
+  .container-login {
+    margin-bottom: 100px;
+    padding: 0;
+  }
+  .wrapper form .row input {
+    font-size: 15px;
+  }
+  .wrapper form .pass a {
+    font-size: 16px;
   }
   .btn-buy {
     margin-bottom: 150px;
@@ -1258,9 +1315,6 @@ form .signup-link a:hover {
   .container {
     padding: 7rem 6rem;
   }
-  .cart {
-    width: 300px;
-  }
   .about-container .left-about {
     padding-right: 0rem;
   }
@@ -1290,9 +1344,6 @@ form .signup-link a:hover {
 @media screen and (max-width: 700px) {
   .container {
     padding: 7rem 3rem;
-  }
-  .cart {
-    width: 300px;
   }
   .about-stats .progress-bars {
     grid-template-columns: repeat(1, 1fr);

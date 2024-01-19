@@ -1,7 +1,3 @@
-<?php
-include('../includes/conn.php');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,63 +10,100 @@ include('../includes/conn.php');
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 
 <body>
+    <section class="container active">
+        <div class="container-login ">
+            <div class="wrapper">
+                <div class="title"><span>Registar</span></div>
+                <form action="../includes/process_register.php" method="post">
+                    <div class="row">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="username" placeholder="username or Phone" required>
+                    </div>
+                    <div class="row">
+                        <i class="fas fa-user"></i>
+                        <input type="text" name="nome" placeholder="Nome Completo" required>
+                    </div>
+                    <div class="row">
+                        <i class="fas fa-phone"></i>
+                        <input type="text" name="phone_number" placeholder="Número de telemovel" required>
+                    </div>
+                    <div class="row">
+                        <i class="fas fa-envelope"></i>
+                        <input type="text" name="email" placeholder="Email (opcional)">
+                    </div>
+                    <div class="row">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" name="password" placeholder="Password" required>
+                    </div>
+                    <div class="pass"><a href="#">Esqueceste da password?</a></div>
+                    <div class="row button">
+                        <input type="submit" value="Registar">
+                    </div>
+                    <div class="signup-link">Já és membro? <a href="login.php">Faz login</a></div>
+                    <?php
+                    if (isset($_GET["error"])) {
+                        $errorMessage = "";
+                        $errorType = "Atenção";
 
-    <div class="container-login active">
-        <div class="wrapper">
-            <div class="title"><span>REGISTER</span></div>
-            <form action="../includes/process_register.php" method="post">
-                <div class="row">
-                    <i class="fas fa-user"></i>
-                    <input type="text" name="username" placeholder="Username" required>
-                </div>
-                <div class="row">
-                    <i class="fas fa-user"></i>
-                    <input type="text" name="nome" placeholder="Nome Completo" required>
-                </div>
-                <div class="row">
-                    <i class="fas fa-phone"></i>
-                    <input type="text" name="phone_number" placeholder="Número de telemovel" required>
-                </div>
-                <div class="row">
-                    <i class="fas fa-lock"></i>
-                    <input type="text" name="email" placeholder="Email (opcional)">
-                </div>
-                <div class="row">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" name="password" placeholder="Password" required>
-                </div>
-                <div class="pass"><a href="#">Forgot password?</a></div>
-                <div class="row button">
-                    <input type="submit" value="Register">
-                </div>
-                <div class="signup-link">A member? <a href="login.php">Login now</a></div>
-                <?php
-                if (isset($_GET["error"])) {
-                    if ($_GET["error"] == "ivalidusername") {
-                        echo '<p class="signup-link"> Escolha um username válido! </p>';
-                    } else if ($_GET["error"] == "emptyinput") {
-                        echo '<p class="signup-link"> Preencha todos os campos! </p>';
-                    } else if ($_GET["error"] == "ivalidphone") {
-                        echo '<p class="signup-link"> Número de telefone inválido! </p>';
-                    } else if ($_GET["error"] == "userexists") {
-                        echo '<p class="signup-link"> Dados inseridos já existem! </p>';
-                    } else if ($_GET["error"] == "stmtfailded") {
-                        echo '<p class="signup-link"> Erro desconhecido! </p>';
-                    } else if ($_GET["error"] == "none") {
-                        echo '<p class="signup-link"> Registrado com sucesso! </p>';
+                        switch ($_GET["error"]) {
+                            case "ivalidusername":
+                                $errorMessage = "Escolha um username válido!";
+                                break;
+                            case "emptyinput":
+                                $errorMessage = "Preencha todos os campos!";
+                                break;
+                            case "ivalidphone":
+                                $errorMessage = "Número de telefone inválido!";
+                                break;
+                            case "userexists":
+                                $errorMessage = "Dados inseridos já existem!";
+                                break;
+                            case "stmtfailded":
+                                $errorMessage = "Erro desconhecido!";
+                                break;
+                            case "none":
+                                $errorMessage = "Registrado com sucesso!";
+                                break;
+                            default:
+                                break;
+                        }
+
+                        if (!empty($errorMessage)) {
+                            echo '<script>';
+                            echo 'document.addEventListener("DOMContentLoaded", function() {';
+                            echo 'toastr.warning("' . $errorMessage . '", "' . $errorType . '", {
+            closeButton: false,
+            progressBar: true,
+            positionClass: "toast-top-right",
+            timeOut: 3000,
+            extendedTimeOut: 1000,
+            preventDuplicates: false,
+            newestOnTop: false,
+            showDuration: 300,
+            hideDuration: 300,
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "slideDown",
+            hideMethod: "slideUp",
+            toastClass: "custom-toast-class"
+        });';
+                            echo '});';
+                            echo '</script>';
+                        }
                     }
-                }
-                ?>
-            </form>
+                    ?>
+
+
+                </form>
+            </div>
         </div>
-    </div>
-
-
+    </section>
     <div class="controls">
         <a href="index.php">
             <div class="control" data-id="home">
@@ -92,12 +125,16 @@ include('../includes/conn.php');
                 <i class="far fa-envelope-open"></i>
             </div>
         </a>
-        <div class="control" data-id="home">
-            <i class="fas fa-shopping-cart"></i>
-        </div>
+        <a href="profile.php">
+            <div class="control" data-id="home">
+                <i class="fas fa-user"></i>
+            </div>
+        </a>
     </div>
 
-    <script src="../js/app.js   "></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 
 </html>
