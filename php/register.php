@@ -80,7 +80,7 @@
                             echo 'toastr.warning("' . $errorMessage . '", "' . $errorType . '", {
             closeButton: false,
             progressBar: true,
-            positionClass: "toast-top-right",
+            positionClass: "toast-top-center",
             timeOut: 3000,
             extendedTimeOut: 1000,
             preventDuplicates: false,

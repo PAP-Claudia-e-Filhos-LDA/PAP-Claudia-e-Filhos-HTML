@@ -101,7 +101,7 @@ $(document).ready(function () {
       toastr.warning("Este produto já está no carrinho!", "Atenção", {
         closeButton: false, // Mostrar botão de fechar
         progressBar: true, // Mostrar barra de progresso
-        positionClass: "toast-bottom-left", // Posição da notificação (ver opções na documentação)
+        positionClass: "toast-bottom-right", // Posição da notificação (ver opções na documentação)
         timeOut: 3000, // Tempo de exibição em milissegundos
         extendedTimeOut: 1000, // Tempo adicional para a barra de progresso em milissegundos
         preventDuplicates: false, // Evitar notificações duplicadas
