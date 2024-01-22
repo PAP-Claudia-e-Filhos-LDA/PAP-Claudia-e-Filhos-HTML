@@ -78,7 +78,7 @@ section {
 
 .active {
   display: block;
-  animation: appear 0.6s ease-in-out;
+  animation: appear 0.8s ease-in-out;
   transform: translateY(0) scaleY(1);
 
   @keyframes appear {
@@ -116,6 +116,7 @@ section {
     align-items: center;
     margin: 0.7rem 0;
     box-shadow: var(--box-shadow-1);
+    transition: all .4s ease-in-out;
 
     i {
       font-size: 1.2rem;
@@ -380,12 +381,15 @@ section {
   grid-gap: 2rem;
   margin-top: 3rem;
 
+
+
   .catalogo {
     position: relative;
     background-color: var(--color-grey-5);
     border-radius: 5px;
     box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.4s ease-in-out;
+
 
     &:hover {
       box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.3);
@@ -555,7 +559,7 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 80vh;
+  height: 95vh;
   max-width: 440px;
   padding: 0 20px;
   margin: 0 auto;
@@ -1125,68 +1129,19 @@ form .signup-link a:hover {
   transition: transform 0.3s ease-out;
 }
 
-.account-settings .user-profile {
-  margin: 0 0 1rem 0;
-  padding-bottom: 1rem;
-  text-align: center;
+
+.hidden{
+  opacity: 0;
+  filter: blur(2px);
+  transform: translateX(-100%);
+  transition: all 1s ease-in-out;
 }
 
-.account-settings .user-profile .user-avatar {
-  margin: 0 0 1rem 0;
+.show{
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0)
 }
 
-.account-settings .user-profile .user-avatar img {
-  width: 90px;
-  height: 90px;
-  -webkit-border-radius: 100px;
-  -moz-border-radius: 100px;
-  border-radius: 100px;
-}
-
-.account-settings .user-profile h5.user-name {
-  margin: 0 0 0.5rem 0;
-}
-
-.account-settings .user-profile h6.user-email {
-  margin: 0;
-  font-size: 0.8rem;
-  font-weight: 400;
-  color: #9fa8b9;
-}
-
-.account-settings .about {
-  margin: 2rem 0 0 0;
-  text-align: center;
-}
-
-.account-settings .about h5 {
-  margin: 0 0 15px 0;
-  color: #007ae1;
-}
-
-
-
-.account-settings .about p {
-  font-size: 0.825rem;
-}
-
-.form-control {
-  border: 1px solid #cfd1d8;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  font-size: .825rem;
-  background: #ffffff;
-  color: #2e323c;
-}
-
-.card {
-  background: #ffffff;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  border: 0;
-  margin-bottom: 1rem;
-}
 
 @import "./media";
