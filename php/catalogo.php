@@ -64,7 +64,7 @@ $userLoggedIn = isset($_SESSION['userid'])
           foreach ($catalogos as $catalogo) {
             if (empty($searchTerm) || stripos($catalogo[1], $searchTerm) !== false) {
           ?>
-              <div class="catalogo">
+              <div class="catalogo hidden">
                 <img src="<?php echo $catalogo[0]; ?>" alt="" />
                 <div class="catalogo-text">
                   <h4><?php echo $catalogo[1]; ?></h4>

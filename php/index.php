@@ -21,13 +21,13 @@ session_start();
 <body class="main-content">
   <header class="container header active" id="home">
     <div class="header-content">
-      <div class="left-header">
+      <div class="left-header ">
         <div class="h-shape"></div>
         <div class="image">
           <img src="../img/ewq.png" alt="" />
         </div>
       </div>
-      <div class="right-header">
+      <div class="right-header hidden">
         <h1 class="name">
           Bem vindo
           <span><br>
@@ -73,7 +73,7 @@ session_start();
       </div>
     </a>
   </div>
-
+    <script src="../js/main.js"></script>
 
 </body>
 

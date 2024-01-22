@@ -17,7 +17,7 @@
 
 <body>
     <section class="container active">
-        <div class="container-login ">
+        <div class="container-login">
             <div class="wrapper">
                 <div class="title"><span>Registar</span></div>
                 <form action="../includes/process_register.php" method="post">
