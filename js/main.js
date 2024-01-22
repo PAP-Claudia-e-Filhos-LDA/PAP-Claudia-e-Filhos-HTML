@@ -1,3 +1,15 @@
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    } 
+  });
+});
+
+const hiddenElements = document.querySelectorAll('.hidden');
+hiddenElements.forEach((el) => observer.observe(el));
+
+
 // Aguarda o carregamento completo do documento HTML
 $(document).ready(function () {
   // Manipula a entrada no campo de pesquisa
@@ -152,6 +164,7 @@ $(document).ready(function () {
 
   // Função para adicionar um produto ao carrinho
   function addProductToCart(title, price, productImg) {
+    console.log(title,price,productImg)
     var cartShopBox = $("<div>").addClass("cart-box slide-in");
 
     // Conteúdo HTML da caixa do carrinho

@@ -18,11 +18,11 @@
 <body class="main-content">
   <main>
     <section class="container about active" id="about">
-      <div class="main-title">
+      <div class="main-title ">
         <h2>Sobre <span>Nós</span><span class="bg-text">SOBRE</span></h2>
       </div>
-      <div class="about-container">
-        <div class="left-about">
+      <div class="about-container ">
+        <div class="left-about hidden">
           <h4>Quem somos?</h4>
           <p>
             Somos uma família apaixonada pela arte de cozinhar e encantar paladares com os nossos deliciosos rissois. Cada membro da nossa equipa traz consigo uma paixão única pela culinária, dedicando-se a proporcionar experiências gastronómicas memoráveis a todos os nossos clientes.
@@ -37,13 +37,13 @@
             </a>
           </div>
         </div>
-        <div class="right-about">
+        <div class="right-about hidden">
           <div class="about-item">
             <div class="abt-text">
-              <p class="large-text">650+</p>
+              <p class="large-text">3000+</p>
               <p class="small-text">
-                Projects <br />
-                Completed
+                Rissois <br />
+                feitos
               </p>
             </div>
           </div>
@@ -51,8 +51,8 @@
             <div class="abt-text">
               <p class="large-text">10+</p>
               <p class="small-text">
-                Years of <br />
-                experience
+               Anos de <br />
+                experiência
               </p>
             </div>
           </div>
@@ -60,27 +60,29 @@
             <div class="abt-text">
               <p class="large-text">300+</p>
               <p class="small-text">
-                Happy <br />
-                Clients
+                Clientes <br />
+                Felizes
               </p>
             </div>
           </div>
           <div class="about-item">
             <div class="abt-text">
-              <p class="large-text">400+</p>
+              <p class="large-text">50+</p>
               <p class="small-text">
-                Customer <br />
-                reviews
+                Opiniões de <br />
+                Clientes
               </p>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="testimonals">
+      <div class="testimonals hidden">
         <div class="container-testimonal">
           <div class="stat-title testimonal-header">
-            <h2>O que falam de nós</h2>
+          <div class="main-title">
+        <h2>o que falam de <span>Nós</span><span class="bg-text"></span></h2>
+      </div>
           </div>
           <div class="testimonal-content">
             <div class="swiper testimonals-slider  js-testimonal-slider">
@@ -241,6 +243,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="../js/app.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 
 </html>
