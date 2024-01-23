@@ -22,7 +22,7 @@
           <h2>Contact <span>Us</span><span class="bg-text">Contact</span></h2>
         </div>
         <div class="contact-content-con">
-          <div class="left-contact">
+          <div class="left-contact hidden">
             <h4>Contact Us here</h4>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. In,
@@ -64,7 +64,7 @@
                   <i class="fab fa-twitter"></i>
                 </a>
                 <a href="#" target="_blank">
-                  <i class="fab fa-github"></i>
+                  <i class="fab fa-instagram"></i>
                 </a>
                 <a href="#" target="_blank">
                   <i class="fab fa-youtube"></i>
@@ -72,7 +72,7 @@
               </div>
             </div>
           </div>
-          <div class="right-contact">
+          <div class="right-contact hidden">
             <form action="" class="contact-form">
               <div class="input-control i-c-2">
                 <input type="text" required placeholder="YOUR NAME" />
@@ -123,6 +123,9 @@
       </div>
     </a>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 
 </html>

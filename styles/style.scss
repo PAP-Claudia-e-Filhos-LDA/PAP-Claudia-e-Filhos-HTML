@@ -1130,18 +1130,192 @@ form .signup-link a:hover {
 }
 
 
-.hidden{
+.hidden {
   opacity: 0;
   filter: blur(2px);
   transform: translateX(-100%);
   transition: all 1s ease-in-out;
 }
 
-.show{
+.show {
   opacity: 1;
   filter: blur(0);
   transform: translateX(0)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.profile-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 5rem;
+}
+
+.profile-page .content {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  width: 100%;
+  position: relative;
+  color: var(--color-white);
+  z-index: 2;
+  margin: auto;
+  padding: 2rem;
+  background: var(--color-primary);
+  box-shadow: var(--box-shadow-1);
+}
+
+.profile-page .content__cover {
+  position: relative;
+  background: linear-gradient(150deg, var(--color-secondary) 20%, var(--color-secondary) 100%);
+}
+
+.profile-page .content__bull {
+  display: none;
+  height: 12rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-page .content__avatar {
+  width: 12rem;
+  height: 12rem;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  z-index: 2;
+  border: 3px solid white;
+  transform: translate(-50%, 50%);
+  background: #ffffff url("../img/rafa.jpeg") center center no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  box-shadow: var(--box-shadow-1);
+}
+
+.profile-page .content__avatar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 50%;
+}
+
+.profile-page .content__actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2rem;
+}
+
+.profile-page .content__actions a {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  padding: 0.2rem 1rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.profile-page .content__title {
+  margin-top: 4.5rem;
+  text-align: center;
+  order: 1;
+}
+
+
+.profile-page .content__title h1 {
+  margin-bottom: 0.1rem;
+  font-size: 2.4rem;
+}
+
+.profile-page .content__title span {
+  font-size: 1rem;
+}
+
+.profile-page .content__description {
+  margin-top: 2.5rem;
+  text-align: center;
+  order: 2;
+}
+
+.profile-page .content__description p {
+  margin-bottom: 0.2rem;
+  font-size: 1.2rem;
+}
+
+.profile-page .content__list {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  list-style-type: none;
+  order: 3;
+}
+
+.profile-page .content__list li {
+  padding: 0 1.5rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.profile-page .content__list li span {
+  display: block;
+  margin-bottom: 0.1rem;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.profile-page .content__button {
+  margin: 3rem 0 2rem;
+  text-align: center;
+  order: 4;
+}
+
+.profile-page .content__button .button {
+  display: inline-block;
+  padding: 0.4rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid var(--color-secondary);
+  border-radius: 2rem;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 @import "./media";

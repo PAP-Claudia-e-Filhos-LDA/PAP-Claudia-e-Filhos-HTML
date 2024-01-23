@@ -214,9 +214,6 @@
 
 }
 
-
-
-
 @media screen and (max-width:1250px) {
     .catalogos {
         grid-template-columns: repeat(2, 1fr);
@@ -332,5 +329,79 @@
                 font-size: 4rem;
             }
         }
+    }
+}
+
+@media (max-width: 990px) {
+    .profile-page {
+        padding-top: 0;
+    }
+
+    .profile-page .content__title {
+        margin-top: 1.5rem;
+    }
+
+    .profile-page .content {
+        max-width: 420px;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    .profile-page .content__bull {
+        display: block;
+    }
+
+    .profile-page .content__avatar {
+        width: 11rem;
+        height: 11rem;
+        border: 0.3rem solid #fff;
+        box-shadow: none;
+    }
+
+    .profile-page .content__actions {
+        padding: 0.8rem 2rem;
+    }
+
+    .profile-page .content__actions a {
+        padding: 0.5rem;
+    }
+
+    .profile-page .content__title h1 {
+        font-size: 1.8rem;
+    }
+
+    .profile-page .content__title span {
+        font-size: 0.9rem;
+    }
+
+    .profile-page .content__description {
+        margin-top: 1.5rem;
+        order: 3;
+    }
+
+    .profile-page .content__description p {
+        font-size: 1rem;
+    }
+
+    .profile-page .content__list {
+        margin-top: 1.5rem;
+        order: 2;
+    }
+
+    .profile-page .content__list li {
+        font-size: 0.8rem;
+    }
+
+    .profile-page .content__list li span {
+        font-size: 1.2rem;
+    }
+
+    .profile-page .content__button {
+        margin: 1.5rem 0 2.2rem;
+    }
+
+    .profile-page .content__button .button {
+        padding: 1rem 1.4rem;
+        font-size: 0.9rem;
     }
 }

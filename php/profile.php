@@ -31,14 +31,55 @@ if (!isset($_SESSION["username"])) {
   <main>
     <section class="container active" id="profile">
       <div class="main-title">
-        <h2>Your <span>Profile</span><span class="bg-text">Profile</span></h2>
+        <h2>O teu <span>Perfil</span><span class="bg-text">Profile</span></h2>
       </div>
-      <div class="btn-con">
-        <a href="../includes/logout_inc.php" class="main-btn">
-          <span class="btn-text">LogOut</span>
-          <span class="btn-icon"><i class="fas fa-download"></i></span>
-        </a>
-      </div>
+      <div class="profile-page">
+        <div class="content">
+          <div class="content__cover">
+            <div class="content__avatar"></div>
+            <div class="content__bull">
+            </div>
+          </div>
+          <div class="content__actions"><br><br>
+          </div>
+          <div class="content__title">
+            <?php
+            include('../includes/profile_inc.php');
+
+            // Loop para obter os resultados da consulta
+            foreach ($user as $info) {
+              // Informações do cliente recebidas do banco de dados
+              $username = $info[0];
+              $nomeCliente = $info[1];
+              $contacto = $info[2];
+              $email = $info[3];
+            ?>
+              <div class="content__header">
+                <h1><?php echo $username; ?></h1>
+                <span>Portugal, Leiria Marinheiros</span>
+              </div>
+              <div class="content__description">
+                <p>Nome: <b><?php echo $nomeCliente; ?></b></p>
+                <p>Contacto: <b><?php echo $contacto; ?></b></p>
+                <p>Email: <b><?php echo $email; ?></b></p>
+              </div>
+            <?php
+            }
+            ?>
+
+            <ul class="content__list">
+              <li><span>65</span>Rissois</li>
+              <li><span>43</span>Sobremesas</li>
+              <li><span>21</span>Outros</li>
+            </ul>
+            <div class="content__button"><a class="button" href="../includes/logout_inc.php">
+                <div class="button__border"></div>
+                <div class="button__bg"></div>
+                <p class="button__text">Logout</p>
+              </a></div>
+          </div>
+
+        </div>
     </section>
   </main>
 
@@ -69,6 +110,9 @@ if (!isset($_SESSION["username"])) {
       </div>
     </a>
   </div>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 
 </html>

@@ -1049,6 +1049,149 @@ form .signup-link a:hover {
   transform: translateX(0);
 }
 
+.profile-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 5rem;
+}
+
+.profile-page .content {
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  width: 100%;
+  position: relative;
+  color: var(--color-white);
+  z-index: 2;
+  margin: auto;
+  padding: 2rem;
+  background: var(--color-primary);
+  box-shadow: var(--box-shadow-1);
+}
+
+.profile-page .content__cover {
+  position: relative;
+  background: linear-gradient(150deg, var(--color-secondary) 20%, var(--color-secondary) 100%);
+}
+
+.profile-page .content__bull {
+  display: none;
+  height: 12rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-page .content__avatar {
+  width: 12rem;
+  height: 12rem;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  z-index: 2;
+  border: 3px solid white;
+  transform: translate(-50%, 50%);
+  background: #ffffff url("../img/rafa.jpeg") center center no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  box-shadow: var(--box-shadow-1);
+}
+
+.profile-page .content__avatar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 50%;
+}
+
+.profile-page .content__actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2rem;
+}
+
+.profile-page .content__actions a {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  padding: 0.2rem 1rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.profile-page .content__title {
+  margin-top: 4.5rem;
+  text-align: center;
+  order: 1;
+}
+
+.profile-page .content__title h1 {
+  margin-bottom: 0.1rem;
+  font-size: 2.4rem;
+}
+
+.profile-page .content__title span {
+  font-size: 1rem;
+}
+
+.profile-page .content__description {
+  margin-top: 2.5rem;
+  text-align: center;
+  order: 2;
+}
+
+.profile-page .content__description p {
+  margin-bottom: 0.2rem;
+  font-size: 1.2rem;
+}
+
+.profile-page .content__list {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  list-style-type: none;
+  order: 3;
+}
+
+.profile-page .content__list li {
+  padding: 0 1.5rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.profile-page .content__list li span {
+  display: block;
+  margin-bottom: 0.1rem;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.profile-page .content__button {
+  margin: 3rem 0 2rem;
+  text-align: center;
+  order: 4;
+}
+
+.profile-page .content__button .button {
+  display: inline-block;
+  padding: 0.4rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid var(--color-secondary);
+  border-radius: 2rem;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+}
+
 .about-container .left-about p {
   padding-left: 0;
 }
@@ -1290,5 +1433,63 @@ form .signup-link a:hover {
   }
   .main-title h2 .bg-text {
     font-size: 4rem;
+  }
+}
+@media (max-width: 990px) {
+  .profile-page {
+    padding-top: 0;
+  }
+  .profile-page .content__title {
+    margin-top: 1.5rem;
+  }
+  .profile-page .content {
+    max-width: 420px;
+    padding: 0;
+    border-radius: 0;
+  }
+  .profile-page .content__bull {
+    display: block;
+  }
+  .profile-page .content__avatar {
+    width: 11rem;
+    height: 11rem;
+    border: 0.3rem solid #fff;
+    box-shadow: none;
+  }
+  .profile-page .content__actions {
+    padding: 0.8rem 2rem;
+  }
+  .profile-page .content__actions a {
+    padding: 0.5rem;
+  }
+  .profile-page .content__title h1 {
+    font-size: 1.8rem;
+  }
+  .profile-page .content__title span {
+    font-size: 0.9rem;
+  }
+  .profile-page .content__description {
+    margin-top: 1.5rem;
+    order: 3;
+  }
+  .profile-page .content__description p {
+    font-size: 1rem;
+  }
+  .profile-page .content__list {
+    margin-top: 1.5rem;
+    order: 2;
+  }
+  .profile-page .content__list li {
+    font-size: 0.8rem;
+  }
+  .profile-page .content__list li span {
+    font-size: 1.2rem;
+  }
+  .profile-page .content__button {
+    margin: 1.5rem 0 2.2rem;
+  }
+  .profile-page .content__button .button {
+    padding: 1rem 1.4rem;
+    font-size: 0.9rem;
   }
 }/*# sourceMappingURL=style.css.map */

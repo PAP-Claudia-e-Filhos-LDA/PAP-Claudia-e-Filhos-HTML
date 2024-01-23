@@ -37,7 +37,7 @@ session_start();
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores accusantium, nesciunt atque repellendus ad provident tempora in delectus quis harum perferendis illum consectetur quas tempore tenetur sequi. Suscipit, magnam omnis.
         </p>
         <div class="btn-con">
-          <a href="catalogo.php" class="main-btn">
+          <a href="about.php" class="main-btn">
             <span class="btn-text">Quem somos</span>
             <span class="btn-icon"><i class="fas fa-question"></i></span>
           </a>
@@ -73,7 +73,7 @@ session_start();
       </div>
     </a>
   </div>
-    <script src="../js/main.js"></script>
+  <script src="../js/main.js"></script>
 
 </body>
 
