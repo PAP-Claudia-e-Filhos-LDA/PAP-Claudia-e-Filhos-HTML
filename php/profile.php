@@ -37,7 +37,7 @@ if (!isset($_SESSION["username"])) {
         <div class="content">
           <div class="content__cover">
             <div class="content__avatar">
-              <img src="../img/rafa.jpeg" alt="">
+              <img src="../img/user.png" alt="">
             </div>
             <div class="content__bull">
             </div>
