@@ -342,24 +342,19 @@
     }
 
     .profile-page .content {
-        max-width: 420px;
-        padding: 0;
-        border-radius: 0;
+        max-width: auto;
     }
 
-    .profile-page .content__bull {
-        display: block;
-    }
 
-    .profile-page .content__avatar {
+    .profile-page .content__avatar img {
         width: 11rem;
         height: 11rem;
         border: 0.3rem solid #fff;
         box-shadow: none;
     }
 
-    .profile-page .content__actions {
-        padding: 0.8rem 2rem;
+    .profile-page .content__actions i{
+        padding: 3rem 2rem;
     }
 
     .profile-page .content__actions a {
@@ -401,7 +396,6 @@
     }
 
     .profile-page .content__button .button {
-        padding: 1rem 1.4rem;
         font-size: 0.9rem;
     }
 }

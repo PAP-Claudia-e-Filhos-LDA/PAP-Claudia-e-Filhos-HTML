@@ -29,18 +29,21 @@ if (!isset($_SESSION["username"])) {
 
 <body class="main-content">
   <main>
-    <section class="container active" id="profile">
+    <section class="container active " id="profile">
       <div class="main-title">
         <h2>O teu <span>Perfil</span><span class="bg-text">Profile</span></h2>
       </div>
-      <div class="profile-page">
+      <div class="profile-page hidden">
         <div class="content">
           <div class="content__cover">
-            <div class="content__avatar"></div>
+            <div class="content__avatar">
+              <img src="../img/rafa.jpeg" alt="">
+            </div>
             <div class="content__bull">
             </div>
           </div>
-          <div class="content__actions"><br><br>
+          <div class="content__actions">
+          <i class="fas fa-pencil-alt"></i>
           </div>
           <div class="content__title">
             <?php

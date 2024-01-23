@@ -33,7 +33,7 @@
   --color-grey-5: #2a2e35;
   --color-grey-6: #12181b;
   --br-sm-2: 14px;
-  --box-shadow-1: 0 3px 15px rgba(0, 0, 0, 0.2);
+  --box-shadow-1: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -1179,9 +1179,9 @@ form .signup-link a:hover {
   color: var(--color-white);
   z-index: 2;
   margin: auto;
-  padding: 2rem;
-  background: var(--color-primary);
-  box-shadow: var(--box-shadow-1);
+  padding: 0;
+  background: var(--color-grey-5);
+  box-shadow:  var(--box-shadow-1);
 }
 
 .profile-page .content__cover {
@@ -1189,14 +1189,16 @@ form .signup-link a:hover {
   background: linear-gradient(150deg, var(--color-secondary) 20%, var(--color-secondary) 100%);
 }
 
+
+
 .profile-page .content__bull {
-  display: none;
+  display: block;
   height: 12rem;
   position: relative;
   overflow: hidden;
 }
 
-.profile-page .content__avatar {
+.profile-page .content__avatar img {
   width: 12rem;
   height: 12rem;
   position: absolute;
@@ -1205,7 +1207,7 @@ form .signup-link a:hover {
   z-index: 2;
   border: 3px solid white;
   transform: translate(-50%, 50%);
-  background: #ffffff url("../img/rafa.jpeg") center center no-repeat;
+  background: #ffffff center center no-repeat;
   background-size: cover;
   border-radius: 50%;
   box-shadow: var(--box-shadow-1);
@@ -1223,9 +1225,15 @@ form .signup-link a:hover {
 
 .profile-page .content__actions {
   display: flex;
-  justify-content: space-between;
-  padding: 0.2rem;
 }
+
+.profile-page .content__actions i {
+  cursor: pointer;
+  color: var(--color-secondary);
+  margin-left: auto;
+  padding: 1rem;
+}
+
 
 .profile-page .content__actions a {
   display: flex;
@@ -1302,8 +1310,14 @@ form .signup-link a:hover {
   border-radius: 2rem;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   font-size: 1rem;
-  color: #fff;
+  color: var(--color-white);
   cursor: pointer;
+  transition: all .4s ease-in-out;
+}
+
+.profile-page .content__button .button:hover{
+    background-color: var(--color-secondary);
+    transition: all .4s ease-in-out;
 }
 
 

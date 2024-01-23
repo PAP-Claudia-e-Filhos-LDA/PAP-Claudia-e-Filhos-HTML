@@ -24,7 +24,7 @@ session_start();
       <div class="left-header ">
         <div class="h-shape"></div>
         <div class="image">
-          <img src="../img/ewq.png" alt="" />
+          <img src="../img/logo.png" alt="" />
         </div>
       </div>
       <div class="right-header hidden">

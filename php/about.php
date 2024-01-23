@@ -89,7 +89,7 @@
               <div class="swiper-wrapper">
                 <div class="swiper-slide testimonals-item">
                   <div class="info">
-                    <img src="../img/eric.jpeg" alt="">
+                    <img src="../img/testimonals/eric.jpeg" alt="">
                     <div class="text-box">
                       <h3 class="name">Eric Fragona</h3>
                       <span class="job">trabalhador</span>
@@ -106,7 +106,7 @@
                 </div>
                 <div class="swiper-slide testimonals-item">
                   <div class="info">
-                    <img src="../img/reis.jpeg" alt="">
+                    <img src="../img/testimonals/reis.jpeg" alt="">
                     <div class="text-box">
                       <h3 class="name">João Reis</h3>
                       <span class="job">Comprador</span>
@@ -122,7 +122,7 @@
                 </div>
                 <div class="swiper-slide testimonals-item">
                   <div class="info">
-                    <img src="../img/tiagoN.jpeg" alt="">
+                    <img src="../img/testimonals/tiagoN.jpeg" alt="">
                     <div class="text-box">
                       <h3 class="name">Tiago Nazário</h3>
                       <span class="job">trabalhador</span>
@@ -139,7 +139,7 @@
                 </div>
                 <div class="swiper-slide testimonals-item">
                   <div class="info">
-                    <img src="../img/pedro.jpeg" alt="">
+                    <img src="../img/testimonals/pedro.jpeg" alt="">
                     <div class="text-box">
                       <h3 class="name">Pedro Azevedo</h3>
                       <span class="job">trabalhador</span>
@@ -156,7 +156,7 @@
                 </div>
                 <div class="swiper-slide testimonals-item">
                   <div class="info">
-                    <img src="../img/tiagoS.jpeg" alt="">
+                    <img src="../img/testimonals/tiagoS.jpeg" alt="">
                     <div class="text-box">
                       <h3 class="name">Tiago Figueredo</h3>
                       <span class="job">trabalhador</span>
@@ -173,7 +173,7 @@
                 </div>
                 <div class="swiper-slide testimonals-item">
                   <div class="info">
-                    <img src="../img/tyzh.jpeg" alt="">
+                    <img src="../img/testimonals/tyzh.jpeg" alt="">
                     <div class="text-box">
                       <h3 class="name">Tyzh</h3>
                       <span class="job">trabalhador</span>
@@ -190,7 +190,7 @@
                 </div>
                 <div class="swiper-slide testimonals-item">
                   <div class="info">
-                    <img src="../img/luis.jpeg" alt="">
+                    <img src="../img/testimonals/luis.jpeg" alt="">
                     <div class="text-box">
                       <h3 class="name">Luis Inacio</h3>
                       <span class="job">trabalhador</span>
