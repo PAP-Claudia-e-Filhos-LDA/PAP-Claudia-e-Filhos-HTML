@@ -31,7 +31,7 @@
                     </div>
                     <div class="row">
                         <i class="fas fa-phone"></i>
-                        <input type="text" name="phone_number" placeholder="Número de telemovel" required>
+                        <input type="text" name="phone_number" placeholder="Telemóvel" required>
                     </div>
                     <div class="row">
                         <i class="fas fa-envelope"></i>
@@ -80,7 +80,7 @@
                             echo 'toastr.warning("' . $errorMessage . '", "' . $errorType . '", {
             closeButton: false,
             progressBar: true,
-            positionClass: "toast-top-center",
+            positionClass: "toast-top-right",
             timeOut: 3000,
             extendedTimeOut: 1000,
             preventDuplicates: false,

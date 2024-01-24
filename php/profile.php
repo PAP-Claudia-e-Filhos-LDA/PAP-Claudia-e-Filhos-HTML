@@ -31,22 +31,9 @@ if (!isset($_SESSION["username"])) {
   <main>
     <section class="container active " id="profile">
       <div class="main-title">
-        <h2>O teu <span>Perfil</span><span class="bg-text">Profile</span></h2>
+        <h2>O teu <span>Perfil</span><span class="bg-text">Perfil</span></h2>
       </div>
-      <div class="profile-page hidden">
-        <div class="content">
-          <div class="content__cover">
-            <div class="content__avatar">
-              <img src="../img/user.png" alt="">
-            </div>
-            <div class="content__bull">
-            </div>
-          </div>
-          <div class="content__actions">
-          <i class="fas fa-pencil-alt"></i>
-          </div>
-          <div class="content__title">
-            <?php
+      <?php
             include('../includes/profile_inc.php');
 
             // Loop para obter os resultados da consulta
@@ -56,7 +43,21 @@ if (!isset($_SESSION["username"])) {
               $nomeCliente = $info[1];
               $contacto = $info[2];
               $email = $info[3];
+              $imagem_perfil = $info[4];
             ?>
+      <div class="profile-page hidden">
+        <div class="content">
+          <div class="content__cover">
+            <div class="content__avatar">
+              <img src="<?php echo $imagem_perfil; ?>" alt="">
+            </div>
+            <div class="content__bull">
+            </div>
+          </div>
+          <div class="content__actions">
+          <a href="editProfile.php"><i class="fas fa-pencil-alt"></i></a>
+          </div>
+          <div class="content__title">
               <div class="content__header">
                 <h1><?php echo $username; ?></h1>
                 <span>Portugal, Leiria Marinheiros</span>

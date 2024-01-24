@@ -53,7 +53,7 @@ function userExists($db, $username, $phoneNumber)
 
 function createUser($db, $username, $nome, $email, $phoneNumber, $password)
 {
-    $sql = "INSERT INTO clientes(username,nome_cliente,contacto,email, pass) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO clientes(username, nome_cliente, contacto, email, pass, imagem_perfil) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $db->prepare($sql);
 
     if (!$stmt) {
@@ -61,12 +61,16 @@ function createUser($db, $username, $nome, $email, $phoneNumber, $password)
         exit();
     }
 
-
+    // Bind dos parâmetros usando variáveis
     $stmt->bindParam(1, $username, SQLITE3_TEXT);
     $stmt->bindParam(2, $nome, SQLITE3_TEXT);
     $stmt->bindParam(3, $phoneNumber, SQLITE3_TEXT);
     $stmt->bindParam(4, $email, SQLITE3_TEXT);
     $stmt->bindParam(5, $password, SQLITE3_TEXT);
+
+    // Para o sexto parâmetro (imagem_perfil), você pode usar bindValue
+    $imagem_perfil = "../img/user.png";
+    $stmt->bindValue(6, $imagem_perfil, SQLITE3_TEXT);
 
     $result = $stmt->execute();
 
@@ -75,13 +79,13 @@ function createUser($db, $username, $nome, $email, $phoneNumber, $password)
         exit();
     }
 
-
     $stmt->close();
 
     // Após o fechamento da declaração, você pode redirecionar
     header("location: ../php/register.php?error=none");
     exit();
 }
+
 
 
 
@@ -114,6 +118,6 @@ function loginUser($db, $username, $password)
     session_start();
     $_SESSION["userid"] = $userExists["id_clientes"];
     $_SESSION["username"] = $userExists["username"];
-    header("location: ../php/index.php");
+    header("location: ../php/index.php?error=none");
     exit();
 }
