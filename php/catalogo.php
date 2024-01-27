@@ -118,7 +118,7 @@ $userLoggedIn = isset($_SESSION['userid'])
     </a>
   </div>
 
-  <div class="profile-btn" id="cart-icon">
+  <div class="cart-btn" id="cart-icon">
     <i class="fas fa-shopping-cart"> </i>
     <div style="display: none;" class="cart-badge"></div>
   </div>

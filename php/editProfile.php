@@ -23,65 +23,152 @@ if (!isset($_SESSION["username"])) {
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 
 <body class="main-content">
-  <main>
-    <section class="container contact active" id="contact">
-      <div class="contact-container">
-        <div class="main-title">
-          <h2>Editar <span>Perfil</span><span class="bg-text">Perfil</span></h2>
-        </div>
-        <?php
-        include('../includes/profile_inc.php');
+  <section class="container contact active" id="contact">
+    <div class="contact-container">
+      <div class="main-title">
+        <h2>Editar <span>Perfil</span><span class="bg-text">Perfil</span></h2>
+      </div>
 
-        // Loop para obter os resultados da consulta
-        foreach ($user as $info) {
-          // Informações do cliente recebidas do banco de dados
-          $username = $info[0];
-          $nomeCliente = $info[1];
-          $contacto = $info[2];
-          $email = $info[3];
-          $imagem_perfil = $info[4];
-        ?>
-          <div class="contact-content-con">
-            <div class="left-profile ">
-              <div class="profileImage-container">
-                <input type="file" id="fileInput" class="hidden-input" accept="image/*" />
-                <label for="fileInput" class="profileImage-container">
-                  <img src="<?php echo $imagem_perfil; ?>" alt="Profile Image">
-              </div>
-            </div>
-            <div class="right-contact hidden">
-              <form action="" class="contact-form">
-                <div class="input-control">
-                  <input type="text" required placeholder="<?php echo $username; ?>" />
-                </div>
-                <div class="input-control">
-                  <input type="text" required placeholder="<?php echo $nomeCliente; ?>" />
-                </div>
-                <div class="input-control">
-                  <input type="text" required placeholder="<?php echo $contacto; ?>" />
-                </div>
-                <div class="input-control">
-                  <input type="text" required placeholder="<?php echo $email; ?>" />
-                </div>
-                <div class="submit-btn">
-                  <a href="#" class="main-btn">
-                    <span class="btn-text">Send</span>
-                  </a>
-                </div>
-              </form>
+      <?php
+      include('../includes/profile_inc.php');
+
+      // Loop para obter os resultados da consulta
+      foreach ($user as $info) {
+        // Informações do cliente recebidas do banco de dados
+        $username = $info[0];
+        $nomeCliente = $info[1];
+        $contacto = $info[2];
+        $email = $info[3];
+        $imagem_perfil = $info[4];
+      ?>
+        <div class="contact-content-con">
+          <div class="left-profile">
+            <div class="profileImage-container">
+              <input type="file" id="fileInput" class="hidden-input" accept="image/*" />
+              <label for="fileInput" class="profileImage-container">
+                <img src="<?php echo $imagem_perfil; ?>" alt="Profile Image">
+              </label>
             </div>
           </div>
-      </div>
-    <?php
-        }
-    ?>
-    </section>
-  </main>
+          <div class="right-contact hidden">
+            <form action="../includes/editProfile_inc.php" method="post" class="contact-form" id="editProfileForm">
+              <div class="input-control">
+                <input type="text" name="username" required placeholder="<?php echo $username; ?>" pça />
+              </div>
+              <div class="input-control">
+                <input type="text" name="nome" required placeholder="<?php echo $nomeCliente; ?>" />
+              </div>
+              <div class="input-control">
+                <input type="text" name="phone_number" required placeholder="<?php echo $contacto; ?>" />
+              </div>
+              <div class="input-control">
+                <input type="text" name="email" placeholder="<?php echo $email; ?>" />
+              </div>
+              <div class="submit-btn">
+                <a href="#" class="main-btn" onclick="enviarFormulario()">
+                  <span type="submit" class="btn-text">Send</span>
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      <?php
+      }
+      ?>
+    </div>
+  </section>
+  <?php
+  if (isset($_GET["error"])) {
+    $errorMessage = "";
+    $errorType = "Atenção";
+
+    switch ($_GET["error"]) {
+      case "ivalidusername":
+        $errorMessage = "Username inválido!";
+        break;
+      case "ivalidphone":
+        $errorMessage = "Número de telemovel inválido!";
+        break;
+      case "userexists":
+        $errorMessage = "Username ou Telemovel já existem!";
+        break;
+      case "emptyinput":
+        $errorMessage = "Preencha todos os campos!";
+        break;
+      default:
+        break;
+    }
+
+    if (!empty($errorMessage)) {
+      echo '<script>';
+      echo 'document.addEventListener("DOMContentLoaded", function() {';
+      echo 'toastr.warning("' . $errorMessage . '", "' . $errorType . '", {
+            closeButton: false,
+            progressBar: true,
+            positionClass: "toast-top-right",
+            timeOut: 3000,
+            extendedTimeOut: 1000,
+            preventDuplicates: false,
+            newestOnTop: false,
+            showDuration: 300,
+            hideDuration: 300,
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "slideDown",
+            hideMethod: "slideUp",
+            toastClass: "custom-toast-class"
+        });';
+      echo '});';
+      echo '</script>';
+    }
+  }
+  ?>
+
+
+  <?php
+  if (isset($_GET["error"])) {
+    $errorMessage = "";
+    $errorType = "Sucesso";
+
+    switch ($_GET["error"]) {
+      case "none":
+        $errorType = "Sucesso";
+        $errorMessage = "Alterações feitas com sucesso!";
+        break;
+      default:
+        break;
+    }
+
+    if (!empty($errorMessage)) {
+      echo '<script>';
+      echo 'document.addEventListener("DOMContentLoaded", function() {';
+      echo 'toastr.success("' . $errorMessage . '", "' . $errorType . '", {
+            closeButton: false,
+            progressBar: true,
+            positionClass: "toast-top-right",
+            timeOut: 3000,
+            extendedTimeOut: 1000,
+            preventDuplicates: false,
+            newestOnTop: false,
+            showDuration: 300,
+            hideDuration: 300,
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "slideDown",
+            hideMethod: "slideUp",
+            toastClass: "custom-toast-class"
+        });';
+      echo '});';
+      echo '</script>';
+    }
+  }
+  ?>
 
   <div class="controls">
     <a href="index.php">
@@ -110,8 +197,9 @@ if (!isset($_SESSION["username"])) {
       </div>
     </a>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="../js/app.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
   <script src="../js/main.js"></script>
 </body>
 

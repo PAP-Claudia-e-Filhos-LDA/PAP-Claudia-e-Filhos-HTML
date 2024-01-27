@@ -37,7 +37,10 @@ session_start();
                         <input type="submit" value="Login">
                     </div>
                     <div class="signup-link">Não és membro? <a href="register.php">Regista-te agora</a></div>
-                    <?php
+                </form>
+            </div>
+        </div>
+        <?php
                     if (isset($_GET["error"])) {
                         $errorMessage = "";
                         $errorType = "Atenção";
@@ -77,12 +80,6 @@ session_start();
                         }
                     }
                     ?>
-
-
-                </form>
-            </div>
-        </div>
-
     </section>
     <div class="controls">
         <a href="index.php">

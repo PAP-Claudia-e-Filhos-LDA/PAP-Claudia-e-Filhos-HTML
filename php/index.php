@@ -14,6 +14,7 @@ session_start();
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
@@ -45,7 +46,43 @@ session_start();
       </div>
     </div>
   </header>
+  <?php
+  if (isset($_GET["error"])) {
+    $errorMessage = "";
+    $errorType = "Sucesso";
 
+    switch ($_GET["error"]) {
+      case "none":
+        $errorMessage = "login feito com sucesso!";
+        break;
+      default:
+        break;
+    }
+
+    if (!empty($errorMessage)) {
+      echo '<script>';
+      echo 'document.addEventListener("DOMContentLoaded", function() {';
+      echo 'toastr.success("' . $errorMessage . '", "' . $errorType . '", {
+            closeButton: false,
+            progressBar: true,
+            positionClass: "toast-top-right",
+            timeOut: 3000,
+            extendedTimeOut: 1000,
+            preventDuplicates: false,
+            newestOnTop: false,
+            showDuration: 300,
+            hideDuration: 300,
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "slideDown",
+            hideMethod: "slideUp",
+            toastClass: "custom-toast-class"
+        });';
+      echo '});';
+      echo '</script>';
+    }
+  }
+  ?>
   <div class="controls">
     <a href="index.php">
       <div class="control active-btn" data-id="home">
@@ -73,6 +110,8 @@ session_start();
       </div>
     </a>
   </div>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
   <script src="../js/main.js"></script>
 
 </body>

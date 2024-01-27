@@ -9,8 +9,14 @@ const observer = new IntersectionObserver((entries) => {
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el));
 
+//esta funcao serve para enviar o formulario
+function enviarFormulario() {
+  var formulario = document.getElementById('editProfileForm');
+  if (formulario) {
+      formulario.submit();
+  }
+}
 
-// Aguarda o carregamento completo do documento HTML
 $(document).ready(function () {
   // Manipula a entrada no campo de pesquisa
   $(".input-search").on("input", function () {

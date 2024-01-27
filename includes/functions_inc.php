@@ -121,3 +121,81 @@ function loginUser($db, $username, $password)
     header("location: ../php/index.php?error=none");
     exit();
 }
+
+
+
+function emptyInputProfile($username, $nome, $phoneNumber, $email)
+{
+    $result = false;
+
+    // Verificar se todos os campos estão vazios
+    if (empty($username) && empty($nome) && empty($phoneNumber) && empty($email)) {
+        $result = true;
+    }
+
+    return $result;
+}
+
+
+
+function userExistsProfile($db, $id_clientes, $username, $phoneNumber)
+{
+    $sql = "SELECT * FROM Clientes WHERE (username = :username OR contacto = :phoneNumber) AND id_clientes != :id_clientes";
+    $stmt = $db->prepare($sql);
+
+    if (!$stmt) {
+        $errorMessage = $db->lastErrorMsg();  // Obter mensagem de erro específica do SQLite
+        header("location: ../php/editProfile.php?error=stmtfailed&message=" . urlencode($errorMessage));
+        exit();
+    }
+
+    $stmt->bindParam(':username', $username, SQLITE3_TEXT);
+    $stmt->bindParam(':phoneNumber', $phoneNumber, SQLITE3_TEXT);
+    $stmt->bindParam(':id_clientes', $id_clientes, SQLITE3_INTEGER);
+
+    $result = $stmt->execute();
+
+    $row = $result->fetchArray(SQLITE3_ASSOC);
+
+    $stmt->close();
+
+    if ($row) {
+        // Usuário com o mesmo username ou phoneNumber já existe, mas não é o próprio usuário
+        return $row;
+    } else {
+        // Nenhum conflito, pode atualizar o perfil
+        return false;
+    }
+}
+
+function updateUser($db, $id_clientes, $username, $nome, $email, $phoneNumber)
+{
+
+    $sql = "UPDATE clientes SET username = ?, nome_cliente = ?, contacto = ?, email = ? WHERE id_clientes = ?";
+    $stmt = $db->prepare($sql);
+
+    if (!$stmt) {
+        header("location: ../php/editProfile.php?error=stmtfailed&msg=" . $db->lastErrorMsg());
+        exit();
+    }
+
+    // Bind dos parâmetros usando variáveis
+    $stmt->bindParam(1, $username, SQLITE3_TEXT);
+    $stmt->bindParam(2, $nome, SQLITE3_TEXT);
+    $stmt->bindParam(3, $phoneNumber, SQLITE3_TEXT);
+    $stmt->bindParam(4, $email, SQLITE3_TEXT);
+    $stmt->bindParam(5, $id_clientes, SQLITE3_INTEGER);
+
+    $result = $stmt->execute();
+
+    if (!$result) {
+        header("location: ../php/editProfile.php?error=stmtexecutionfailed&msg=" . $db->lastErrorMsg());
+        exit();
+    }
+
+    $stmt->close();
+
+    // Após o fechamento da declaração, você pode redirecionar
+    header("location: ../php/editProfile.php?error=none");
+    exit();
+}
