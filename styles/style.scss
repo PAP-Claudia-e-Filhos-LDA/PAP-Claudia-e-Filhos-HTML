@@ -421,7 +421,6 @@ section {
   z-index: 500;
   transition: all 0.5s ease-in-out;
 }
-
 .cart-badge {
   position: absolute;
   top: 5px;
@@ -564,6 +563,11 @@ section {
 }
 
 /*-------------------SERCH MOTOR SECTION-----------------------*/
+.search-options{
+  display: flex;
+  gap: 2rem;
+}
+
 .search-box {
   width: fit-content;
   height: fit-content;

@@ -22,6 +22,9 @@ $userLoggedIn = isset($_SESSION['userid'])
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body class="main-content">
@@ -47,12 +50,16 @@ $userLoggedIn = isset($_SESSION['userid'])
         <div class="main-title">
           <h2>O nosso <span>Catalogo</span><span class="bg-text">Catalogo</span></h2>
         </div>
+        <div class="search-options">
+          <div class="search-box">
+            <form method="GET" action="catalogo.php">
+              <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
+              <input type="text" name="search" class="input-search" placeholder="Procure alguma coisa..." />
+            </form>
+          </div>
+          <div>
 
-        <div class="search-box">
-          <form method="GET" action="catalogo.php">
-            <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>
-            <input type="text" name="search" class="input-search" placeholder="Procure alguma coisa..." />
-          </form>
+          </div>
         </div>
         <div class="catalogos ">
           <?php
@@ -65,7 +72,9 @@ $userLoggedIn = isset($_SESSION['userid'])
             if (empty($searchTerm) || stripos($catalogo[1], $searchTerm) !== false) {
           ?>
               <div class="catalogo hidden">
-                <img src="<?php echo $catalogo[0]; ?>" alt="" />
+                <a href="<?php echo $catalogo[0]; ?>" class="fancybox">
+                  <img src="<?php echo $catalogo[0]; ?>" alt="" />
+                </a>
                 <div class="catalogo-text">
                   <h4><?php echo $catalogo[1]; ?></h4>
                   <h3><?php echo $catalogo[3] ?>€</h3>
@@ -123,9 +132,14 @@ $userLoggedIn = isset($_SESSION['userid'])
     <div style="display: none;" class="cart-badge"></div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
   <script src="../js/main.js"></script>
+  <script>
+  $(document).ready(function() {
+    $(".fancybox").fancybox();
+  });
+</script>
 </body>
 
 </html>

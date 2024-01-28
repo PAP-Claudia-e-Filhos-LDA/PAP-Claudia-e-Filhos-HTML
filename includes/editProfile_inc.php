@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   require_once 'conn.php';
   require_once 'functions_inc.php';
 
-  if (emptyInputProfile($username, $nome, $phoneNumbe, $email) !== false) {
+  if (emptyInputProfile($username, $nome, $phoneNumber, $email) !== false) {
     header("location: ../php/editProfile.php?error=emptyinput");
     exit();
   }

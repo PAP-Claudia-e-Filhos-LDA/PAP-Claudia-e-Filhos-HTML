@@ -564,6 +564,11 @@ section {
   }
 }
 /*-------------------SERCH MOTOR SECTION-----------------------*/
+.search-options {
+  display: flex;
+  gap: 2rem;
+}
+
 .search-box {
   width: -moz-fit-content;
   width: fit-content;
