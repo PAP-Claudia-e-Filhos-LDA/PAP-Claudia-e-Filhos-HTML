@@ -57,9 +57,6 @@ $userLoggedIn = isset($_SESSION['userid'])
               <input type="text" name="search" class="input-search" placeholder="Procure alguma coisa..." />
             </form>
           </div>
-          <div>
-
-          </div>
         </div>
         <div class="catalogos ">
           <?php
@@ -136,10 +133,10 @@ $userLoggedIn = isset($_SESSION['userid'])
   <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
   <script src="../js/main.js"></script>
   <script>
-  $(document).ready(function() {
-    $(".fancybox").fancybox();
-  });
-</script>
+    $(document).ready(function() {
+      $(".fancybox").fancybox();
+    });
+  </script>
 </body>
 
 </html>

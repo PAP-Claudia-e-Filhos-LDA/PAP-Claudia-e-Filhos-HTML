@@ -8,7 +8,12 @@
     }
 
     .container-login {
-        margin-bottom: 100px;
+        margin-bottom: 300px;
+        padding: 0;
+    }
+
+    .container-register {
+        margin-bottom: 300px;
         padding: 0;
     }
 
@@ -175,7 +180,7 @@
         }
     }
 
-    .profile-page{
+    .profile-page {
         margin-bottom: 100px;
     }
 }
@@ -357,7 +362,7 @@
         box-shadow: none;
     }
 
-    .profile-page .content__actions i{
+    .profile-page .content__actions i {
         padding: 3rem 2rem;
     }
 

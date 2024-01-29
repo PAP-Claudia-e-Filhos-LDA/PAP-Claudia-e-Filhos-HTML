@@ -352,8 +352,8 @@ section {
 .catalogos .catalogo img {
   width: 100%;
   height: 300px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: cover !important;
+     object-fit: cover !important;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   transition: all 0.4s ease-in-out;
@@ -637,6 +637,30 @@ section {
   transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
 }
 
+.search-box-az {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: relative;
+}
+
+.btn-search-az {
+  width: 50px;
+  height: 50px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  color: #ffffff;
+  background-color: transparent;
+  pointer-events: painted;
+}
+
 /*-------------------CONTACT PAGE SECTION-----------------------*/
 .contact-content-con {
   display: flex;
@@ -897,8 +921,10 @@ section {
   height: 12rem;
   overflow: hidden;
   border-radius: 50%;
-  margin: 0 auto; /* Centraliza o contêiner na horizontal */
-  cursor: pointer; /* Altera o cursor ao passar por cima para indicar interatividade */
+  margin: 0 auto;
+  /* Centraliza o contêiner na horizontal */
+  cursor: pointer;
+  /* Altera o cursor ao passar por cima para indicar interatividade */
 }
 
 .profileImage-label {
@@ -932,6 +958,20 @@ section {
   max-width: 500px;
   padding: 0 20px;
   margin: 0 auto;
+  top: 50%;
+  transform: translateY(50%);
+}
+
+.container-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+  padding: 0 20px;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(25%);
 }
 
 .wrapper {
@@ -1024,7 +1064,8 @@ form .row input::placeholder {
 
 .wrapper form .row .col {
   flex: 1;
-  margin-right: 10px; /* Adjust margin as needed */
+  margin-right: 10px;
+  /* Adjust margin as needed */
 }
 
 .wrapper form .row .col input {
@@ -1217,7 +1258,11 @@ form .signup-link a:hover {
     padding: 0 !important;
   }
   .container-login {
-    margin-bottom: 100px;
+    margin-bottom: 300px;
+    padding: 0;
+  }
+  .container-register {
+    margin-bottom: 300px;
     padding: 0;
   }
   .wrapper form .row input {
