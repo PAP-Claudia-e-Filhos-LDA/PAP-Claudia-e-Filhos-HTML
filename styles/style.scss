@@ -20,6 +20,7 @@
   border-radius: 20px;
   background-color: var(--color-secondary);
 }
+
 /*-------------------COLOR PALLETE SECTION-----------------------*/
 :root {
   --color-primary: #17191f;
@@ -143,6 +144,7 @@ section {
     }
   }
 }
+
 /*-------------------HEADER SECTION-----------------------*/
 .header-content {
   display: grid;
@@ -277,6 +279,7 @@ section {
     }
   }
 }
+
 /*-------------------TESTIMONALS SECTION-----------------------*/
 
 .container-testimonal {
@@ -284,52 +287,63 @@ section {
   margin: auto;
   padding: 0 15px;
 }
+
 .testimonal-header {
   text-align: center;
   margin-bottom: 50px;
 }
+
 .testimonals {
   padding: 100px 0;
 }
+
 .testimonals-item {
   background-color: var(--color-grey-5);
   padding: 30px;
   border-radius: 30px;
 }
+
 .testimonals-item .info {
   display: flex;
   align-items: center;
 }
+
 .testimonals-item img {
   max-width: 80px;
   border-radius: 50%;
   margin-right: 20px;
   vertical-align: middle;
 }
+
 .testimonals-item .name {
   text-transform: capitalize;
   font-weight: 600;
   color: var(--color-white);
   line-height: 1.2;
 }
+
 .testimonals-item .job {
   text-transform: capitalize;
   color: var(--color-white);
 }
+
 .testimonals-item p {
   margin-top: 20px;
   color: var(--color-white);
 }
+
 .testimonals-item .rating {
   margin-top: 15px;
   font-size: 14px;
   color: hsl(36, 88%, 66%);
 }
+
 .testimonlas .swiper-pagination {
   position: relative;
   margin-top: 40px;
   bottom: auto;
 }
+
 .testimonals .swiper-pagination-bullet {
   height: 12px;
   width: 12px;
@@ -364,7 +378,7 @@ section {
     img {
       width: 100%;
       height: 300px;
-      object-fit: cover;
+      object-fit: cover !important;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
       transition: all 0.4s ease-in-out;
@@ -415,12 +429,14 @@ section {
     border-radius: 20px;
   }
 }
+
 .cart.active {
   left: 0;
   position: fixed;
   z-index: 500;
   transition: all 0.5s ease-in-out;
 }
+
 .cart-badge {
   position: absolute;
   top: 5px;
@@ -437,15 +453,18 @@ section {
   font-size: 12px;
   font-weight: bold;
 }
+
 .cart-title {
   text-align: center;
 }
+
 .cart-box {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
   margin-top: 1.5rem;
 }
+
 .cart-item {
   display: grid;
   grid-template-columns: 100px 1fr auto;
@@ -454,6 +473,7 @@ section {
   border-top: 1px solid rgba(255, 255, 255, 0.35);
   padding-top: 1rem;
 }
+
 .cart-img-box {
   width: 100px;
   height: 100px;
@@ -461,26 +481,32 @@ section {
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .cart-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
 .detail-box {
   display: grid;
   row-gap: 0.5rem;
 }
+
 .cart-product-title {
   font-size: 1rem;
   text-transform: uppercase;
 }
+
 .cart-price {
   font-weight: 500;
 }
+
 .cart-quantity-box {
   display: flex;
   align-items: center;
 }
+
 .cart-quantity {
   border: 1px solid var(--color-secondary);
   background-color: var(--color-primary);
@@ -492,14 +518,17 @@ section {
   border-radius: 5px;
   margin-left: 0.5rem;
 }
+
 .cart-remove-box {
   justify-self: flex-end;
 }
+
 .cart-remove {
   font-size: 24px;
   color: var(--color-secondary);
   cursor: pointer;
 }
+
 .total {
   display: flex;
   justify-content: flex-end;
@@ -507,13 +536,16 @@ section {
   padding-top: 1rem;
   border-top: 1px solid var(--color-secondary);
 }
+
 .total-title {
   font-size: 1rem;
   font-weight: 600;
 }
+
 .total-price {
   margin-left: 0.5rem;
 }
+
 .btn-buy {
   display: flex;
   margin: 1.5rem auto 0 auto;
@@ -527,6 +559,7 @@ section {
   font-weight: 600;
   cursor: pointer;
 }
+
 #close-cart {
   position: absolute;
   top: 1rem;
@@ -535,6 +568,7 @@ section {
   color: var(--color-secondary);
   cursor: pointer;
 }
+
 .slide-in {
   animation: slideIn 0.4s ease-out;
   transform: translateY(0) scaleY(1);
@@ -549,9 +583,11 @@ section {
     }
   }
 }
+
 .slide-out {
   animation: slideOut 0.4s ease-in-out;
 }
+
 @keyframes slideOut {
   0% {
     transform: translateX(0) scaleX(1);
@@ -563,7 +599,7 @@ section {
 }
 
 /*-------------------SERCH MOTOR SECTION-----------------------*/
-.search-options{
+.search-options {
   display: flex;
   gap: 2rem;
 }
@@ -612,7 +648,7 @@ section {
   pointer-events: painted;
 }
 
-.btn-search:focus ~ .input-search {
+.btn-search:focus~.input-search {
   width: 300px;
   border-radius: 0px;
   background-color: transparent;
@@ -626,6 +662,35 @@ section {
   background-color: transparent;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+}
+
+
+
+
+
+.search-box-az {
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+}
+
+
+
+
+.btn-search-az {
+  width: 50px;
+  height: 50px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  color: #ffffff;
+  background-color: transparent;
+  pointer-events: painted;
 }
 
 /*-------------------CONTACT PAGE SECTION-----------------------*/
@@ -908,8 +973,10 @@ section {
   height: 12rem;
   overflow: hidden;
   border-radius: 50%;
-  margin: 0 auto; /* Centraliza o contêiner na horizontal */
-  cursor: pointer; /* Altera o cursor ao passar por cima para indicar interatividade */
+  margin: 0 auto;
+  /* Centraliza o contêiner na horizontal */
+  cursor: pointer;
+  /* Altera o cursor ao passar por cima para indicar interatividade */
 }
 
 .profileImage-label {
@@ -932,6 +999,7 @@ section {
 .hidden-input {
   display: none;
 }
+
 /*-------------------LOGIN/REGISTER PAGE SECTION-----------------------*/
 
 .container-login {
@@ -942,7 +1010,22 @@ section {
   max-width: 500px;
   padding: 0 20px;
   margin: 0 auto;
+  top: 50%;
+  transform: translateY(50%);
 }
+
+.container-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+  padding: 0 20px;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(25%);
+}
+
 .wrapper {
   position: relative;
   width: 100%;
@@ -952,6 +1035,7 @@ section {
   scale: (1);
   transition: all 0.4s ease-in-out;
 }
+
 .wrapper .title {
   height: 90px;
   background: var(--color-primary);
@@ -963,9 +1047,11 @@ section {
   align-items: center;
   justify-content: center;
 }
+
 .wrapper form {
   padding: 30px 25px 25px 25px;
 }
+
 .wrapper form .row {
   height: 45px;
   margin-bottom: 15px;
@@ -1018,6 +1104,7 @@ form .row input::placeholder {
   font-size: 17px;
   text-decoration: none;
 }
+
 .wrapper form .row {
   display: flex;
   justify-content: space-between;
@@ -1025,7 +1112,8 @@ form .row input::placeholder {
 
 .wrapper form .row .col {
   flex: 1;
-  margin-right: 10px; /* Adjust margin as needed */
+  margin-right: 10px;
+  /* Adjust margin as needed */
 }
 
 .wrapper form .row .col input {
