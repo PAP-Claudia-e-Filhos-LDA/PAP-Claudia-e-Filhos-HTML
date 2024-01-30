@@ -30,7 +30,7 @@ session_start();
       </div>
       <div class="right-header hidden">
         <h1 class="name">
-          Bem vindo
+          Bem vindo 
           <span><br>
             Claúdia & Filhos</span>
         </h1>

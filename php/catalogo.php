@@ -69,7 +69,7 @@ $userLoggedIn = isset($_SESSION['userid'])
             if (empty($searchTerm) || stripos($catalogo[1], $searchTerm) !== false) {
           ?>
               <div class="catalogo hidden">
-                <a href="<?php echo $catalogo[0]; ?>" class="fancybox">
+                <a href="<?php echo $catalogo[0]; ?>" class="fancybox" data-caption="<?php echo $catalogo[2]; ?>">
                   <img src="<?php echo $catalogo[0]; ?>" alt="" />
                 </a>
                 <div class="catalogo-text">
@@ -95,6 +95,7 @@ $userLoggedIn = isset($_SESSION['userid'])
       </div>
     </section>
   </main>
+
 
   <div class="controls">
     <a href="index.php">

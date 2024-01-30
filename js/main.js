@@ -113,39 +113,36 @@ $(document).ready(function () {
     var button = event.target;
     var shopProducts = $(button).closest(".catalogo");
     var title = shopProducts.find(".catalogo-text h4").text();
-
-    if (cartProductTitles.has(title)) {
-      // Utiliza Toastr.js para exibir uma notificação toast personalizada
-      toastr.warning("Este produto já está no carrinho!", "Atenção", {
-        closeButton: false, // Mostrar botão de fechar
-        progressBar: true, // Mostrar barra de progresso
-        positionClass: "toast-bottom-right", // Posição da notificação (ver opções na documentação)
-        timeOut: 3000, // Tempo de exibição em milissegundos
-        extendedTimeOut: 1000, // Tempo adicional para a barra de progresso em milissegundos
-        preventDuplicates: false, // Evitar notificações duplicadas
-        newestOnTop: false, // Adicionar novas notificações no topo
-        showDuration: 300, // Duração da animação de exibição
-        hideDuration: 300, // Duração da animação de ocultação
-        showEasing: "swing", // Efeito de exibição
-        hideEasing: "linear", // Efeito de ocultação
-        showMethod: "slideDown", // Slide para baixo
-        hideMethod: "slideUp",
-        toastClass: "custom-toast-class",
-      });
-      return;
+  
+    var existingCartItem = $(".cart-box:contains('" + title + "')");
+    if (existingCartItem.length > 0) {
+      // Se o produto já estiver no carrinho, aumenta a quantidade em 1
+      var quantityInput = existingCartItem.find(".cart-quantity");
+      var currentQuantity = parseInt(quantityInput.val(), 10) || 1;
+      quantityInput.val(currentQuantity + 1);
+  
+      // Imprime o título e a nova quantidade no console
+      console.log(`Adicionado: ${title} (Quantidade: ${currentQuantity + 1})`);
+    } else {
+      // Se o produto não estiver no carrinho, adiciona como um novo item
+      var priceText = shopProducts.find(".catalogo-text h3").text();
+      var price = parseFloat(priceText.replace("€", "").replace(",", ".")) || 0;
+      var productImg = shopProducts.find("img").attr("src");
+  
+      addProductToCart(title, price, productImg);
+      cartProductTitles.add(title);
+  
+      // Imprime o título e a quantidade 1 no console
+   
     }
-
-    var priceText = shopProducts.find(".catalogo-text h3").text();
-    var price = parseFloat(priceText.replace("€", "").replace(",", ".")) || 0;
-    var productImg = shopProducts.find("img").attr("src");
-
-    addProductToCart(title, price, productImg);
+  
+    // Adiciona a classe 'active' ao carrinho
+    cart.addClass("active");
+  
     updateTotal();
     updateCartBadge();
-
-    cartProductTitles.add(title);
-    cart.addClass("active");
   }
+  
 
   // Função para atualizar o número exibido no distintivo do carrinho
   function updateCartBadge() {
@@ -230,3 +227,12 @@ $(document).ready(function () {
     $(".total-price").text("€" + total.toFixed(2));
   }
 });
+
+
+
+
+
+
+
+// ---------------------Ecomenda ---------------------------------//
+
