@@ -227,3 +227,12 @@ $(document).ready(function () {
     $(".total-price").text("€" + total.toFixed(2));
   }
 });
+
+
+
+
+
+
+
+// ---------------------Ecomenda ---------------------------------//
+
