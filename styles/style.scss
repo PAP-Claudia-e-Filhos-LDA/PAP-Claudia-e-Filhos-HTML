@@ -196,7 +196,7 @@ section {
       font-size: 3rem;
 
       span {
-        background: linear-gradient(150deg, var(--color-secondary) 20%, rgb(187, 58, 58)  100%);
+        background: linear-gradient(150deg, var(--color-secondary) 20%, rgb(187, 58, 58) 100%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -538,7 +538,7 @@ section {
   justify-content: flex-end;
   margin-top: 1.5rem;
   padding-top: 1rem;
-   transition: all 0.3s ease; 
+  transition: all 0.3s ease;
   border-top: 1px solid var(--color-secondary);
 }
 
@@ -1006,13 +1006,15 @@ section {
 }
 
 /*-------------------LOGIN/REGISTER PAGE SECTION-----------------------*/
-
-.container-login {
+.container-wrapper {
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 500px;
+}
+
+.container-login {
+  width: 500px;
   padding: 0 20px;
   margin: 0 auto;
 
@@ -1146,6 +1148,7 @@ form .button input:hover {
 form .signup-link a:hover {
   text-decoration: underline;
 }
+
 /*-------------------ECOMENDA PAGE SECTION-----------------------*/
 
 /*-------------------INDEPEDENT COMPONENTES SECTION-----------------------*/

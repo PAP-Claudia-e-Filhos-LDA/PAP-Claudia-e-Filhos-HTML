@@ -20,46 +20,47 @@ session_start();
 
 <body>
     <section class="container active">
-        <div class="container-login">
-            <div class="wrapper">
-                <div class="title"><span>LOGIN</span></div>
-                <form action="../includes/process_login.php" method="post">
-                    <div class="row">
-                        <i class="fas fa-user"></i>
-                        <input type="text" name="username" placeholder="username or Phone" required>
-                    </div>
-                    <div class="row">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" name="password" placeholder="Password" required>
-                    </div>
-                    <div class="pass"><a href="#">Esqueceste da password?</a></div>
-                    <div class="row button">
-                        <input type="submit" value="Login">
-                    </div>
-                    <div class="signup-link">Não és membro? <a href="register.php">Regista-te agora</a></div>
-                </form>
+        <div class="container-wrapper">
+            <div class="container-login">
+                <div class="wrapper">
+                    <div class="title"><span>LOGIN</span></div>
+                    <form action="../includes/process_login.php" method="post">
+                        <div class="row">
+                            <i class="fas fa-user"></i>
+                            <input type="text" name="username" placeholder="username or Phone" required>
+                        </div>
+                        <div class="row">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="password" placeholder="Password" required>
+                        </div>
+                        <div class="pass"><a href="#">Esqueceste da password?</a></div>
+                        <div class="row button">
+                            <input type="submit" value="Login">
+                        </div>
+                        <div class="signup-link">Não és membro? <a href="register.php">Regista-te agora</a></div>
+                    </form>
+                </div>
             </div>
-        </div>
-        <?php
-                    if (isset($_GET["error"])) {
-                        $errorMessage = "";
-                        $errorType = "Atenção";
+            <?php
+            if (isset($_GET["error"])) {
+                $errorMessage = "";
+                $errorType = "Atenção";
 
-                        switch ($_GET["error"]) {
-                            case "wronglogin":
-                                $errorMessage = "Dados inseridos não encontrados!";
-                                break;
-                            case "emptyinput":
-                                $errorMessage = "Preencha todos os campos!";
-                                break;
-                            default:
-                                break;
-                        }
+                switch ($_GET["error"]) {
+                    case "wronglogin":
+                        $errorMessage = "Dados inseridos não encontrados!";
+                        break;
+                    case "emptyinput":
+                        $errorMessage = "Preencha todos os campos!";
+                        break;
+                    default:
+                        break;
+                }
 
-                        if (!empty($errorMessage)) {
-                            echo '<script>';
-                            echo 'document.addEventListener("DOMContentLoaded", function() {';
-                            echo 'toastr.warning("' . $errorMessage . '", "' . $errorType . '", {
+                if (!empty($errorMessage)) {
+                    echo '<script>';
+                    echo 'document.addEventListener("DOMContentLoaded", function() {';
+                    echo 'toastr.warning("' . $errorMessage . '", "' . $errorType . '", {
             closeButton: false,
             progressBar: true,
             positionClass: "toast-top-right",
@@ -75,11 +76,12 @@ session_start();
             hideMethod: "slideUp",
             toastClass: "custom-toast-class"
         });';
-                            echo '});';
-                            echo '</script>';
-                        }
-                    }
-                    ?>
+                    echo '});';
+                    echo '</script>';
+                }
+            }
+            ?>
+        </div>
     </section>
     <div class="controls">
         <a href="index.php">

@@ -955,12 +955,15 @@ section {
 }
 
 /*-------------------LOGIN/REGISTER PAGE SECTION-----------------------*/
-.container-login {
+.container-wrapper {
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 500px;
+}
+
+.container-login {
+  width: 500px;
   padding: 0 20px;
   margin: 0 auto;
 }
