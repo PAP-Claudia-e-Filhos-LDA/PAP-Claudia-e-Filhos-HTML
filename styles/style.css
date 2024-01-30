@@ -151,9 +151,10 @@ section {
 }
 .header-content .left-header .h-shape {
   transition: all 0.4s ease-in-out;
-  width: 50%;
+  width: 30%;
   height: 100%;
-  background-color: var(--color-secondary);
+  filter: blur(5px);
+  background: linear-gradient(150deg, var(--color-secondary) 20%, rgb(187, 58, 58) 100%);
   position: absolute;
   left: 0;
   top: 0;
@@ -186,7 +187,10 @@ section {
   font-size: 3rem;
 }
 .header-content .right-header .name span {
-  color: var(--color-secondary);
+  background: linear-gradient(150deg, var(--color-secondary) 20%, rgb(187, 58, 58) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 .header-content .right-header p {
   margin: 1.5rem 0;
@@ -503,6 +507,7 @@ section {
   justify-content: flex-end;
   margin-top: 1.5rem;
   padding-top: 1rem;
+  transition: all 0.3s ease;
   border-top: 1px solid var(--color-secondary);
 }
 
@@ -958,20 +963,6 @@ section {
   max-width: 500px;
   padding: 0 20px;
   margin: 0 auto;
-  top: 50%;
-  transform: translateY(50%);
-}
-
-.container-register {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 500px;
-  padding: 0 20px;
-  margin: 0 auto;
-  top: 50%;
-  transform: translateY(25%);
 }
 
 .wrapper {
@@ -1105,6 +1096,7 @@ form .signup-link a:hover {
   text-decoration: underline;
 }
 
+/*-------------------ECOMENDA PAGE SECTION-----------------------*/
 /*-------------------INDEPEDENT COMPONENTES SECTION-----------------------*/
 .btn-con {
   display: flex;
@@ -1258,10 +1250,6 @@ form .signup-link a:hover {
     padding: 0 !important;
   }
   .container-login {
-    margin-bottom: 300px;
-    padding: 0;
-  }
-  .container-register {
     margin-bottom: 300px;
     padding: 0;
   }
@@ -1502,9 +1490,6 @@ form .signup-link a:hover {
 @media (max-width: 990px) {
   .profile-page {
     padding-top: 0;
-  }
-  .profile-page .content__title {
-    margin-top: 1.5rem;
   }
   .profile-page .content {
     max-width: auto;
