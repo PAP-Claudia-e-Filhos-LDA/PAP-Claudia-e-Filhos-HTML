@@ -17,6 +17,15 @@ function enviarFormulario() {
   }
 }
 
+function formularioEncomeda1() {
+  var formulario = document.getElementById('ecomenda1');
+  if (formulario) {
+      formulario.submit();
+  }
+}
+
+var cartDetails = [];
+
 $(document).ready(function () {
   // Manipula a entrada no campo de pesquisa
   $(".input-search").on("input", function () {
@@ -26,15 +35,12 @@ $(document).ready(function () {
     $(".catalogo").each(function () {
       var itemName = $(this).find(".catalogo-text h4").text().toLowerCase();
       var display = itemName.includes(searchTerm) || searchTerm === "";
-
-      $(".btn-buy").on("click", function () {
-        orderNow();
-      });
-
       // Exibe ou oculta o elemento com base no termo de pesquisa
       $(this).toggle(display);
     });
   });
+
+  
 
   // Inicializa um conjunto para armazenar os títulos dos produtos no carrinho
   var cartProductTitles = new Set();
@@ -46,6 +52,10 @@ $(document).ready(function () {
 
   cartIcon.on("click", function () {
     cart.toggleClass("active");
+  });
+
+  $(".btn-buy").on("click", function () {
+    orderNow();
   });
 
   closeCart.on("click", function () {
@@ -122,7 +132,6 @@ $(document).ready(function () {
       quantityInput.val(currentQuantity + 1);
   
       // Imprime o título e a nova quantidade no console
-      console.log(`Adicionado: ${title} (Quantidade: ${currentQuantity + 1})`);
     } else {
       // Se o produto não estiver no carrinho, adiciona como um novo item
       var priceText = shopProducts.find(".catalogo-text h3").text();
@@ -167,7 +176,6 @@ $(document).ready(function () {
 
   // Função para adicionar um produto ao carrinho
   function addProductToCart(title, price, productImg) {
-    console.log(title,price,productImg)
     var cartShopBox = $("<div>").addClass("cart-box slide-in");
 
     // Conteúdo HTML da caixa do carrinho
@@ -177,8 +185,8 @@ $(document).ready(function () {
                   <img src="${productImg}" alt="" class="cart-img">
               </div>
               <div class="detail-box">
-                  <div class="cart-product-title">${title}</div>
-                  <div class="cart-price">${price}€</div>
+                  <div class="cart-product-title"><h3>${title}</h3></div>
+                  <div class="cart-price"><p>${price}€</p></div>
                   <div class="cart-quantity-box">
                       <label for="quantity">Quantidade:</label>
                       <input type="text" value="1" class="cart-quantity" id="quantity">
@@ -226,6 +234,39 @@ $(document).ready(function () {
     // Atualiza o elemento que exibe o total
     $(".total-price").text("€" + total.toFixed(2));
   }
+
+  function orderNow() {
+    cartDetails = [];
+  
+    // Itera sobre os elementos no carrinho a partir do segundo elemento
+    $(".cart-box:gt(0)").each(function () {
+      var title = $(this).find(".cart-product-title").text();
+      var priceText = $(this).find(".cart-price").text().replace("€", "").replace(",", ".");
+      var quantity = parseInt($(this).find(".cart-quantity").val(), 10);
+  
+      // Adiciona os detalhes do produto ao array
+      console.log("Produto:", title);
+      console.log("Price Text:", priceText);
+      console.log("Quantity:", quantity);
+  
+      var price = parseFloat(priceText);
+  
+      if (!isNaN(price) && !isNaN(quantity) && title.trim() !== "") {
+        cartDetails.push({
+          title: title,
+          price: price,
+          quantity: quantity
+        });
+      }
+    });
+  
+    // Obtém o total do carrinho
+    var total = parseFloat($(".total-price").text().replace("€", "").replace(",", "."));
+  
+    // Imprime no console os detalhes do carrinho e o total
+    console.log("Total: €" + total.toFixed(2));
+  }
+  
 });
 
 

@@ -1,3 +1,27 @@
+<?php
+session_start();
+
+// Verificar se o usuário está logado
+if (!isset($_SESSION["username"])) {
+  // Se não estiver logado, redirecione para a página de login
+  header("location: login.php");
+  exit();
+}
+
+include('../includes/profile_inc.php');
+
+// Loop para obter os resultados da consulta
+foreach ($user as $info) {
+  // Informações do cliente recebidas do banco de dados
+  $username = $info[0];
+  $nomeCliente = $info[1];
+  $contacto = $info[2];
+  $email = $info[3];
+  $imagem_perfil = $info[4];
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,11 +41,14 @@
 
 <body class="main-content">
   <main>
-    <section class="container about active" id="about">
+    <section class="container encomenda active" id="encomenda">
       <div class="main-title ">
         <h2>A tua <span>encomenda</span><span class="bg-text">encomenda</span></h2>
       </div>
-      
+    
+
+ 
+
     </section>
   </main>
 
