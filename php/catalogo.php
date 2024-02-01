@@ -96,6 +96,7 @@ $userLoggedIn = isset($_SESSION['userid'])
     </section>
   </main>
 
+  
 
   <div class="controls">
     <a href="index.php">

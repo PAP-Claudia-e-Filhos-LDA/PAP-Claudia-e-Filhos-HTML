@@ -17,12 +17,7 @@ function enviarFormulario() {
   }
 }
 
-function formularioEncomeda1() {
-  var formulario = document.getElementById('ecomenda1');
-  if (formulario) {
-      formulario.submit();
-  }
-}
+
 
 var cartDetails = [];
 
@@ -240,32 +235,39 @@ $(document).ready(function () {
   
     // Itera sobre os elementos no carrinho a partir do segundo elemento
     $(".cart-box:gt(0)").each(function () {
-      var title = $(this).find(".cart-product-title").text();
-      var priceText = $(this).find(".cart-price").text().replace("€", "").replace(",", ".");
-      var quantity = parseInt($(this).find(".cart-quantity").val(), 10);
-  
-      // Adiciona os detalhes do produto ao array
-      console.log("Produto:", title);
-      console.log("Price Text:", priceText);
-      console.log("Quantity:", quantity);
-  
-      var price = parseFloat(priceText);
-  
-      if (!isNaN(price) && !isNaN(quantity) && title.trim() !== "") {
-        cartDetails.push({
-          title: title,
-          price: price,
-          quantity: quantity
-        });
-      }
+        var title = $(this).find(".cart-product-title").text();
+        var priceText = $(this).find(".cart-price").text().replace("€", "").replace(",", ".");
+        var quantity = parseInt($(this).find(".cart-quantity").val(), 10);
+        var imgSrc = $(this).find(".cart-img").attr("src");
+
+        // Adiciona os detalhes do produto ao array
+        console.log("Produto:", title);
+        console.log("Price Text:", priceText);
+        console.log("Quantity:", quantity);
+        console.log("Image Source:", imgSrc);
+
+        var price = parseFloat(priceText);
+
+        if (!isNaN(price) && !isNaN(quantity) && title.trim() !== "") {
+            cartDetails.push({
+                title: title,
+                price: price,
+                quantity: quantity,
+                imgSrc: imgSrc
+            });
+        }
     });
-  
+
     // Obtém o total do carrinho
     var total = parseFloat($(".total-price").text().replace("€", "").replace(",", "."));
-  
+
     // Imprime no console os detalhes do carrinho e o total
     console.log("Total: €" + total.toFixed(2));
-  }
+
+    // Codifica os detalhes do carrinho em JSON e redireciona para encomenda.php
+    window.location.href = "encomenda.php?details=" + encodeURIComponent(JSON.stringify(cartDetails)) + "&total=" + total.toFixed(2);
+}
+
   
 });
 
