@@ -738,7 +738,8 @@ section {
   margin: 1.5rem 0;
 }
 .contact-content-con .right-contact .input-control input,
-.contact-content-con .right-contact .input-control textarea {
+.contact-content-con .right-contact .input-control textarea,
+.contact-content-con .right-contact .input-control select { /* Adicionando estilos para a combobox */
   border-radius: 30px;
   font-weight: inherit;
   font-size: inherit;

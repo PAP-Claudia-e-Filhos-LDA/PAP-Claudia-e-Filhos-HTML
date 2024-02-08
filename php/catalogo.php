@@ -5,6 +5,9 @@ session_start();
 // Verificar se o usuário está logado
 $userLoggedIn = isset($_SESSION['userid'])
 
+
+
+
 ?>
 
 <!DOCTYPE html>

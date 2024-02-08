@@ -21,10 +21,13 @@
 <body class="main-content">
   <main>
     <section class="container  active" id="encomenda">
-      <div class="main-title ">
-        <h2><span>CHEKCOUT</span><span class="bg-text">CHECKOUT</span></h2>
-      </div>
-      <?php
+    <div class="contact-container">
+        <div class="main-title">
+          <h2> <span>Checkout</span><span class="bg-text">Checkout</span></h2>
+        </div>
+        <div class="contact-content-con">
+          <div class="left-contact hidden">
+          <?php
 if (isset($_GET['details']) && isset($_GET['total'])) {
     // Obter detalhes do carrinho e total da URL
     $cartDetails = json_decode($_GET['details'], true);
@@ -34,13 +37,13 @@ if (isset($_GET['details']) && isset($_GET['total'])) {
     foreach ($cartDetails as $item) {
         // Estrutura HTML para cada item do carrinho
         echo "
-            <div class='cart-item hidden'>
+            <div class='cart-item'>
                 <div class='cart-img-box'  class='fancybox' >
                     <img src='{$item['imgSrc']}' alt='{$item['title']}' class='cart-img'>
                 </div>
                 <div class='detail-box'>
-                    <div class='cart-product-title'><h3>{$item['title']}</h3></div>
-                    <div class='cart-price'><p>{$item['price']}€</p></div>
+                    <div class='cart-product-title'><h3>{$item['title']} {$item['price']}€</h3></div>
+
                     <div class='cart-quantity-box'>
                         <label for='quantity'>Quantidade:</label>
                         <input type='text' value='{$item['quantity']}' class='cart-quantity' id='quantity' disabled>
@@ -66,6 +69,42 @@ if (isset($_GET['details']) && isset($_GET['total'])) {
     echo "<div class='empty-cart'>Nenhum item no carrinho.</div>";
 }
 ?>
+          </div>
+          <div class="right-contact hidden">
+            <form action="" class="contact-form">
+              <div class="input-control i-c-2">
+              <select id="escolha-cidade" name="cidade">
+                  <option value="" disabled selected>Tipo rissois</option>
+                  <option value="frito">Não tenho rissois</option>
+                  <option value="frito">Frito</option>
+                  <option value="congelado">Congelado</option>
+                </select>
+                <select id="escolha-levantameto" name="levantameto">
+                  <option value="" disabled selected>Levantamento</option>
+                  <option value="mao">Entrega domicilio</option>
+                  <option value="mbway">Pick up</option>
+                </select>
+              </div>
+              <div class="input-control">
+              <select id="escolha-pagamento" name="pagamento">
+                  <option value="" disabled selected>Metodo pagamento</option>
+                  <option value="mao">Em mão</option>
+                  <option value="mbway">Mb way</option>
+                </select>
+              </div>
+              <div class="input-control">
+                <textarea name="" id="" cols="15" rows="8" placeholder="O que te intriga?"></textarea>
+              </div>
+              <div class="submit-btn">
+                <a href="#" class="main-btn">
+                  <span class="btn-text">Send</span>
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    
 
     
     </section>

@@ -414,6 +414,8 @@ section {
 }
 
 /*-------------------SHOPPING CART STYLES SECTION-----------------------*/
+
+
 .cart {
   position: fixed;
   top: 0;
@@ -779,12 +781,13 @@ section {
   .right-contact {
     flex: 3;
     margin-left: 3rem;
-
+  
     .input-control {
       margin: 1.5rem 0;
-
+  
       input,
-      textarea {
+      textarea,
+      select { /* Adicionando estilos para a combobox */
         border-radius: 30px;
         font-weight: inherit;
         font-size: inherit;
@@ -795,23 +798,24 @@ section {
         background-color: var(--color-grey-5);
         width: 100%;
         color: var(--color-white);
-        resize: none;
+        resize: none; 
       }
     }
-
+  
     .i-c-2 {
       display: flex;
-
+  
       :last-child {
         margin-left: 1.5rem;
       }
     }
-
+  
     .submit-btn {
       display: flex;
       justify-content: center;
     }
   }
+  
 }
 
 /*-------------------PROFILE PAGE SECTION-----------------------*/

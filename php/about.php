@@ -196,7 +196,7 @@
                       <span class="job">trabalhador</span>
                     </div>
                   </div>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae ad a repellat eos, velit rem sapiente magnam, repudiandae culpa blanditiis. Eveniet corporis, adipisci eius fugiat natus dolore ea in!</p>
+                  <p>Para começar, gostei bastante do atendimento. Nota-se que são pessoas que se importam com o atendimento aos clientes. Comida também bastante boa. Todas as expectativas que possam ter vão ser certamente superadas!</p>
                   <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
