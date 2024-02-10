@@ -781,13 +781,14 @@ section {
   .right-contact {
     flex: 3;
     margin-left: 3rem;
-  
+
     .input-control {
       margin: 1.5rem 0;
-  
+
       input,
       textarea,
-      select { /* Adicionando estilos para a combobox */
+      select {
+        /* Adicionando estilos para a combobox */
         border-radius: 30px;
         font-weight: inherit;
         font-size: inherit;
@@ -798,24 +799,24 @@ section {
         background-color: var(--color-grey-5);
         width: 100%;
         color: var(--color-white);
-        resize: none; 
+        resize: none;
       }
     }
-  
+
     .i-c-2 {
       display: flex;
-  
+
       :last-child {
         margin-left: 1.5rem;
       }
     }
-  
+
     .submit-btn {
       display: flex;
       justify-content: center;
     }
   }
-  
+
 }
 
 /*-------------------PROFILE PAGE SECTION-----------------------*/
@@ -845,7 +846,7 @@ section {
 .profile-page .content__cover {
   position: relative;
   border-radius: 2rem 2rem 0rem 0rem;
-  background: linear-gradient(150deg, var(--color-secondary) 20%, blue 100%);
+  background: var(--color-secondary);
 }
 
 .profile-page .content__bull {
@@ -1292,15 +1293,19 @@ form .signup-link a:hover {
 .child:nth-child(3) {
   transition-delay: 0.6s;
 }
+
 .child:nth-child(4) {
   transition-delay: 0.8s;
 }
+
 .child:nth-child(5) {
   transition-delay: 1s;
 }
+
 .child:nth-child(6) {
   transition-delay: 1.2s;
 }
+
 /* Adicione mais regras conforme necessário para outros filhos */
 
 

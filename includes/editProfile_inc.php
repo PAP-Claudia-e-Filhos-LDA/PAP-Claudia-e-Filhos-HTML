@@ -9,11 +9,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $email = $_POST['email'];
   $phoneNumber = $_POST['phone_number'];
 
-
   require_once 'conn.php';
   require_once 'functions_inc.php';
 
-  if (emptyInputProfile($username, $nome, $phoneNumber, $email) !== false) {
+  if (isset($_FILES["profile_image"]) && $_FILES["profile_image"]["error"] == 0) {
+    $targetDir = "../img/profiles/";
+    $targetFile = $targetDir . basename($_FILES["profile_image"]["name"]);
+    $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+
+    // Verifica se o arquivo é uma imagem
+    $allowedExtensions = array("jpg", "jpeg", "png", "gif");
+    if (in_array($imageFileType, $allowedExtensions)) {
+      if (move_uploaded_file($_FILES["profile_image"]["tmp_name"], $targetFile)) {
+        $imagem_perfil_nome = basename($_FILES["profile_image"]["name"]);
+        $imagem_perfil_caminho = "../img/profiles/" . $imagem_perfil_nome;
+
+        header("location: ../php/editProfile.php?error=none");
+
+        // Chame a função updateUser com $imagem_perfil_caminho
+        updateImage($db, $_SESSION["userid"], $imagem_perfil_caminho);
+
+        exit();
+      } else {
+        echo "Desculpe, houve um erro ao carregar a imagem.";
+      }
+    } else {
+      echo "Erro no envio da imagem.";
+    }
+  } else {
+    echo "Erro no envio da imagem.";
+  }
+
+
+
+
+  if (emptyInputProfile($db, $username, $nome, $phoneNumber, $email) !== false) {
+
     header("location: ../php/editProfile.php?error=emptyinput");
     exit();
   }
@@ -25,13 +56,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("location: ../php/editProfile.php?error=ivalidphone");
     exit();
   }
-  if (userExistsProfile($db, $_SESSION["userid"], $username, $phoneNumber) !== false) {
+  if (userExistsProfile($db, $_SESSION["userid"], $username, $phoneNumber, $email) !== false) {
     header("location: ../php/editProfile.php?error=userexists");
     exit();
   }
 
 
-  updateUser($db, $_SESSION["userid"], $username, $nome, $email, $phoneNumber);
+  updateUser($db, $_SESSION["userid"], $username, $nome, $email, $phoneNumber,  $imagem_perfil_caminho);
 } else {
   header("location: ../php/register.php");
   exit();

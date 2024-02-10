@@ -34,33 +34,32 @@ if (!isset($_SESSION["username"])) {
         <h2>O teu <span>Perfil</span><span class="bg-text">Perfil</span></h2>
       </div>
       <?php
-            include('../includes/profile_inc.php');
+      include('../includes/profile_inc.php');
 
-            // Loop para obter os resultados da consulta
-            foreach ($user as $info) {
-              // Informações do cliente recebidas do banco de dados
-              $username = $info[0];
-              $nomeCliente = $info[1];
-              $contacto = $info[2];
-              $email = $info[3];
-              $imagem_perfil = $info[4];
-            ?>
-      <div class="profile-page hidden">
-        <div class="content">
-          <div class="content__cover">
-            <div class="content__avatar">
-              <img src="<?php echo $imagem_perfil; ?>" alt="">
+      // Loop para obter os resultados da consulta
+      foreach ($user as $info) {
+        // Informações do cliente recebidas do banco de dados
+        $username = $info[0];
+        $nomeCliente = $info[1];
+        $contacto = $info[2];
+        $email = $info[3];
+        $imagem_perfil = $info[4];
+      ?>
+        <div class="profile-page hidden">
+          <div class="content">
+            <div class="content__cover">
+              <div class="content__avatar">
+                <img src="<?php echo $imagem_perfil; ?>" alt="">
+              </div>
+              <div class="content__bull">
+              </div>
             </div>
-            <div class="content__bull">
+            <div class="content__actions">
+              <a href="editProfile.php"><i class="fas fa-pencil-alt"></i></a>
             </div>
-          </div>
-          <div class="content__actions">
-          <a href="editProfile.php"><i class="fas fa-pencil-alt"></i></a>
-          </div>
-          <div class="content__title">
+            <div class="content__title">
               <div class="content__header">
                 <h1><?php echo $username; ?></h1>
-                <span>Portugal, Leiria Marinheiros</span>
               </div>
               <div class="content__description">
                 <p>Nome: <b><?php echo $nomeCliente; ?></b></p>
@@ -68,22 +67,22 @@ if (!isset($_SESSION["username"])) {
                 <p>Email: <b><?php echo $email; ?></b></p>
               </div>
             <?php
-            }
+          }
             ?>
 
             <ul class="content__list">
-              <li><span>65</span>Rissois</li>
-              <li><span>43</span>Sobremesas</li>
-              <li><span>21</span>Outros</li>
+              <li><span>0</span>Rissois</li>
+              <li><span>0</span>Sobremesas</li>
+              <li><span>0</span>Outros</li>
             </ul>
             <div class="content__button"><a class="button" href="../includes/logout_inc.php">
                 <div class="button__border"></div>
                 <div class="button__bg"></div>
                 <p class="button__text">Logout</p>
               </a></div>
-          </div>
+            </div>
 
-        </div>
+          </div>
     </section>
   </main>
 

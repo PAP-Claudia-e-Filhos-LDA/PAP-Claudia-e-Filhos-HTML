@@ -739,7 +739,8 @@ section {
 }
 .contact-content-con .right-contact .input-control input,
 .contact-content-con .right-contact .input-control textarea,
-.contact-content-con .right-contact .input-control select { /* Adicionando estilos para a combobox */
+.contact-content-con .right-contact .input-control select {
+  /* Adicionando estilos para a combobox */
   border-radius: 30px;
   font-weight: inherit;
   font-size: inherit;
@@ -790,7 +791,7 @@ section {
 .profile-page .content__cover {
   position: relative;
   border-radius: 2rem 2rem 0rem 0rem;
-  background: linear-gradient(150deg, var(--color-secondary) 20%, blue 100%);
+  background: var(--color-secondary);
 }
 
 .profile-page .content__bull {

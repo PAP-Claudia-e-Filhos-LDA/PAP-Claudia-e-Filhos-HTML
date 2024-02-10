@@ -47,19 +47,20 @@ if (!isset($_SESSION["username"])) {
         $email = $info[3];
         $imagem_perfil = $info[4];
       ?>
-        <div class="contact-content-con">
-          <div class="left-profile">
-            <div class="profileImage-container">
-              <input type="file" id="fileInput" class="hidden-input" accept="image/*" />
-              <label for="fileInput" class="profileImage-container">
-                <img src="<?php echo $imagem_perfil; ?>" alt="Profile Image">
-              </label>
+        <form action="../includes/editProfile_inc.php" method="post" class="contact-form" id="editProfileForm" enctype="multipart/form-data">
+          <div class="contact-content-con">
+            <div class="left-profile">
+              <div class="profileImage-container">
+                <input type="file" name="profile_image" id="fileInput" class="hidden-input" accept="image/*" />
+                <label for="fileInput" class="profileImage-container">
+                  <img src="<?php echo $imagem_perfil; ?>" alt="Profile Image">
+                </label>
+              </div>
             </div>
-          </div>
-          <div class="right-contact hidden">
-            <form action="../includes/editProfile_inc.php" method="post" class="contact-form" id="editProfileForm">
+            <div class="right-contact hidden">
+
               <div class="input-control">
-                <input type="text" name="username" required placeholder="<?php echo $username; ?>" pça />
+                <input type="text" name="username" required placeholder="<?php echo $username; ?>" />
               </div>
               <div class="input-control">
                 <input type="text" name="nome" required placeholder="<?php echo $nomeCliente; ?>" />
@@ -75,13 +76,13 @@ if (!isset($_SESSION["username"])) {
                   <span type="submit" class="btn-text">Send</span>
                 </a>
               </div>
-            </form>
-          </div>
-        </div>
-      <?php
-      }
-      ?>
+        </form>
     </div>
+    </div>
+  <?php
+      }
+  ?>
+  </div>
   </section>
   <?php
   if (isset($_GET["error"])) {
@@ -89,14 +90,14 @@ if (!isset($_SESSION["username"])) {
     $errorType = "Atenção";
 
     switch ($_GET["error"]) {
-      case "ivalidusername":
+      case "invalidusername":
         $errorMessage = "Username inválido!";
         break;
-      case "ivalidphone":
+      case "invalidphone":
         $errorMessage = "Número de telemovel inválido!";
         break;
       case "userexists":
-        $errorMessage = "Username ou Telemovel já existem!";
+        $errorMessage = "Username ou Telemovel ou Email já existem!";
         break;
       case "emptyinput":
         $errorMessage = "Preencha todos os campos!";
