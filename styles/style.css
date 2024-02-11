@@ -166,15 +166,15 @@ section {
 }
 .header-content .left-header .h-shape {
   transition: all 0.4s ease-in-out;
-  width: 100%;
+  width: 30%;
   height: 100%;
   background: var(--color-secondary);
   position: absolute;
   left: 0;
   top: 0;
   z-index: -1;
-  -webkit-clip-path: polygon(0 0, 50% 0, 79% 100%, 0% 100%);
-          clip-path: polygon(0 0, 50% 0, 79% 100%, 0% 100%);
+  -webkit-clip-path: polygon(0 0, 50% 0, 60% 100%, 0% 100%);
+          clip-path: polygon(0 0, 50% 0, 60% 100%, 0% 100%);
 }
 .header-content .left-header .image {
   border-radius: var(--br-sm-2);
@@ -943,7 +943,7 @@ section {
   overflow: hidden;
   border-radius: 50%;
   margin: 0 auto;
-  /* Centraliza o contêiner na horizontal */
+  /* Centraliza o contêiner na h  orizontal */
   cursor: pointer;
   /* Altera o cursor ao passar por cima para indicar interatividade */
 }
@@ -971,150 +971,136 @@ section {
 }
 
 /*-------------------LOGIN/REGISTER PAGE SECTION-----------------------*/
-.container-wrapper {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.container-login {
-  width: 500px;
-  padding: 0 20px;
-  margin: 0 auto;
-}
-
-.wrapper {
-  position: relative;
+.body-login {
+  min-height: 100vh;
   width: 100%;
-  background: var(--color-primary);
-  border-radius: 20px;
-  box-shadow: var(--box-shadow-1);
-  scale: 1;
-  transition: all 0.4s ease-in-out;
-}
-
-.wrapper .title {
-  height: 90px;
-  background: var(--color-primary);
-  border-radius: 5px 5px 0 0;
-  color: #fff;
-  font-size: 30px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.wrapper form {
-  padding: 30px 25px 25px 25px;
-}
-
-.wrapper form .row {
-  height: 45px;
-  margin-bottom: 15px;
-  position: relative;
-}
-
-.wrapper form .row input {
+  display: grid;
+  background-color: var(--color-primary);
   font-family: "Poppins", sans-serif;
-  height: 100%;
-  width: 100%;
-  outline: none;
-  padding-left: 60px;
-  border-radius: 20px;
-  background-color: var(--color-grey-5);
-  color: white;
-  border: 1px solid var(--color-grey-5);
-  font-size: 16px;
-  transition: all 0.4s ease-in-out;
+  grid-template-columns: 1fr 1fr;
 }
 
-form .row input:focus {
-  border-color: var(--color-secondary);
-  box-shadow: inset 0px 0px 2px 2px rgba(255, 255, 255, 0.25);
-}
-
-form .row input::-moz-placeholder {
-  color: var(--color-grey-3);
-}
-
-form .row input::placeholder {
-  color: var(--color-grey-3);
-}
-
-.wrapper form .row i {
-  position: absolute;
-  width: 47px;
-  height: 100%;
-  color: #fff;
-  font-size: 18px;
-  background: var(--color-secondary);
-  border: 1px solid var(--color-secondary);
-  border-radius: 20px;
+.container-loggin {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-.wrapper form .pass {
-  margin: -8px 0 20px 0;
+.container-loggin.side {
+  background: url(../img/bk.png) no-repeat;
+  background-size: 100% 102%;
 }
 
-.wrapper form .pass a {
-  color: var(--color-secondary);
-  font-size: 17px;
-  text-decoration: none;
+.container-loggin .side img {
+  width: 50%;
+  max-width: 50%;
 }
 
-.wrapper form .row {
+.container-loggin .login-container {
+  max-width: 450px;
+  padding: 24px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
 }
 
-.wrapper form .row .col {
-  flex: 1;
-  margin-right: 10px;
-  /* Adjust margin as needed */
-}
-
-.wrapper form .row .col input {
-  width: 100%;
-}
-
-.wrapper form .pass a:hover {
-  text-decoration: underline;
-}
-
-.wrapper form .button input {
-  color: #fff;
-  font-size: 20px;
-  font-weight: 500;
-  padding-left: 0px;
-  background: var(--color-secondary);
-  border: 1px solid var(--color-secondary);
-  cursor: pointer;
-}
-
-form .button input:hover {
-  background: var(--color-secondary);
-}
-
-.wrapper form .signup-link {
+.title {
+  text-transform: uppercase;
+  font-size: 3em;
+  color: var(--color-white);
+  font-weight: bold;
   text-align: center;
-  margin-top: 20px;
-  font-size: 17px;
+  letter-spacing: 1px;
 }
 
-.wrapper form .signup-link a {
+.separator {
+  width: 150px;
+  height: 4px;
+  background-color: var(--color-secondary);
+  margin: 24px;
+}
+
+.welcome-message {
+  text-align: center;
+  font-size: 1.1em;
+  line-height: 28px;
+  color: var(--color-grey-1);
+  margin-bottom: 30px;
+}
+
+.welcome-message a {
   color: var(--color-secondary);
-  text-decoration: none;
 }
 
-form .signup-link a:hover {
-  text-decoration: underline;
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
+.form-control {
+  width: 100%;
+  position: relative;
+  margin-bottom: 24px;
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  font-size: 1.1em;
+}
+
+input {
+  width: 100%;
+  background: #e6e6e6;
+  color: var(--color-grey-3);
+  letter-spacing: 0.5px;
+  padding: 14px 64px;
+}
+
+input ~ i {
+  position: absolute;
+  left: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-grey-3);
+  transition: color 0.4s;
+}
+
+input:focus ~ i {
+  color: var(--color-secondary);
+}
+
+button.submit {
+  color: #fff;
+  padding: 14px 64px;
+  margin: 32px auto;
+  font-family: "Poppins", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  background-color: var(--color-secondary);
+  cursor: pointer;
+  transition: opacity 0.4s;
+}
+
+button.submit:hover {
+  opacity: 0.9;
+}
+
+/* ----  Responsiveness   ----  */
+@media (max-width: 780px) {
+  .body-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+  }
+  .side {
+    display: none;
+  }
+}
 /*-------------------ECOMENDA PAGE SECTION-----------------------*/
 /*-------------------INDEPEDENT COMPONENTES SECTION-----------------------*/
 .btn-con {

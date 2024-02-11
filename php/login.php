@@ -9,6 +9,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Claudia & Filhos</title>
+    <link rel="stylesheet" href="../styles/login.css" />
     <link rel="stylesheet" href="../styles/style.css" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,49 +19,51 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 </head>
 
-<body>
-    <section class="container active">
-        <div class="container-wrapper">
-            <div class="container-login">
-                <div class="wrapper">
-                    <div class="title"><span>LOGIN</span></div>
-                    <form action="../includes/process_login.php" method="post">
-                        <div class="row">
-                            <i class="fas fa-user"></i>
-                            <input type="text" name="username" placeholder="username or Phone" required>
-                        </div>
-                        <div class="row">
-                            <i class="fas fa-lock"></i>
-                            <input type="password" name="password" placeholder="Password" required>
-                        </div>
-                        <div class="pass"><a href="#">Esqueceste da password?</a></div>
-                        <div class="row button">
-                            <input type="submit" value="Login">
-                        </div>
-                        <div class="signup-link">Não és membro? <a href="register.php">Regista-te agora</a></div>
-                    </form>
+<body class="body-login">
+
+    <div class="container-loggin side hidden">
+        <img src="./images/img.svg" alt="">
+    </div>
+
+    <div class="container-loggin main hidden">
+        <div class="login-container">
+            <p class="title">Bem vindo de volta</p>
+            <div class="separator"></div>
+            <p class="welcome-message">Preenche os campos com a tua informação</p>
+
+            <form action="../includes/process_login.php" class="login-form" method="post">
+                <div class="form-control">
+                    <input type="text" name="username" placeholder="Username">
+                    <i class="fas fa-user"></i>
                 </div>
-            </div>
-            <?php
-            if (isset($_GET["error"])) {
-                $errorMessage = "";
-                $errorType = "Atenção";
+                <div class="form-control">
+                    <input type="password" name="password" placeholder="Password">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <p class="welcome-message">Não tens conta? <a href="register.php">Regista-te!</a></p>
+                <button class="submit">Login</button>
+            </form>
+        </div>
+    </div>
 
-                switch ($_GET["error"]) {
-                    case "wronglogin":
-                        $errorMessage = "Dados inseridos não encontrados!";
-                        break;
-                    case "emptyinput":
-                        $errorMessage = "Preencha todos os campos!";
-                        break;
-                    default:
-                        break;
-                }
-
-                if (!empty($errorMessage)) {
-                    echo '<script>';
-                    echo 'document.addEventListener("DOMContentLoaded", function() {';
-                    echo 'toastr.warning("' . $errorMessage . '", "' . $errorType . '", {
+    <?php
+    if (isset($_GET["error"])) {
+        $errorMessage = "";
+        $errorType = "Atenção";
+        switch ($_GET["error"]) {
+            case "wronglogin":
+                $errorMessage = "Dados inseridos não encontrados!";
+                break;
+            case "emptyinput":
+                $errorMessage = "Preencha todos os campos!";
+                break;
+            default:
+                break;
+        }
+        if (!empty($errorMessage)) {
+            echo '<script>';
+            echo 'document.addEventListener("DOMContentLoaded", function() {';
+            echo 'toastr.warning("' . $errorMessage . '", "' . $errorType . '", {
             closeButton: false,
             progressBar: true,
             positionClass: "toast-top-right",
@@ -76,13 +79,12 @@ session_start();
             hideMethod: "slideUp",
             toastClass: "custom-toast-class"
         });';
-                    echo '});';
-                    echo '</script>';
-                }
-            }
-            ?>
-        </div>
-    </section>
+            echo '});';
+            echo '</script>';
+        }
+    }
+    ?>
+
     <div class="controls">
         <a href="index.php">
             <div class="control" data-id="home">
@@ -100,12 +102,12 @@ session_start();
             </div>
         </a>
         <a href="contact.php">
-            <div class="control " data-id="contact">
+            <div class="control" data-id="contact">
                 <i class="far fa-envelope-open"></i>
             </div>
         </a>
         <a href="profile.php">
-            <div class="control" data-id="home">
+            <div class="control active-btn" data-id="home">
                 <i class="fas fa-user"></i>
             </div>
         </a>

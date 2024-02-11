@@ -1,31 +1,28 @@
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('show');
-    } 
+      entry.target.classList.add("show");
+    }
   });
 });
 
-const hiddenElements = document.querySelectorAll('.hidden');
+const hiddenElements = document.querySelectorAll(".hidden");
 hiddenElements.forEach((el) => observer.observe(el));
 
 //esta funcao serve para enviar o formulario
 function enviarFormulario() {
-  var formulario = document.getElementById('editProfileForm');
+  var formulario = document.getElementById("editProfileForm");
   if (formulario) {
-      formulario.submit();
+    formulario.submit();
   }
 }
-
-
-
 
 $(document).ready(function () {
   const inputSearch = $(".input-search");
   const cart = $(".cart");
   const cartIcon = $("#cart-icon");
   const closeCart = $("#close-cart");
-  const buy = $(".btn-buy")
+  const buy = $(".btn-buy");
 
   inputSearch.on("input", function () {
     const searchTerm = $(this).val().toLowerCase();
@@ -47,7 +44,7 @@ $(document).ready(function () {
     if ($(".cart-box").length > 1) {
       orderNow();
     } else {
-    toastr.warning("Nenhum produto foi seleciona para encomedar","Atenção", {
+      toastr.warning("Nenhum produto foi seleciona para encomedar", "Atenção", {
         closeButton: false,
         progressBar: true,
         positionClass: "toast-top-right",
@@ -61,9 +58,8 @@ $(document).ready(function () {
         hideEasing: "linear",
         showMethod: "slideDown",
         hideMethod: "slideUp",
-        toastClass: "custom-toast-class"
-    });
-
+        toastClass: "custom-toast-class",
+      });
     }
   });
 
@@ -114,7 +110,8 @@ $(document).ready(function () {
       quantityInput.val(currentQuantity + 1);
     } else {
       const priceText = shopProducts.find(".catalogo-text h3").text();
-      const price = parseFloat(priceText.replace("€", "").replace(",", ".")) || 0;
+      const price =
+        parseFloat(priceText.replace("€", "").replace(",", ".")) || 0;
       const productImg = shopProducts.find("img").attr("src");
 
       addProductToCart(title, price, productImg);
@@ -174,7 +171,8 @@ $(document).ready(function () {
 
       if (priceElement.length && quantityElement.length) {
         const priceText = priceElement.text().trim();
-        const price = parseFloat(priceText.replace("€", "").replace(",", ".")) || 0;
+        const price =
+          parseFloat(priceText.replace("€", "").replace(",", ".")) || 0;
         const quantity = parseInt(quantityElement.val(), 10) || 1;
 
         if (!isNaN(price) && !isNaN(quantity)) {
@@ -191,34 +189,40 @@ $(document).ready(function () {
 
     $(".cart-box:gt(0)").each(function () {
       const title = $(this).find(".cart-product-title").text();
-      const priceText = $(this).find(".cart-price").text().replace("€", "").replace(",", ".");
+      const priceText = $(this)
+        .find(".cart-price")
+        .text()
+        .replace("€", "")
+        .replace(",", ".");
       const quantity = parseInt($(this).find(".cart-quantity").val(), 10);
       const imgSrc = $(this).find(".cart-img").attr("src");
 
-      if (!isNaN(parseFloat(priceText)) && !isNaN(quantity) && title.trim() !== "") {
+      if (
+        !isNaN(parseFloat(priceText)) &&
+        !isNaN(quantity) &&
+        title.trim() !== ""
+      ) {
         cartDetails.push({
           title: title,
           price: parseFloat(priceText),
           quantity: quantity,
-          imgSrc: imgSrc
+          imgSrc: imgSrc,
         });
       }
     });
 
-    const total = parseFloat($(".total-price").text().replace("€", "").replace(",", "."));
+    const total = parseFloat(
+      $(".total-price").text().replace("€", "").replace(",", ".")
+    );
 
     console.log("Total: €" + total.toFixed(2));
 
-    window.location.href = "encomenda.php?details=" + encodeURIComponent(JSON.stringify(cartDetails)) + "&total=" + total.toFixed(2);
+    window.location.href =
+      "encomenda.php?details=" +
+      encodeURIComponent(JSON.stringify(cartDetails)) +
+      "&total=" +
+      total.toFixed(2);
   }
 });
 
-
-
-
-
-
-
-
 // ---------------------Ecomenda ---------------------------------//
-

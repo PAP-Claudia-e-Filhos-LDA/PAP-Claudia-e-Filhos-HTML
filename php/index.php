@@ -37,7 +37,7 @@ session_start();
             Claúdia & Filhos</span>
         </h1>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores accusantium, nesciunt atque repellendus ad provident tempora in delectus quis harum perferendis illum consectetur quas tempore tenetur sequi. Suscipit, magnam omnis.
+          Explore o nosso mundo de sabores caseiros com sobremesas irresistíveis e rissois cheios de tradição. Cada receita é um convite para partilhar momentos especiais à mesa. Descubra o carinho em cada sabor. Seja parte da nossa família gastronômica!
         </p>
         <div class="btn-con">
           <a href="about.php" class="main-btn">

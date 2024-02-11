@@ -76,7 +76,7 @@ $userLoggedIn = isset($_SESSION['userid'])
                   <img src="<?php echo $catalogo[0]; ?>" alt="" />
                 </a>
                 <div class="catalogo-text">
-                  <h4><?php echo $catalogo[1]; ?></h4>
+                  <h4><?php echo $catalogo[1]; ?> </h4>
                   <h3><?php echo $catalogo[3] ?>€</h3>
                   <p><?php echo $catalogo[2]; ?></p>
                   <div class="btn-con">
