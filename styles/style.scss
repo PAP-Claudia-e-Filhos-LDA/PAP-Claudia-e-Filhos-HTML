@@ -21,6 +21,16 @@
   background-color: var(--color-secondary);
 }
 
+::selection {
+  background-color: var(--color-secondary);
+  color: var(--color-grey-6);
+}
+
+::-moz-selection {
+  background-color: var(--color-secondary);
+  /* Replace with your preferred color */
+}
+
 /*-------------------COLOR PALLETE SECTION-----------------------*/
 :root {
   --color-primary: #17191f;
@@ -158,10 +168,10 @@ section {
 
     .h-shape {
       transition: all 0.4s ease-in-out;
-      width: 30%;
+      width: 100%;
       height: 100%;
-      filter: blur(5px);
-      background: linear-gradient(150deg, var(--color-secondary) 20%, rgb(187, 58, 58) 100%);
+
+      background: var(--color-secondary);
       position: absolute;
       left: 0;
       top: 0;
@@ -196,7 +206,7 @@ section {
       font-size: 3rem;
 
       span {
-        background: linear-gradient(150deg, var(--color-secondary) 20%, rgb(187, 58, 58) 100%);
+        background: var(--color-secondary);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;

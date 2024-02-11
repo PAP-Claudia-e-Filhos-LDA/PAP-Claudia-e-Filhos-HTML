@@ -30,14 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         updateImage($db, $_SESSION["userid"], $imagem_perfil_caminho);
 
         exit();
-      } else {
-        echo "Desculpe, houve um erro ao carregar a imagem.";
       }
-    } else {
-      echo "Erro no envio da imagem.";
     }
-  } else {
-    echo "Erro no envio da imagem.";
   }
 
 

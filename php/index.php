@@ -27,12 +27,12 @@ session_start();
       <div class="left-header ">
         <div class="h-shape"></div>
         <div class="image">
-          <img src="../img/logo.png" alt="" />
+
         </div>
       </div>
       <div class="right-header hidden">
         <h1 class="name">
-          Bem vindo 
+          Bem vindo
           <span><br>
             Claúdia & Filhos</span>
         </h1>
@@ -112,6 +112,7 @@ session_start();
       </div>
     </a>
   </div>
+
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
   <script src="../js/main.js"></script>
