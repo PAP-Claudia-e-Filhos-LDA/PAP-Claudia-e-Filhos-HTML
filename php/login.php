@@ -33,11 +33,11 @@ session_start();
 
             <form action="../includes/process_login.php" class="login-form" method="post">
                 <div class="form-control">
-                    <input type="text" name="username" placeholder="Username">
+                    <input type="text" name="username" placeholder="Username" required>
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="form-control">
-                    <input type="password" name="password" placeholder="Password">
+                    <input type="password" name="password" placeholder="Password" required>
                     <i class="fas fa-lock"></i>
                 </div>
                 <p class="welcome-message">Não tens conta? <a href="register.php">Regista-te!</a></p>

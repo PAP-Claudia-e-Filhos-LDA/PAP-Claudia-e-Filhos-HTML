@@ -33,7 +33,7 @@ session_start();
 
             <form action="../includes/process_register.php" class="login-form" method="post">
                 <div class="form-control">
-                    <input type="text" name="username" placeholder="Username">
+                    <input type="text" name="username" placeholder="Username" required>
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="form-control">
@@ -41,15 +41,15 @@ session_start();
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="form-control">
-                    <input type="text" name="phone_number" placeholder="Telemóvel">
+                    <input type="text" name="phone_number" placeholder="Telemóvel" required>
                     <i class="fas fa-phone"></i>
                 </div>
                 <div class="form-control">
-                    <input type="text" name="email" placeholder="Email (opcional)">
+                    <input type="text" name="email" placeholder="Email" required>
                     <i class="fas fa-envelope"></i>
                 </div>
                 <div class="form-control">
-                    <input type="password" name="password" placeholder="Password">
+                    <input type="password" name="password" placeholder="Password" required>
                     <i class="fas fa-lock"></i>
                 </div>
                 <p class="welcome-message">Tens conta? <a href="login.php">Login!</a></p>
