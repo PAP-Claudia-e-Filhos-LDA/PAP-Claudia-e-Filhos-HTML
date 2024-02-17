@@ -28,6 +28,7 @@
         <div class="contact-content-con">
           <div class="left-contact hidden">
             <?php
+            include("../includes/process_order.php");
             if (isset($_GET['details']) && isset($_GET['total'])) {
               // Obter detalhes do carrinho e total da URL
               $cartDetails = json_decode($_GET['details'], true);
@@ -64,23 +65,23 @@
       </div>
     ";
             } else {
-              echo "<div class='empty-cart'>Nenhum item no carrinho.</div>";
+              echo "<div class='empty-cart'></div>";
             }
             ?>
           </div>
           <div class="right-contact hidden">
-            <form action="" class="contact-form">
+            <form action="../includes/process_encomenda.php" method="post" class="contact-form" id="encomendaForm">
               <div class="input-control i-c-2">
-                <select id="escolha-cidade" name="cidade">
+                <select id="tipo-rissois" name="rissois">
                   <option value="" disabled selected>Tipo rissois</option>
-                  <option value="frito">Não tenho rissois</option>
+                  <option value="no">Não tenho rissois</option>
                   <option value="frito">Frito</option>
                   <option value="congelado">Congelado</option>
                 </select>
                 <select id="escolha-levantameto" name="levantameto">
                   <option value="" disabled selected>Levantamento</option>
-                  <option value="mao">Entrega domicilio</option>
-                  <option value="mbway">Pick up</option>
+                  <option value="domicilio">Entrega domicilio</option>
+                  <option value="pick">Pick up</option>
                 </select>
               </div>
               <div class="input-control">
@@ -91,11 +92,11 @@
                 </select>
               </div>
               <div class="input-control">
-                <textarea name="" id="" cols="15" rows="8" placeholder="O que te intriga?"></textarea>
+                <textarea name="mensagem" id="" cols="15" rows="8" placeholder="O que te intriga?"></textarea>
               </div>
               <div class="submit-btn">
-                <a href="#" class="main-btn">
-                  <span class="btn-text">Send</span>
+                <a href="#" class="main-btn" onclick="enviarEncomendaForm()">
+                  <span type="submit" class="btn-text">Send</span>
                 </a>
               </div>
             </form>
