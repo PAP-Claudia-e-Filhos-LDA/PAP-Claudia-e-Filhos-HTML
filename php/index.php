@@ -86,11 +86,11 @@ session_start();
   }
   ?>
   <div class="controls">
-    <a href="index.php">
-      <div class="control active-btn" data-id="home">
-        <i class="fas fa-home"></i>
-      </div>
-    </a>
+
+    <div class="control active-btn" data-id="home">
+      <i class="fas fa-home"></i>
+    </div>
+
     <a href="about.php">
       <div class="control" data-id="about">
         <i class="fas fa-book"></i>

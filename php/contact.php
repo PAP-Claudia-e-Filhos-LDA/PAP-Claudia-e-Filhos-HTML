@@ -112,11 +112,11 @@
         <i class="fas fa-lemon"></i>
       </div>
     </a>
-    <a href="contact.php">
-      <div class="control  active-btn" data-id="contact">
-        <i class="far fa-envelope-open"></i>
-      </div>
-    </a>
+
+    <div class="control  active-btn" data-id="contact">
+      <i class="far fa-envelope-open"></i>
+    </div>
+
     <a href="profile.php">
       <div class="control" data-id="home">
         <i class="fas fa-user"></i>

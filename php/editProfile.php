@@ -203,5 +203,19 @@ if (!isset($_SESSION["username"])) {
   <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
   <script src="../js/main.js"></script>
 </body>
+<script>
+  function handleImageSelection() {
+    var fileInput = document.getElementById('fileInput');
+    fileInput.addEventListener('change', function() {
+      if (fileInput.files.length > 0) {
+        enviarFormulario()
+
+      }
+    });
+  }
+
+
+  handleImageSelection();
+</script>
 
 </html>

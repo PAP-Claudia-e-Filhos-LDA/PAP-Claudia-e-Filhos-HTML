@@ -50,7 +50,9 @@
                         <input type='text' value='{$item['quantity']}' class='cart-quantity' id='quantity' disabled>
                     </div>
                 </div>
-               
+                <div class='cart-remove-box'>
+                <input type='checkbox' class='cart-checkbox' />
+          </div>
             </div><br>
             
             
@@ -73,13 +75,13 @@
             <form action="../includes/process_encomenda.php" method="post" class="contact-form" id="encomendaForm">
               <div class="input-control i-c-2">
                 <select id="tipo-rissois" name="rissois">
-                  <option value="" disabled selected>Tipo rissois</option>
+                  <option disabled selected>Tipo rissois</option>
                   <option value="no">Não tenho rissois</option>
                   <option value="frito">Frito</option>
                   <option value="congelado">Congelado</option>
                 </select>
                 <select id="escolha-levantameto" name="levantameto">
-                  <option value="" disabled selected>Levantamento</option>
+                  <option disabled selected>Levantamento</option>
                   <option value="domicilio">Entrega domicilio</option>
                   <option value="pick">Pick up</option>
                 </select>

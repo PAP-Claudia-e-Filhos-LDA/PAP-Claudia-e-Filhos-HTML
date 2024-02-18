@@ -107,11 +107,11 @@ if (!isset($_SESSION["username"])) {
         <i class="far fa-envelope-open"></i>
       </div>
     </a>
-    <a href="profile.php">
-      <div class="control active-btn" data-id="home">
-        <i class="fas fa-user"></i>
-      </div>
-    </a>
+
+    <div class="control active-btn" data-id="home">
+      <i class="fas fa-user"></i>
+    </div>
+
   </div>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>

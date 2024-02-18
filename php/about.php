@@ -51,7 +51,7 @@
             <div class="abt-text">
               <p class="large-text">10+</p>
               <p class="small-text">
-               Anos de <br />
+                Anos de <br />
                 experiência
               </p>
             </div>
@@ -80,9 +80,9 @@
       <div class="testimonals hidden">
         <div class="container-testimonal">
           <div class="stat-title testimonal-header">
-          <div class="main-title">
-        <h2>o que falam de <span>Nós</span><span class="bg-text"></span></h2>
-      </div>
+            <div class="main-title">
+              <h2>o que falam de <span>Nós</span><span class="bg-text"></span></h2>
+            </div>
           </div>
           <div class="testimonal-content">
             <div class="swiper testimonals-slider  js-testimonal-slider">
@@ -220,11 +220,11 @@
         <i class="fas fa-home"></i>
       </div>
     </a>
-    <a href="about.php">
-      <div class="control active-btn" data-id="about">
-        <i class="fas fa-book"></i>
-      </div>
-    </a>
+
+    <div class="control active-btn" data-id="about">
+      <i class="fas fa-book"></i>
+    </div>
+
     <a href="catalogo.php">
       <div class="control" data-id="catalogo">
         <i class="fas fa-lemon"></i>

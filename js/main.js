@@ -178,7 +178,8 @@ $(document).ready(function () {
 
       if (priceElement.length && quantityElement.length) {
         const priceText = priceElement.text().trim();
-        const price = parseFloat(priceText.replace("€", "").replace(",", ".")) || 0;
+        const price =
+          parseFloat(priceText.replace("€", "").replace(",", ".")) || 0;
         const quantity = parseInt(quantityElement.val(), 10) || 1;
 
         if (!isNaN(price) && !isNaN(quantity)) {
@@ -195,7 +196,11 @@ $(document).ready(function () {
 
     $(".cart-box:gt(0)").each(function () {
       const title = $(this).find(".cart-product-title").text();
-      const priceText = $(this).find(".cart-price").text().replace("€", "").replace(",", ".");
+      const priceText = $(this)
+        .find(".cart-price")
+        .text()
+        .replace("€", "")
+        .replace(",", ".");
       const quantity = parseInt($(this).find(".cart-quantity").val(), 10);
       const imgSrc = $(this).find(".cart-img").attr("src");
 
@@ -217,35 +222,21 @@ $(document).ready(function () {
       $(".total-price").text().replace("€", "").replace(",", ".")
     );
 
-//    console.log("Total: €" + total.toFixed(2));
+    window.location.href = "encomenda.php";
 
- //   cartDetails.forEach(function (product) {
-   //   console.log("Produto: " + product.title + ", Quantidade: " + product.quantity);
-    //});
-    window.location.href =
-    "encomenda.php?details=" +
-    encodeURIComponent(JSON.stringify(cartDetails)) +
-    "&total=" +
-    total.toFixed(2);
-    
     $.ajax({
       type: "POST",
-      url: "../includes/process_order.php", // Substitua isso pelo caminho real do seu arquivo PHP
+      url: "../includes/process_order.php",
       data: {
-          cartDetails: JSON.stringify(cartDetails),
-          total: total.toFixed(2),
+        cartDetails: JSON.stringify(cartDetails),
+        total: total.toFixed(2),
       },
       success: function (response) {
-          // Manipular a resposta do servidor, se necessário
-          console.log(response);
-       
+        console.log(response);
       },
       error: function (error) {
-          console.error("Erro ao enviar dados para o servidor:", error);
+        console.error("Erro ao enviar dados para o servidor:", error);
       },
-  });
+    });
   }
-
-  
 });
-
