@@ -119,5 +119,5 @@ session_start();
 
 
 </body>
-
+<script>localStorage.clear();</script>
 </html>
