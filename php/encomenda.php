@@ -26,39 +26,82 @@
           <h2> <span>Checkout</span><span class="bg-text">Checkout</span></h2>
         </div>
         <div class="contact-content-con">
-          <div class="left-contact hidden" id="cartItemsContainer">
-         
+          <div class="left-contact hidden">
+            <?php
+            if (isset($_GET['details']) && isset($_GET['total'])) {
+              // Obter detalhes do carrinho e total da URL
+              $cartDetails = json_decode($_GET['details'], true);
+
+              $total = $_GET['total'];
 
 
+
+
+              // Iterar sobre os itens do carrinho
+              foreach ($cartDetails as $item) {
+                // Estrutura HTML para cada item do carrinho
+                echo "
+            <div class='cart-item'>
+                <div class='cart-img-box'  class='fancybox' >
+                    <img src='{$item['imgSrc']}' alt='{$item['title']}' class='cart-img'>
+                </div>
+                <div class='detail-box'>
+                    <div class='cart-product-title'><h3>{$item['title']} {$item['price']}€</h3></div>
+
+                    <div class='cart-quantity-box'>
+                        <label for='quantity'>Quantidade:</label>
+                        <input type='text' value='{$item['quantity']}' class='cart-quantity' id='quantity' disabled>
+                    </div>
+                </div>
+               
+            </div><br>
+            
+            
+        ";
+              }
+
+              // Imprimir o total formatado
+              echo "
+    <div class='total'>
+        <div class='total-title'>Total</div>
+        <div >€{$total}</div>
+      </div>
+    ";
+            } else if (!empty($_GET['details']) && !empty($_GET['total']) && count(json_decode($_GET['details'])) > 0) {
+              // Não imprima a mensagem se houver itens no carrinho
+            } else {
+              echo "<div class='empty-cart'>Nenhum item no carrinho.</div>";
+            }
+            ?>
           </div>
           <div class="right-contact hidden">
-            <form action="../includes/process_encomenda.php" method="post" class="contact-form" id="encomendaForm">
+            <form action="" class="contact-form">
               <div class="input-control i-c-2">
-                <select required id="tipo-rissois" name="rissois">
-                  <option disabled selected>Tipo rissois</option>
-                  <option value="no">Não tenho rissois</option>
+                <select id="escolha-cidade" name="cidade">
+                  <option value="" disabled selected>Tipo rissois</option>
+                  <option value="frito">Não tenho rissois</option>
                   <option value="frito">Frito</option>
                   <option value="congelado">Congelado</option>
                 </select>
-                <select required id="escolha-levantameto" name="levantameto">
-                  <option disabled selected>Levantamento</option>
-                  <option value="domicilio">Entrega domicilio</option>
-                  <option value="pick">Pick up</option>
+                <select id="escolha-levantameto" name="levantameto">
+                  <option value="" disabled selected>Levantamento</option>
+                  <option value="mao">Entrega domicilio</option>
+                  <option value="mbway">Pick up</option>
                 </select>
               </div>
               <div class="input-control">
-                <select required id="escolha-pagamento" name="pagamento">
+                <select id="escolha-pagamento" name="pagamento">
                   <option value="" disabled selected>Metodo pagamento</option>
                   <option value="mao">Em mão</option>
                   <option value="mbway">Mb way</option>
                 </select>
               </div>
               <div class="input-control">
-                <textarea required name="mensagem" id="" cols="15" rows="8" placeholder="O que te intriga?"></textarea>
+                <textarea name="" id="" cols="15" rows="8" placeholder="O que te intriga?"></textarea>
               </div>
               <div class="submit-btn">
-                <a href="#" class="main-btn" onclick="enviarEncomendaForm()">
-                  <span type="submit" class="btn-text">Send</span>
+                <a href="#" class="main-btn">
+                  <span class="btn-text">Send</span>
                 </a>
               </div>
             </form>
@@ -101,47 +144,7 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="../js/app.js"></script>
   <script src="../js/main.js"></script>
-  <script>
-    // Lógica JavaScript para recuperar e exibir os itens do carrinho
-    document.addEventListener('DOMContentLoaded', function () {
-  // Recupera os itens do carrinho do Local Storage
-  const cartItems = localStorage.getItem("cartItems");
-  const parsedCartItems = cartItems ? JSON.parse(cartItems) : [];
 
-  // Container para exibir os itens do carrinho
-  const cartItemsContainer = document.getElementById("cartItemsContainer");
-
-  // Itera sobre os itens do carrinho e os exibe
-  parsedCartItems.forEach(function (item) {
-    const cartItemDiv = document.createElement("div");
-    cartItemDiv.className = 'cart-item';
-
-    // Estrutura HTML para cada item do carrinho
-    cartItemDiv.innerHTML = `
-      <div class='cart-img-box'>
-        <img src='${item['imgSrc']}' alt='${item['title']}' class='cart-img'>
-      </div>
-      <div class='detail-box'>
-        <div class='cart-product-title'><h3>${item['title']} ${item['price']}€</h3></div>
-        <div class='cart-quantity-box'>
-          <label for='quantity'>Quantidade:</label>
-          <input type='text' value='${item['quantity']}' class='cart-quantity' id='quantity' disabled>
-        </div>
-      </div>
-      <div class='cart-remove-box'>
-        <input type='checkbox' class='cart-checkbox' />
-      </div>
-    `;
-
-    cartItemsContainer.appendChild(cartItemDiv);
-  });
-});
-    // Seu restante do código JavaScript
-  </script>
-  <script>
-    // Remove os parâmetros da URL após o carregamento da página
-    history.replaceState({}, document.title, window.location.pathname);
-  </script>
 </body>
 
 </html>

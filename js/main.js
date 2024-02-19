@@ -81,7 +81,6 @@ $(document).ready(function () {
     $(".cart-remove").on("click", removeCartItem);
     $(".cart-quantity").on("change", quantityChange);
     $(".add-cart").on("click", addCartClicked);
-
   }
 
   function restoreCartFromLocalStorage() {
@@ -89,28 +88,31 @@ $(document).ready(function () {
 
     if (storedCartItems) {
       const cartItems = JSON.parse(storedCartItems);
-        // Limpar o carrinho atual
-        $(".cart-content").empty();
+      // Limpar o carrinho atual
+      $(".cart-content").empty();
 
-        // Adicionar itens do localStorage ao carrinho
-        cartItems.forEach(function (item) {
-            addProductToCart(item.title, item.price, item.imgSrc, item.quantity);
-        });
+      // Adicionar itens do localStorage ao carrinho
+      cartItems.forEach(function (item) {
+        addProductToCart(item.title, item.price, item.imgSrc, item.quantity);
+      });
 
-        // Atualizar total e distintivos do carrinho
-        updateTotal();
-        updateCartBadge();
+      // Atualizar total e distintivos do carrinho
+      updateTotal();
+      updateCartBadge();
+    } else {
+      // Se não houver itens, exibir a mensagem
+      $(".empty-cart").show();
     }
-}
+  }
 
-function removeCartItem(event) {
-  const buttonClicked = event.target;
-  const cartBox = $(buttonClicked).closest(".cart-box");
+  function removeCartItem(event) {
+    const buttonClicked = event.target;
+    const cartBox = $(buttonClicked).closest(".cart-box");
 
-  const title = cartBox.find(".cart-product-title").text();
-  cartBox.addClass("slide-out");
+    const title = cartBox.find(".cart-product-title").text();
+    cartBox.addClass("slide-out");
 
-  cartBox.on("animationend", function () {
+    cartBox.on("animationend", function () {
       cartBox.remove();
       updateTotal();
       updateCartBadge();
@@ -118,9 +120,8 @@ function removeCartItem(event) {
 
       // Atualize o localStorage após a remoção
       saveCartToLocalStorage();
-  });
-}
-
+    });
+  }
 
   function quantityChange(event) {
     const input = event.target;
@@ -135,56 +136,62 @@ function removeCartItem(event) {
     const shopProducts = $(button).closest(".catalogo");
     const title = shopProducts.find(".catalogo-text h4").text();
 
-    const existingCartItem = $(".cart-box .cart-product-title:contains('" + title + "')");
+    const existingCartItem = $(
+      ".cart-box .cart-product-title:contains('" + title + "')"
+    );
     if (existingCartItem.length > 0) {
-        const quantityInput = existingCartItem.closest(".cart-box").find(".cart-quantity");
-        const currentQuantity = parseInt(quantityInput.val(), 10) || 1;
-        quantityInput.val(currentQuantity + 1);
+      const quantityInput = existingCartItem
+        .closest(".cart-box")
+        .find(".cart-quantity");
+      const currentQuantity = parseInt(quantityInput.val(), 10) || 1;
+      quantityInput.val(currentQuantity + 1);
     } else {
-        const priceText = shopProducts.find(".catalogo-text h3").text();
-        const price = parseFloat(priceText.replace("€", "").replace(",", ".")) || 0;
-        const productImg = shopProducts.find("img").attr("src");
+      const priceText = shopProducts.find(".catalogo-text h3").text();
+      const price =
+        parseFloat(priceText.replace("€", "").replace(",", ".")) || 0;
+      const productImg = shopProducts.find("img").attr("src");
 
-        addProductToCart(title, price, productImg, 1);
-        cartProductTitles.add(title);
+      addProductToCart(title, price, productImg, 1);
+      cartProductTitles.add(title);
     }
 
     cart.addClass("active");
     updateTotal();
     updateCartBadge();
     saveCartToLocalStorage();
-}
+  }
 
+  function saveCartToLocalStorage() {
+    const cartItems = [];
 
-
-function saveCartToLocalStorage() {
-  const cartItems = [];
-
-  $(".cart-box").each(function () {
+    $(".cart-box").each(function () {
       const title = $(this).find(".cart-product-title h3").text();
-      const priceText = $(this).find(".cart-price p").text().replace("€", "").replace(",", ".");
+      const priceText = $(this)
+        .find(".cart-price p")
+        .text()
+        .replace("€", "")
+        .replace(",", ".");
       const quantity = parseInt($(this).find(".cart-quantity").val(), 10);
       const imgSrc = $(this).find(".cart-img").attr("src");
 
       if (
-          !isNaN(parseFloat(priceText)) &&
-          !isNaN(quantity) &&
-          title.trim() !== ""
+        !isNaN(parseFloat(priceText)) &&
+        !isNaN(quantity) &&
+        title.trim() !== ""
       ) {
-          if (quantity > 0) {
-              cartItems.push({
-                  title: title,
-                  price: parseFloat(priceText),
-                  quantity: quantity,
-                  imgSrc: imgSrc,
-              });
-          }
+        if (quantity > 0) {
+          cartItems.push({
+            title: title,
+            price: parseFloat(priceText),
+            quantity: quantity,
+            imgSrc: imgSrc,
+          });
+        }
       }
-  });
+    });
 
-  localStorage.setItem("cartItems", JSON.stringify(cartItems));
-}
-
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+  }
 
   function updateCartBadge() {
     const cartItems = $(".cart-box").filter(":has(*)");
@@ -199,22 +206,22 @@ function saveCartToLocalStorage() {
     const cartShopBox = $("<div>").addClass("cart-box slide-in");
 
     const cartBoxContent = `
-        <div class="cart-item">
-            <div class="cart-img-box">
-                <img src="${productImg}" alt="" class="cart-img">
-            </div>
-            <div class="detail-box">
-                <div class="cart-product-title"><h3>${title}</h3></div>
-                <div class="cart-price"><p>${price}€</p></div>
-                <div class="cart-quantity-box">
-                    <label for="quantity">Quantidade:</label>
-                    <input type="text" value="${quantity}" class="cart-quantity" id="quantity">
-                </div>
-            </div>
-            <div class="cart-remove-box">
-                <i class="fas fa-trash-alt cart-remove"></i>
-            </div>
-        </div>
+      <div class="cart-item">
+          <div class="cart-img-box">
+              <img src="${productImg}" alt="" class="cart-img">
+          </div>
+          <div class="detail-box">
+              <div class="cart-product-title"><h3>${title}</h3></div>
+              <div class="cart-price"><p>${price}€</p></div>
+              <div class="cart-quantity-box">
+                  <label for="quantity">Quantidade:</label>
+                  <input type="text" value="${quantity}" class="cart-quantity" id="quantity">
+              </div>
+          </div>
+          <div class="cart-remove-box">
+              <i class="fas fa-trash-alt cart-remove"></i>
+          </div>
+      </div>
     `;
 
     cartShopBox.html(cartBoxContent);
@@ -227,8 +234,7 @@ function saveCartToLocalStorage() {
     updateTotal();
     updateCartBadge();
     saveCartToLocalStorage();
-}
-
+  }
 
   function updateTotal() {
     let total = 0;
@@ -239,7 +245,8 @@ function saveCartToLocalStorage() {
 
       if (priceElement.length && quantityElement.length) {
         const priceText = priceElement.text().trim();
-        const price = parseFloat(priceText.replace("€", "").replace(",", ".")) || 0;
+        const price =
+          parseFloat(priceText.replace("€", "").replace(",", ".")) || 0;
         const quantity = parseInt(quantityElement.val(), 10) || 1;
 
         if (!isNaN(price) && !isNaN(quantity)) {
@@ -254,34 +261,42 @@ function saveCartToLocalStorage() {
   function orderNow() {
     const cartDetails = [];
 
-    $(".cart-box:gt(0)").each(function () {
-        const title = $(this).find(".cart-product-title").text();
-        const priceText = $(this).find(".cart-price").text().replace("€", "").replace(",", ".");
-        const quantity = parseInt($(this).find(".cart-quantity").val(), 10);
-        const imgSrc = $(this).find(".cart-img").attr("src");
+    $(".cart-box").each(function () {
+      const title = $(this).find(".cart-product-title").text();
+      const priceText = $(this)
+        .find(".cart-price")
+        .text()
+        .replace("€", "")
+        .replace(",", ".");
+      const quantity = parseInt($(this).find(".cart-quantity").val(), 10);
+      const imgSrc = $(this).find(".cart-img").attr("src");
 
-        if (
-          !isNaN(parseFloat(priceText)) &&
-          !isNaN(quantity) &&
-          title.trim() !== ""
+      if (
+        !isNaN(parseFloat(priceText)) &&
+        !isNaN(quantity) &&
+        title.trim() !== ""
       ) {
-          cartDetails.push({
-              title: title,
-              price: parseFloat(priceText),
-              quantity: quantity,
-              imgSrc: imgSrc,
-          });
+        cartDetails.push({
+          title: title,
+          price: parseFloat(priceText),
+          quantity: quantity,
+          imgSrc: imgSrc,
+        });
       }
-  });
+    });
 
-  const total = parseFloat($(".total-price").text().replace("€", "").replace(",", "."));
+    // Calcular o total novamente no JavaScript
+    const total = cartDetails.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
+    );
 
-  // Redirecione para encomenda.php sem adicionar parâmetros à URL
-  window.location.href = "encomenda.php";
+    console.log("Total: €" + total.toFixed(2));
 
-  
-}
-
-  
+    window.location.href =
+      "encomenda.php?details=" +
+      encodeURIComponent(JSON.stringify(cartDetails)) +
+      "&total=" +
+      total.toFixed(2);
+  }
 });
-
