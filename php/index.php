@@ -1,7 +1,8 @@
 <?php
 session_start();
-?>
 
+
+?>
 
 
 <!DOCTYPE html>
@@ -119,5 +120,5 @@ session_start();
 
 
 </body>
-<script>localStorage.clear();</script>
+
 </html>

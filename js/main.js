@@ -19,8 +19,25 @@ function enviarFormulario() {
 
 function enviarEncomendaForm() {
   var formulario = document.getElementById("encomendaForm");
-  if (formulario) {
+  if (formulario.checkValidity()) {
     formulario.submit();
+  } else {
+    toastr.warning("Preencha todos os campos do checkup", "Atenção", {
+      closeButton: false,
+      progressBar: true,
+      positionClass: "toast-top-right",
+      timeOut: 3000,
+      extendedTimeOut: 1000,
+      preventDuplicates: false,
+      newestOnTop: false,
+      showDuration: 300,
+      hideDuration: 300,
+      showEasing: "swing",
+      hideEasing: "linear",
+      showMethod: "slideDown",
+      hideMethod: "slideUp",
+      toastClass: "custom-toast-class",
+    });
   }
 }
 
@@ -298,5 +315,21 @@ $(document).ready(function () {
       encodeURIComponent(JSON.stringify(cartDetails)) +
       "&total=" +
       total.toFixed(2);
+
+    $.ajax({
+      type: "POST",
+      url: "../includes/process_order.php",
+      contentType: "application/json",
+      data: JSON.stringify({
+        cartDetails: cartDetails,
+        total: total.toFixed(2),
+      }),
+      success: function (response) {
+        console.log(response);
+      },
+      error: function (error) {
+        console.error("Erro ao enviar dados para o servidor:", error);
+      },
+    });
   }
 });

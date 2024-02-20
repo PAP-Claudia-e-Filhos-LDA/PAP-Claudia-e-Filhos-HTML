@@ -1,16 +1,17 @@
 <?php
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['details']) && isset($_GET['total'])) {
-    $cartDetails = json_decode($_GET['details'], true);
-    $total = $_GET['total'];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $postData = file_get_contents("php://input");
+    $postData = json_decode($postData, true);
+
+    $cartDetails = isset($postData['cartDetails']) ? $postData['cartDetails'] : [];
+    $total = isset($postData['total']) ? $postData['total'] : 0;
 
     // Armazene as variáveis em uma sessão
     $_SESSION['cartDetails'] = $cartDetails;
     $_SESSION['total'] = $total;
-
 } else {
-    echo "Nenhum produto no carrinho";
+    echo "Nenhuma solicitação POST recebida";
     http_response_code(400);
 }
-?>

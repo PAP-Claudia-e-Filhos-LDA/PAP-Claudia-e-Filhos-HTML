@@ -1,31 +1,27 @@
 <?php
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $tipoRissois = $_POST['rissois'];
-    $levantamento = $_POST['levantameto'];
-    $metodoPagamento = $_POST['pagamento'];
-    $mensagem = isset($_POST['mensagem']) ? $_POST['mensagem'] : "";
+// Recupere os dados do carrinho
+$cartDetails = isset($_SESSION['cartDetails']) ? $_SESSION['cartDetails'] : [];
 
-    // Agora você pode usar as variáveis acima conforme necessário.
-    // ...
+// Obtenha os dados do corpo da requisição
+$postData = file_get_contents("php://input");
+$postData = json_decode($postData, true);
 
-    // Recupere as variáveis da sessão
-    $cartDetails = isset($_SESSION['cartDetails']) ? $_SESSION['cartDetails'] : [];
-  
+$tipoRissois = $postData['rissois'];
+$levantamento = $postData['levantamento'];
+$metodoPagamento = $postData['pagamento'];
+$mensagem = isset($postData['mensagem']) ? $postData['mensagem'] : "";
 
-    echo "Tipo de Rissois: $tipoRissois<br>";
-    echo "Levantamento: $levantamento<br>";
-    echo "Método de Pagamento: $metodoPagamento<br>";
-    echo "Mensagem: $mensagem<br>";
-    
-    foreach ($cartDetails as $item) {
-        echo "Produto: " . $item['title'] . ", Quantidade: " . $item['quantity'] . "<br>";
-    }
+echo "Tipo de Rissois: $tipoRissois<br>";
+echo "Levantamento: $levantamento<br>";
+echo "Método de Pagamento: $metodoPagamento<br>";
+echo "Mensagem: $mensagem<br>";
 
-    // Lembre-se de validar e processar os dados conforme necessário.
 
-} else {
-    header("location: ../php/encomenda.php?error=op");
+
+foreach ($cartDetails as $item) {
+    echo "Produto: " . $item['title'] . ", Quantidade: " . $item['quantity'] . "<br>";
 }
-?>
+
+// Lembre-se de validar e processar os dados conforme necessário.

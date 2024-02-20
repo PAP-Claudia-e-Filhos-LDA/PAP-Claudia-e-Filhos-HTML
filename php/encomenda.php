@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -75,33 +76,33 @@
             ?>
           </div>
           <div class="right-contact hidden">
-            <form action="" class="contact-form">
+            <form action="../includes/process_encomenda.php" method="post" class="contact-form" id="encomendaForm">
               <div class="input-control i-c-2">
-                <select id="escolha-cidade" name="cidade">
+                <select required id="tipo-rissois" name="rissois">
                   <option value="" disabled selected>Tipo rissois</option>
-                  <option value="frito">Não tenho rissois</option>
+                  <option value="no">Não tenho rissois</option>
                   <option value="frito">Frito</option>
                   <option value="congelado">Congelado</option>
                 </select>
-                <select id="escolha-levantameto" name="levantameto">
+                <select required id="escolha-levantameto" name="levantameto">
                   <option value="" disabled selected>Levantamento</option>
-                  <option value="mao">Entrega domicilio</option>
-                  <option value="mbway">Pick up</option>
+                  <option value="domicilio">Entrega domicilio</option>
+                  <option value="pick">Pick up</option>
                 </select>
               </div>
               <div class="input-control">
-                <select id="escolha-pagamento" name="pagamento">
+                <select required id="escolha-pagamento" name="pagamento">
                   <option value="" disabled selected>Metodo pagamento</option>
                   <option value="mao">Em mão</option>
                   <option value="mbway">Mb way</option>
                 </select>
               </div>
               <div class="input-control">
-                <textarea name="" id="" cols="15" rows="8" placeholder="O que te intriga?"></textarea>
+                <textarea name="mensagem" id="" cols="15" rows="8" placeholder="O que te intriga?"></textarea>
               </div>
               <div class="submit-btn">
-                <a href="#" class="main-btn">
-                  <span class="btn-text">Send</span>
+                <a href="#" class="main-btn" onclick="enviarEncomendaForm()">
+                  <span type="submit" class="btn-text">Send</span>
                 </a>
               </div>
             </form>
@@ -115,33 +116,18 @@
   </main>
 
   <div class="controls">
-    <a href="index.php">
-      <div class="control" data-id="home">
-        <i class="fas fa-home"></i>
-      </div>
-    </a>
-    <a href="about.php">
-      <div class="control" data-id="about">
-        <i class="fas fa-book"></i>
-      </div>
-    </a>
     <a href="catalogo.php">
-      <div class="control" data-id="catalogo">
-        <i class="fas fa-lemon"></i>
+      <div class="control">
+        <i class="fas fa-arrow-left"></i>
+
       </div>
     </a>
-    <a href="contact.php">
-      <div class="control" data-id="contact">
-        <i class="far fa-envelope-open"></i>
-      </div>
-    </a>
-    <a href="profile.php">
-      <div class="control" data-id="home">
-        <i class="fas fa-user"></i>
-      </div>
-    </a>
+
+
+
   </div>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
   <script src="../js/app.js"></script>
   <script src="../js/main.js"></script>
 
