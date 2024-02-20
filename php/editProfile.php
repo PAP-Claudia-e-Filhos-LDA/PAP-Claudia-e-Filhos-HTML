@@ -52,11 +52,13 @@ if (!isset($_SESSION["username"])) {
             <div class="left-profile">
               <div class="profileImage-container">
                 <input type="file" name="profile_image" id="fileInput" class="hidden-input" accept="image/*" />
-                <label for="fileInput" class="profileImage-container">
+                <label for="fileInput" class="profileImage-label">
                   <img src="<?php echo $imagem_perfil; ?>" alt="Profile Image">
+                  <span class="change-badge"><i class="fas fa-plus"></i></span> <!-- Ícone de mais da Font Awesome -->
                 </label>
               </div>
             </div>
+
             <div class="right-contact hidden">
 
               <div class="input-control">
