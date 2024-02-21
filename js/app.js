@@ -6,7 +6,7 @@ const swiper = new Swiper(".js-testimonal-slider", {
     clickable: true,
   },
   autoplay: {
-    delay: 3000,
+    delay: 10000,
     disableOnInteraction: false,
   },
   loop: true, // Adiciona um loop infinito

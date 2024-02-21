@@ -19,20 +19,19 @@
     <section class="container contact active" id="contact">
       <div class="contact-container">
         <div class="main-title">
-          <h2>Contact <span>Us</span><span class="bg-text">Contact</span></h2>
+          <h2>contacta<span>-nos</span><span class="bg-text">Contacto</span></h2>
         </div>
         <div class="contact-content-con">
           <div class="left-contact hidden">
-            <h4>Contact Us here</h4>
+            <h4>Entra em contacto</h4>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. In,
-              laborum numquam? Quam excepturi perspiciatis quas quasi.
+              Aqui é o lugar ideal para nos contactares caso algo tenha corrido mal ou se precisares de ajuda com alguma coisa !
             </p>
             <div class="contact-info">
               <div class="contact-item">
                 <div class="icon">
                   <i class="fas fa-map-marker-alt"></i>
-                  <span>Location</span>
+                  <span>Localização</span>
                 </div>
                 <p>: Portugal, Leiria</p>
               </div>
@@ -48,7 +47,7 @@
               <div class="contact-item">
                 <div class="icon">
                   <i class="fas fa-phone"></i>
-                  <span>Mobile Number</span>
+                  <span>Número de Telemovel</span>
                 </div>
                 <p>
                   <span>: 912 345 678</span>
@@ -75,14 +74,14 @@
           <div class="right-contact hidden">
             <form action="" class="contact-form">
               <div class="input-control i-c-2">
-                <input type="text" required placeholder="YOUR NAME" />
-                <input type="email" required placeholder="YOUR EMAIL" />
+                <input type="text" required placeholder="Nome" />
+                <input type="email" required placeholder="Email" />
               </div>
               <div class="input-control">
-                <input type="text" required placeholder="ENTER SUBJECT" />
+                <input type="text" required placeholder="Assunto" />
               </div>
               <div class="input-control">
-                <textarea name="" id="" cols="15" rows="8" placeholder="Message Here..."></textarea>
+                <textarea name="" id="" cols="15" rows="8" placeholder="A tua mensagem..."></textarea>
               </div>
               <div class="submit-btn">
                 <a href="#" class="main-btn">

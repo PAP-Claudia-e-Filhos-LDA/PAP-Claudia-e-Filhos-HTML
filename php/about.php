@@ -92,10 +92,10 @@
                     <img src="../img/testimonals/eric.jpeg" alt="">
                     <div class="text-box">
                       <h3 class="name">Eric Fragona</h3>
-                      <span class="job">trabalhador</span>
+                      <span class="job">trabalhador/Estudante</span>
                     </div>
                   </div>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, similique reprehenderit asperiores quas vel accusantium maxime debitis eius eum repudiandae consequuntur temporibus? Nam corrupti odit quibusdam nostrum reiciendis fugiat nihil. </p>
+                  <p>"Tive uma experiência incrível com o atendimento da empresa. A equipa demonstrou um compromisso genuíno com a satisfação do cliente, fazendo-me sentir valorizado. A comida também foi uma agradável surpresa, superando todas as minhas expectativas. Recomendo vivamente!"</p>
                   <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -109,7 +109,7 @@
                     <img src="../img/testimonals/reis.jpeg" alt="">
                     <div class="text-box">
                       <h3 class="name">João Reis</h3>
-                      <span class="job">Comprador</span>
+                      <span class="job">Estudante</span>
                     </div>
                   </div>
                   <p>"Gostei bastante do rissol de camrão porem não recomendo a ninguem, quando comi queimei me e fui para o hospital, mas do resto tudo muito bom !"</p>
@@ -125,16 +125,15 @@
                     <img src="../img/testimonals/tiagoN.jpeg" alt="">
                     <div class="text-box">
                       <h3 class="name">Tiago Nazário</h3>
-                      <span class="job">trabalhador</span>
+                      <span class="job">trabalhador/Estudante</span>
                     </div>
                   </div>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae ad a repellat eos, velit rem sapiente magnam, repudiandae culpa blanditiis. Eveniet corporis, adipisci eius fugiat natus dolore ea in!</p>
+                  <p>"Embora tenha tido uma experiência geral positiva, acho que há margem para melhorias. O atendimento foi bom, mas poderia ser mais eficiente em alguns aspectos. A qualidade da comida estava acima da média, mas algumas opções no menu poderiam ser mais diversificadas"</p>
                   <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
+
                   </div>
                 </div>
                 <div class="swiper-slide testimonals-item">
@@ -142,10 +141,10 @@
                     <img src="../img/testimonals/pedro.jpeg" alt="">
                     <div class="text-box">
                       <h3 class="name">Pedro Azevedo</h3>
-                      <span class="job">trabalhador</span>
+                      <span class="job">Estudante</span>
                     </div>
                   </div>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae ad a repellat eos, velit rem sapiente magnam, repudiandae culpa blanditiis. Eveniet corporis, adipisci eius fugiat natus dolore ea in!</p>
+                  <p>"O atendimento foi excepcional, refletindo o comprometimento genuíno da equipa com a satisfação do cliente. A comida surpreendeu com sabores incríveis, superando todas as expectativas. Recomendo vivamente, uma experiência que vale cada estrela"</p>
                   <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -159,10 +158,10 @@
                     <img src="../img/testimonals/tiagoS.jpeg" alt="">
                     <div class="text-box">
                       <h3 class="name">Tiago Figueredo</h3>
-                      <span class="job">trabalhador</span>
+                      <span class="job">Estudante</span>
                     </div>
                   </div>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae ad a repellat eos, velit rem sapiente magnam, repudiandae culpa blanditiis. Eveniet corporis, adipisci eius fugiat natus dolore ea in!</p>
+                  <p>"Os rissóis são simplesmente fenomenais! A crocância da casca faz uma combinação perfeita com os recheios que são de deixar água na boca. É como uma explosão de sabores em cada mordida. Fiquei realmente impressionado!"</p>
                   <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -176,10 +175,10 @@
                     <img src="../img/testimonals/tyzh.jpeg" alt="">
                     <div class="text-box">
                       <h3 class="name">Tyzh</h3>
-                      <span class="job">trabalhador</span>
+                      <span class="job">Estudante</span>
                     </div>
                   </div>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis vitae ad a repellat eos, velit rem sapiente magnam, repudiandae culpa blanditiis. Eveniet corporis, adipisci eius fugiat natus dolore ea in!</p>
+                  <p>"As sobremesas são um verdadeiro deleite. Cada pedaço é uma tentação irresistível, com texturas que se complementam e sabores que conquistam o coração. Não consigo escolher minha favorita, todas são simplesmente divinas. Uma experiência gastronómica que definitivamente vale a pena experimentar de novo!"</p>
                   <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -193,7 +192,7 @@
                     <img src="../img/testimonals/luis.jpeg" alt="">
                     <div class="text-box">
                       <h3 class="name">Luis Inacio</h3>
-                      <span class="job">trabalhador</span>
+                      <span class="job">Estudante</span>
                     </div>
                   </div>
                   <p>Para começar, gostei bastante do atendimento. Nota-se que são pessoas que se importam com o atendimento aos clientes. Comida também bastante boa. Todas as expectativas que possam ter vão ser certamente superadas!</p>
