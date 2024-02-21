@@ -107,6 +107,7 @@ session_start();
     }
     ?>
 
+
     <div class="controls">
         <a href="index.php">
             <div class="control" data-id="home">

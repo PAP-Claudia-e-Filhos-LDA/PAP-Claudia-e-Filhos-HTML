@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit();
   }
 
-  if (userExists($db, $username, $phoneNumber) !== false) {
+  if (userExists($db, $username, $phoneNumber,$email) !== false) {
     header("location: ../php/register.php?error=userexists");
     exit();
   }

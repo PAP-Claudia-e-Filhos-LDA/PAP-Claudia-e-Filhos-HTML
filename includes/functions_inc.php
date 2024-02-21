@@ -29,9 +29,9 @@ function invalidPhone($phoneNumber)
     return !preg_match("/^[0-9]{9}$/", $phoneNumber);
 }
 
-function userExists($db, $username, $phoneNumber)
+function userExists($db, $username, $phoneNumber,$email)
 {
-    $sql = "SELECT * FROM Clientes WHERE username = :username OR contacto = :phoneNumber";
+    $sql = "SELECT * FROM Clientes WHERE username = :username OR contacto = :phoneNumber OR email = :email";
     $stmt = $db->prepare($sql);
 
     if (!$stmt) {
@@ -41,7 +41,7 @@ function userExists($db, $username, $phoneNumber)
 
     $stmt->bindParam(':username', $username, SQLITE3_TEXT);
     $stmt->bindParam(':phoneNumber', $phoneNumber, SQLITE3_TEXT);
-    $stmt->bindParam(':phoneNumber', $phoneNumber, SQLITE3_TEXT);
+    $stmt->bindParam(':email', $email, SQLITE3_TEXT);
 
     $result = $stmt->execute();
 
@@ -89,7 +89,7 @@ function createUser($db, $username, $nome, $email, $phoneNumber, $password)
     $stmt->close();
 
     // Após o fechamento da declaração, você pode redirecionar
-    header("location: ../php/register.php?error=none");
+    header("location: ../php/login.php?error=none");
     exit();
 }
 

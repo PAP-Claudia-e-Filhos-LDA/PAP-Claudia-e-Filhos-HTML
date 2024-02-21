@@ -70,9 +70,9 @@ if (!isset($_SESSION["username"])) {
           }
             ?>
 
-            <ul class="content__list">
-              <li><span>0</span>Encomendas</li>
-            </ul>
+<ul class="content__list">
+    <li><span><?php echo $numEncomendas; ?></span>Encomendas</li>
+</ul>
             <div class="content__description">
               <a href="historico.php">Ver suas encomendas</a>
             </div>
