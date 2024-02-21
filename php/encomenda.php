@@ -118,7 +118,7 @@
   <div class="controls">
     <a href="catalogo.php">
       <div class="control">
-        <i class="fas fa-arrow-left"></i>
+        <i class="fas fa-times"></i>
 
       </div>
     </a>

@@ -207,18 +207,21 @@ function userExistsProfile($db, $id_clientes, $username, $phoneNumber, $email)
     if (empty($email)) {
         return false;
     }
-    $sql = "SELECT * FROM Clientes WHERE (username = :username OR contacto = :phoneNumber OR email = :email) AND id_clientes != :id_clientes";
+
+    $sql = "SELECT * FROM Clientes WHERE (username = :username AND id_clientes != :id_clientes)
+            OR (contacto = :phoneNumber AND id_clientes != :id_clientes)
+            OR (email = :email AND id_clientes != :id_clientes)";
     $stmt = $db->prepare($sql);
 
     if (!$stmt) {
-        $errorMessage = $db->lastErrorMsg();  // Obter mensagem de erro específica do SQLite
+        $errorMessage = $db->lastErrorMsg();
         header("location: ../php/editProfile.php?error=stmtfailed&message=" . urlencode($errorMessage));
         exit();
     }
 
     $stmt->bindParam(':username', $username, SQLITE3_TEXT);
     $stmt->bindParam(':phoneNumber', $phoneNumber, SQLITE3_TEXT);
-    $stmt->bindParam(':email', $email, SQLITE3_TEXT);  // Use SQLITE3_TEXT para o email
+    $stmt->bindParam(':email', $email, SQLITE3_TEXT);
     $stmt->bindParam(':id_clientes', $id_clientes, SQLITE3_INTEGER);
     $result = $stmt->execute();
 
@@ -227,13 +230,14 @@ function userExistsProfile($db, $id_clientes, $username, $phoneNumber, $email)
     $stmt->close();
 
     if ($row) {
-        // Usuário com o mesmo username, phoneNumber ou email já existe, mas não é o próprio usuário
+        // Usuário com o mesmo username, phoneNumber e email já existe, mas não é o próprio usuário
         return $row;
     } else {
         // Nenhum conflito, pode atualizar o perfil
         return false;
     }
 }
+
 // Função para atualizar apenas a imagem na base de dados
 function updateImage($db, $id_clientes, $imagem_perfil_caminho)
 {
