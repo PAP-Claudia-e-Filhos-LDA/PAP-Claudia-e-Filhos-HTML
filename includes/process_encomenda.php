@@ -4,9 +4,8 @@ session_start();
 // Recupere os dados do carrinho
 $cartDetails = isset($_SESSION['cartDetails']) ? $_SESSION['cartDetails'] : [];
 
-// Obtenha os dados do corpo da requisição
-$postData = file_get_contents("php://input");
-$postData = json_decode($postData, true);
+require_once 'conn.php';
+require_once 'functions_inc.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tipoRissois = $_POST['rissois'];
@@ -14,16 +13,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $metodoPagamento = $_POST['pagamento'];
     $mensagem = isset($_POST['mensagem']) ? $_POST['mensagem'] : "";
 
-    echo "Tipo de Rissois: $tipoRissois<br>";
-    echo "Levantamento: $levantamento<br>";
-    echo "Método de Pagamento: $metodoPagamento<br>";
-    echo "Mensagem: $mensagem<br>";
+    echo " $tipoRissois<br>";
+    echo " $levantamento<br>";
+    echo " $metodoPagamento<br>";
+    echo " $mensagem<br>";
 
-
-
-
-    foreach ($cartDetails as $item) {
-        echo "" . $item['title'] . "," . $item['quantity'] . "<br>";
+    $encomendaId = createOrder($db, $_SESSION["userid"], $metodoPagamento, $levantamento, $mensagem);
+    if ($encomendaId !== false && $encomendaId !== null && $encomendaId !== 0) {
+        createOrderLine($db, $encomendaId, $tipoRissois, $cartDetails);
+    } else {
+        echo "Erro na criação da encomenda.";
     }
 } else {
     header("location: ../php/index.php");

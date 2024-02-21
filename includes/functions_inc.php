@@ -292,3 +292,180 @@ function updateUser($db, $id_clientes, $username, $nome, $email, $phoneNumber)
     header("location: ../php/editProfile.php?error=none");
     exit();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function createOrder($db, $id_clientes, $metodo_pagamento, $metodo_entrega, $mensagem)
+{
+    $data_encomenda = date('Y-m-d'); // Obtém a data e hora atual
+
+    // Mapear os valores de $metodo_pagamento e $metodo_entrega para 0 ou 1
+    $metodo_pagamento = ($metodo_pagamento == 'mbway') ? 1 : 0;
+    $metodo_entrega = ($metodo_entrega == 'domicilio') ? 1 : 0;
+
+    // Utilizando placeholders "?" para os valores na consulta SQL
+    $sql = "INSERT INTO Encomendas (id_clientes, data_encomenda, metedo_pagamento, metedo_entrega, mensagem) VALUES (?, ?, ?, ?, ?)";
+    $stmt = $db->prepare($sql);
+
+    if (!$stmt) {
+        // Tratar erro na preparação da declaração
+        die("Erro na preparação da declaração: " . $db->lastErrorMsg());
+    }
+
+    // Bind dos parâmetros usando variáveis
+    $stmt->bindParam(1, $id_clientes, SQLITE3_INTEGER);
+    $stmt->bindParam(2, $data_encomenda, SQLITE3_TEXT);
+    $stmt->bindParam(3, $metodo_pagamento, SQLITE3_INTEGER);
+    $stmt->bindParam(4, $metodo_entrega, SQLITE3_INTEGER);
+    $stmt->bindParam(5, $mensagem, SQLITE3_TEXT);
+
+    $result = $stmt->execute();
+
+    if (!$result) {
+        // Tratar erro na execução da declaração
+        die("Erro na execução da declaração: " . $db->lastErrorMsg());
+    }
+
+    // Obter o ID da última inserção
+    $lastId = $db->lastInsertRowID();
+
+    $stmt->close();
+
+    // Retornar o ID da encomenda recém-criada
+    return $lastId;
+}
+
+
+
+function getProductIdByName($db, $nomeProduto)
+{
+    // Remova espaços em branco extras
+    $nomeProduto = trim($nomeProduto);
+
+    // Consultar o ID do produto com base no nome
+    $sql = "SELECT id_produto FROM Produtos WHERE nome_produto = ?";
+    $stmt = $db->prepare($sql);
+
+    if (!$stmt) {
+        die("Erro na preparação da declaração: " . $db->lastErrorMsg());
+    }
+
+    // Bind do parâmetro usando variável
+    $stmt->bindParam(1, $nomeProduto, SQLITE3_TEXT);
+
+    $result = $stmt->execute();
+
+    if (!$result) {
+        die("Erro na execução da declaração: " . $db->lastErrorMsg());
+    }
+
+    // Obter o ID do produto
+    $row = $result->fetchArray(SQLITE3_ASSOC);
+
+    if ($row === false) {
+        echo "Produto não encontrado para o nome: $nomeProduto<br>";
+        $stmt->close();
+        return null;
+    }
+
+    $idProduto = $row['id_produto'];
+
+    // Adicione alguns echo para debug
+    echo "ID do Produto: $idProduto<br>";
+
+    $stmt->close();
+
+    return $idProduto;
+}
+
+
+
+
+
+
+
+
+
+
+
+function createOrderLine($db, $encomendaId, $tipoRissois, $cartDetails)
+{
+    echo "Chamando createOrderLine<br>";
+
+    // Preparação da declaração fora do loop
+    $sql = "INSERT INTO Linha_de_Encomenda (Encomendas_id_Encomendas, Produtos_id_produto, congelados, quantidade, preco_produto) VALUES (?, ?, ?, ?, (SELECT preco FROM Produtos WHERE id_produto = ?))";
+    $stmt = $db->prepare($sql);
+
+    if (!$stmt) {
+        echo "Erro: Preparação da declaração falhou.<br>";
+        return false;
+    }
+
+    foreach ($cartDetails as $item) {
+        // Verifique se todas as informações necessárias estão presentes
+        if (!isset($item['title'], $item['quantity'], $tipoRissois)) {
+            echo "Erro: Variáveis necessárias ausentes em um item do carrinho.<br>";
+            continue; // Pule para a próxima iteração do loop
+        }
+
+        $nomeProduto = $item['title'];
+        $quantidade = $item['quantity'];
+
+        echo "Nome do Produto: $nomeProduto<br>";
+        echo "Quantidade: $quantidade<br>";
+        echo "Tipo: $tipoRissois<br>";
+        echo "$tipoRissois <br>";
+
+        // Consultar o ID do produto com base no nome do produto
+        $idProduto = getProductIdByName($db, $nomeProduto);
+
+        if ($idProduto === null) {
+            // Se o produto não for encontrado, continue para o próximo item
+            continue;
+        }
+
+        // Adicione o valor de $tipoRissois à coluna 'congelados'
+        $congelado = ($tipoRissois == 'congelado') ? 1 : 0;
+
+        // Bind dos parâmetros usando variáveis
+        $stmt->bindParam(1, $encomendaId, SQLITE3_INTEGER);
+        $stmt->bindParam(2, $idProduto, SQLITE3_INTEGER);
+        $stmt->bindParam(3, $congelado, SQLITE3_INTEGER);
+        $stmt->bindParam(4, $quantidade, SQLITE3_INTEGER);
+        $stmt->bindParam(5, $idProduto, SQLITE3_INTEGER); // O mesmo ID do produto para a subconsulta
+
+        // Execute a declaração dentro do loop
+        $result = $stmt->execute();
+
+        if (!$result) {
+            echo "Erro: Execução da declaração falhou para o item: $nomeProduto.<br>";
+            continue; // Pule para a próxima iteração do loop
+        }
+    }
+
+    // Feche a declaração fora do loop
+    $stmt->close();
+
+    // Retornar o ID da encomenda ou false em caso de erro
+    return $encomendaId;
+}
