@@ -71,10 +71,12 @@ if (!isset($_SESSION["username"])) {
             ?>
 
             <ul class="content__list">
-              <li><span>0</span>Rissois</li>
-              <li><span>0</span>Sobremesas</li>
-              <li><span>0</span>Outros</li>
+              <li><span>0</span>Encomendas</li>
             </ul>
+            <div class="content__description">
+              <a href="">Ver suas encomendas</a>
+            </div>
+
             <div class="content__button"><a class="button" href="../includes/logout_inc.php">
                 <div class="button__border"></div>
                 <div class="button__bg"></div>

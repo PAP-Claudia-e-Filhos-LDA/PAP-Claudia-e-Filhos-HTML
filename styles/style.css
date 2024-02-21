@@ -882,6 +882,11 @@ section {
   order: 2;
 }
 
+.profile-page .content__description a {
+  color: var(--color-secondary);
+  font-weight: 500;
+}
+
 .profile-page .content__description p {
   margin-bottom: 0.2rem;
   font-size: 1.2rem;

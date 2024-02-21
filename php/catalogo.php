@@ -28,6 +28,9 @@ $userLoggedIn = isset($_SESSION['userid'])
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+
 
 </head>
 
@@ -137,13 +140,38 @@ $userLoggedIn = isset($_SESSION['userid'])
 
 
   <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
+
   <script src="../js/main.js"></script>
   <script>
     $(document).ready(function() {
       $(".fancybox").fancybox();
     });
-  
   </script>
+  <script>
+    $(document).ready(function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const errorParam = urlParams.get("error");
+
+      if (errorParam === "none") {
+        Swal.fire({
+          icon: "success",
+          title: "Encomenda feita com sucesso!",
+          showConfirmButton: false,
+          timer: 2500,
+          background: "#17191f",
+          iconColor: "#fd9c3a",
+          customClass: {
+            title: 'text-white' // Adiciona a classe 'text-white' para definir a cor do texto como branco
+          }
+        });
+      }
+    });
+  </script>
+  <style>
+    .text-white {
+      color: #ffffff !important;
+    }
+  </style>
 </body>
 
 </html>
