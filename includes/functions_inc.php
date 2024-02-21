@@ -204,10 +204,6 @@ function emptyInputProfile($db, $username, $nome, $phoneNumber, $email)
 
 function userExistsProfile($db, $id_clientes, $username, $phoneNumber, $email)
 {
-    if (empty($email)) {
-        return false;
-    }
-
     $sql = "SELECT * FROM Clientes WHERE (username = :username AND id_clientes != :id_clientes)
             OR (contacto = :phoneNumber AND id_clientes != :id_clientes)
             OR (email = :email AND id_clientes != :id_clientes)";
@@ -219,9 +215,19 @@ function userExistsProfile($db, $id_clientes, $username, $phoneNumber, $email)
         exit();
     }
 
-    $stmt->bindParam(':username', $username, SQLITE3_TEXT);
-    $stmt->bindParam(':phoneNumber', $phoneNumber, SQLITE3_TEXT);
-    $stmt->bindParam(':email', $email, SQLITE3_TEXT);
+    // Adicione os bindParams para os campos opcionais
+    if (!empty($username)) {
+        $stmt->bindParam(':username', $username, SQLITE3_TEXT);
+    }
+
+    if (!empty($phoneNumber)) {
+        $stmt->bindParam(':phoneNumber', $phoneNumber, SQLITE3_TEXT);
+    }
+
+    if (!empty($email)) {
+        $stmt->bindParam(':email', $email, SQLITE3_TEXT);
+    }
+
     $stmt->bindParam(':id_clientes', $id_clientes, SQLITE3_INTEGER);
     $result = $stmt->execute();
 
@@ -237,6 +243,9 @@ function userExistsProfile($db, $id_clientes, $username, $phoneNumber, $email)
         return false;
     }
 }
+
+
+
 
 // Função para atualizar apenas a imagem na base de dados
 function updateImage($db, $id_clientes, $imagem_perfil_caminho)
