@@ -38,9 +38,9 @@
             A nossa jornada na cozinha vai além de um simples trabalho; é uma expressão de amor e dedicação. Acreditamos que a comida tem o poder de criar laços e momentos especiais, e é por isso que nos esforçamos por fazer cada cliente feliz através dos sabores irresistíveis dos nossos rissois.
           </p>
           <div class="btn-con">
-            <a href="#" class="main-btn">
+            <a href="catalogo.php" class="main-btn">
               <span class="btn-text">Catalogo</span>
-              <span class="btn-icon"><i class="fas fa-download"></i></span>
+              <span class="btn-icon"><i class="fas fa-utensils"></i></span>
             </a>
           </div>
         </div>
