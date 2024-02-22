@@ -2,6 +2,8 @@
 
 use LDAP\Result;
 
+
+// ------------------  Functions Validations ---------------------
 function emptyInputSignup($username, $phoneNumber, $password)
 {
     $result = false;
@@ -55,7 +57,7 @@ function userExists($db, $username, $phoneNumber, $email)
 }
 
 
-
+// ------------------  Function Register ---------------------
 function createUser($db, $username, $nome, $email, $phoneNumber, $password)
 {
 
@@ -93,7 +95,7 @@ function createUser($db, $username, $nome, $email, $phoneNumber, $password)
 
 
 
-
+// ------------------  Functions login ---------------------
 function emptyInputLogin($username, $password)
 {
     $result = false;
@@ -129,7 +131,7 @@ function loginUser($db, $username, $password)
 
 
 
-
+// ------------------  Function Edit Profile ---------------------
 function emptyInputProfile($db, $username, $nome, $phoneNumber, $email)
 {
     $userId = $_SESSION["userid"];
@@ -284,7 +286,7 @@ function updateUser($db, $id_clientes, $username, $nome, $email, $phoneNumber)
 }
 
 
-
+// ------------------  Functions Encomenda ---------------------
 function createOrder($db, $id_clientes, $metodo_pagamento, $metodo_entrega, $mensagem)
 {
     $data_encomenda = date('Y-m-d'); 
@@ -447,6 +449,10 @@ function getUserOrders($userId, $db)
 }
 
 
+
+
+
+// ------------------  Function Mensagem ---------------------
 function messageSend($db, $userId, $assunto, $mensagem)
     {
         $sql = "INSERT INTO Mensagens_Clientes (id_cliente, assunto, mensagem) VALUES (?, ?, ?)";
