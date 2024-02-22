@@ -413,14 +413,6 @@ function getProductIdByName($db, $nomeProduto)
 
 
 
-
-
-
-
-
-
-
-
 function createOrderLine($db, $encomendaId, $tipoRissois, $cartDetails)
 {
     echo "Chamando createOrderLine<br>";
@@ -482,3 +474,51 @@ function createOrderLine($db, $encomendaId, $tipoRissois, $cartDetails)
     // Retornar o ID da encomenda ou false em caso de erro
     return $encomendaId;
 }
+
+
+
+function getUserOrders($userId, $db) {
+    $queryOrders = "SELECT * FROM Encomendas WHERE id_clientes = :userid";
+    $stmtOrders = $db->prepare($queryOrders);
+    $stmtOrders->bindValue(':userid', $userId, SQLITE3_INTEGER);
+    $resultOrders = $stmtOrders->execute();
+
+    $orders = array();
+
+    while ($rowOrders = $resultOrders->fetchArray(SQLITE3_ASSOC)) {
+        $order = array(
+            'id_Encomendas' => $rowOrders['id_Encomendas'],
+            'data_encomenda' => $rowOrders['data_encomenda'],
+            'metedo_pagamento' => $rowOrders['metedo_pagamento'],
+            'metedo_entrega' => $rowOrders['metedo_entrega'],
+            'mensagem' => $rowOrders['mensagem'],
+            'items' => array()
+        );
+
+        $queryItems = "SELECT p.nome_produto, p.preco, p.caminho_imagem, l.quantidade 
+                       FROM Linha_de_Encomenda l
+                       INNER JOIN Produtos p ON l.Produtos_id_produto = p.id_produto
+                       WHERE l.Encomendas_id_Encomendas = :orderId";
+        $stmtItems = $db->prepare($queryItems);
+        $stmtItems->bindValue(':orderId', $rowOrders['id_Encomendas'], SQLITE3_INTEGER);
+        $resultItems = $stmtItems->execute();
+
+        while ($rowItems = $resultItems->fetchArray(SQLITE3_ASSOC)) {
+            $order['items'][] = array(
+                'nome_produto' => $rowItems['nome_produto'],
+                'preco' => $rowItems['preco'],
+                'caminho_imagem' => $rowItems['caminho_imagem'],
+                'quantidade' => $rowItems['quantidade']
+            );
+        }
+
+        $orders[] = $order;
+    }
+
+    return $orders;
+}
+
+
+
+
+?>
