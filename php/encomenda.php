@@ -64,8 +64,8 @@
               // Imprimir o total formatado
               echo "
     <div class='total'>
-        <div class='total-title'>Total</div>
-        <div >€{$total}</div>
+        <div class='total-title'></div>
+        <div >{$total}€</div>
       </div>
     ";
             } else if (!empty($_GET['details']) && !empty($_GET['total']) && count(json_decode($_GET['details'])) > 0) {

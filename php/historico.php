@@ -60,8 +60,8 @@ foreach (array_reverse($userOrders) as $order) {
     // Mostra o total
     echo "
     <div class='total'>
-        <div class='total-title'>Total</div>
-        <div> €{$total}</div>
+        <div class='total-title'>Total:</div>
+        <div> {$total}€</div>
     </div>
     ";
 
