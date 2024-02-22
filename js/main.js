@@ -17,6 +17,30 @@ function enviarFormulario() {
   }
 }
 
+function enviarFormularioMensagem() {
+  var formulario = document.getElementById("mensagem");
+  if (formulario.checkValidity()) {
+    formulario.submit();
+  } else {
+    toastr.warning("Preencha todos os campos do checkup", "Atenção", {
+      closeButton: false,
+      progressBar: true,
+      positionClass: "toast-top-right",
+      timeOut: 3000,
+      extendedTimeOut: 1000,
+      preventDuplicates: false,
+      newestOnTop: false,
+      showDuration: 300,
+      hideDuration: 300,
+      showEasing: "swing",
+      hideEasing: "linear",
+      showMethod: "slideDown",
+      hideMethod: "slideUp",
+      toastClass: "custom-toast-class",
+    });
+  }
+}
+
 function enviarEncomendaForm() {
   var formulario = document.getElementById("encomendaForm");
   if (formulario.checkValidity()) {

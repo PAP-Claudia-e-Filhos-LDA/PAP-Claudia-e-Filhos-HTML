@@ -184,9 +184,6 @@ function emptyInputProfile($db, $username, $nome, $phoneNumber, $email)
 
 
 
-
-
-
 function userExistsProfile($db, $id_clientes, $username, $phoneNumber, $email)
 {
     $sql = "SELECT * FROM Clientes WHERE (username = :username AND id_clientes != :id_clientes)
@@ -442,3 +439,32 @@ function getUserOrders($userId, $db)
 
     return $orders;
 }
+
+
+function messageSend($db, $userId, $assunto, $mensagem)
+    {
+        $sql = "INSERT INTO Mensagens_Clientes (id_cliente, assunto, mensagem) VALUES (?, ?, ?)";
+        $stmt = $db->prepare($sql);
+
+        if (!$stmt) {
+            header("location: ../index.php?error=stmtfailed&msg=" . $db->lastErrorMsg());
+            exit();
+        }
+
+        $stmt->bindParam(1, $userId,SQLITE3_TEXT);
+        $stmt->bindParam(2, $assunto, SQLITE3_TEXT);
+        $stmt->bindParam(3, $mensagem, SQLITE3_TEXT);
+
+        $result = $stmt->execute();
+
+        if (!$result) {
+            header("location: ../php/contact.php?error=stmtexecutionfailed&msg=" . $db->lastErrorMsg());
+            exit();
+        }else{
+            header("location: ../php/contact.php?error=none");
+        }
+
+        $stmt->close();
+        
+        exit();
+    }
