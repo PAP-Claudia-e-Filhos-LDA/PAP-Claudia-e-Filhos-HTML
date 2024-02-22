@@ -87,7 +87,6 @@ function createUser($db, $username, $nome, $email, $phoneNumber, $password)
     }
 
     $stmt->close();
-
     // Após o fechamento da declaração, você pode redirecionar
     header("location: ../php/login.php?error=none");
     exit();
