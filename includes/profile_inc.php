@@ -1,8 +1,9 @@
 <?php
 include('../includes/conn.php');
 
-function getNumeroEncomendas($userId, $db) {
-    // Consulta à base de dados para obter o número de encomendas do usuário
+function getNumeroEncomendas($userId, $db)
+{
+
     $query = "SELECT COUNT(*) as numEncomendas FROM Encomendas WHERE id_clientes = :userid";
     $stmt = $db->prepare($query);
     $stmt->bindValue(':userid', $userId, SQLITE3_INTEGER);
@@ -25,7 +26,7 @@ $stmt = $db->prepare($query);
 $stmt->bindValue(':userid', $userId, SQLITE3_INTEGER);
 $result = $stmt->execute();
 
-// Array para armazenar os produtos obtidos do banco de dados
+
 $user = array();
 
 
@@ -34,4 +35,3 @@ while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
 }
 
 $numEncomendas = getNumeroEncomendas($userId, $db);
-?>

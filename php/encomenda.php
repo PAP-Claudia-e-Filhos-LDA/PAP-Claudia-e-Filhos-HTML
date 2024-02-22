@@ -6,17 +6,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Claudia & Filhos</title>
-  <link rel="stylesheet" href="../styles/style.css" />
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!–– link para style.css ––>
+    <link rel="stylesheet" href="../styles/style.css" />
+
+    <!–– link para favicon––>
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+      <!–– link para as fonts ––>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+        <!–– CDN para os icons ––>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+          <!–– CDN do toastr ––>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+            <!–– JQUERY ––>
+              <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
 <body class="main-content">
@@ -30,17 +39,10 @@
           <div class="left-contact hidden">
             <?php
             if (isset($_GET['details']) && isset($_GET['total'])) {
-              // Obter detalhes do carrinho e total da URL
               $cartDetails = json_decode($_GET['details'], true);
-
               $total = $_GET['total'];
 
-
-
-
-              // Iterar sobre os itens do carrinho
               foreach ($cartDetails as $item) {
-                // Estrutura HTML para cada item do carrinho
                 echo "
             <div class='cart-item'>
                 <div class='cart-img-box'  class='fancybox' >
@@ -109,9 +111,6 @@
           </div>
         </div>
       </div>
-
-
-
     </section>
   </main>
 
@@ -119,17 +118,18 @@
     <a href="catalogo.php">
       <div class="control">
         <i class="fas fa-times"></i>
-
       </div>
     </a>
 
 
 
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
-  <script src="../js/app.js"></script>
-  <script src="../js/main.js"></script>
+
+  <!–– CDN do toastr ––>
+    <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
+
+    <!–– Javascript ––>
+      <script src="../js/app.js"></script>
 
 </body>
 

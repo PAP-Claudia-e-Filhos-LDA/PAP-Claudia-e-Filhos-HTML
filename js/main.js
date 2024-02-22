@@ -9,7 +9,7 @@ const observer = new IntersectionObserver((entries) => {
 const hiddenElements = document.querySelectorAll(".hidden");
 hiddenElements.forEach((el) => observer.observe(el));
 
-//esta funcao serve para enviar o formulario
+
 function enviarFormulario() {
   var formulario = document.getElementById("editProfileForm");
   if (formulario) {
@@ -105,19 +105,15 @@ $(document).ready(function () {
 
     if (storedCartItems) {
       const cartItems = JSON.parse(storedCartItems);
-      // Limpar o carrinho atual
       $(".cart-content").empty();
 
-      // Adicionar itens do localStorage ao carrinho
       cartItems.forEach(function (item) {
         addProductToCart(item.title, item.price, item.imgSrc, item.quantity);
       });
 
-      // Atualizar total e distintivos do carrinho
       updateTotal();
       updateCartBadge();
     } else {
-      // Se não houver itens, exibir a mensagem
       $(".empty-cart").show();
     }
   }
@@ -135,7 +131,7 @@ $(document).ready(function () {
       updateCartBadge();
       cartProductTitles.delete(title);
 
-      // Atualize o localStorage após a remoção
+
       saveCartToLocalStorage();
     });
   }
@@ -302,7 +298,6 @@ $(document).ready(function () {
       }
     });
 
-    // Calcular o total novamente no JavaScript
     const total = cartDetails.reduce(
       (acc, item) => acc + item.price * item.quantity,
       0

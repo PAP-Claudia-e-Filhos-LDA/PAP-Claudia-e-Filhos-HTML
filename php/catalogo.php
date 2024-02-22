@@ -1,13 +1,7 @@
 <?php
-// Início da sessão (se ainda não estiver iniciada)
+// Verificar se está logado //
 session_start();
-
-// Verificar se o usuário está logado
 $userLoggedIn = isset($_SESSION['userid'])
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -18,17 +12,28 @@ $userLoggedIn = isset($_SESSION['userid'])
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Claudia & Filhos</title>
-  <link rel="stylesheet" href="../styles/style.css" />
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  
+  <!–– link para o style.css ––>
+    <link rel="stylesheet" href="../styles/style.css" />
+
+    <!–– link para o favicon ––>
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+      <!–– link para as fonts ––>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+        <!–– link para icons ––>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+          <!–– link para o toastr notifications ––>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+            <!–– fancybox ––>
+              <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha512-H9jrZiiopUdsLpg94A333EfumgUBpO9MdbxStdeITo+KEIMaNfHNvwyjjDJb+ERPaRS6DpyRlKbvPUasNItRyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha512-uURl+ZXMBrF4AwGaWmEetzrd+J5/8NRkWAvJx5sbPSSuOb0bZLqf+tOzniObO00BjHa/dD7gub9oCGMLPQHtQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 
 </head>
 
@@ -136,15 +141,18 @@ $userLoggedIn = isset($_SESSION['userid'])
     <div style="display: none;" class="cart-badge"></div>
   </div>
 
+  <!–– CDN para o Toastr ––>
+    <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
+    <!–– javascript da pagina ––>
+      <script src="../js/main.js"></script>
 
-  <script src="../js/main.js"></script>
-  <script>
-    $(document).ready(function() {
-      $(".fancybox").fancybox();
-    });
-  </script>
+      <!–– script para o fancybox ––>
+        <script>
+          $(document).ready(function() {
+            $(".fancybox").fancybox();
+          });
+        </script>
 
 </body>
 

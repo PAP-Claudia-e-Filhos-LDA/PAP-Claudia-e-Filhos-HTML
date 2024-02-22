@@ -3,7 +3,6 @@
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  // Obter dados do formulário
   $username = $_POST['username'];
   $nome = $_POST['nome'];
   $email = $_POST['email'];
@@ -17,7 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $targetFile = $targetDir . basename($_FILES["profile_image"]["name"]);
     $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
-    // Verifica se o arquivo é uma imagem
     $allowedExtensions = array("jpg", "jpeg", "png", "gif");
     if (in_array($imageFileType, $allowedExtensions)) {
       if (move_uploaded_file($_FILES["profile_image"]["tmp_name"], $targetFile)) {
@@ -25,8 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $imagem_perfil_caminho = "../img/profiles/" . $imagem_perfil_nome;
 
         header("location: ../php/editProfile.php?error=none");
-
-        // Chame a função updateUser com $imagem_perfil_caminho
         updateImage($db, $_SESSION["userid"], $imagem_perfil_caminho);
 
         exit();
