@@ -75,7 +75,7 @@ if (!isset($_SESSION["username"])) {
                 <input type="text" name="phone_number" required placeholder="<?php echo $contacto; ?>" />
               </div>
               <div class="input-control">
-                <input type="email" name="email" placeholder="<?php echo $email; ?>" />
+                <input type="email" name="email" required placeholder="<?php echo $email; ?>" />
               </div>
               <div class="submit-btn">
                 <a href="#" class="main-btn" onclick="enviarFormulario()">
@@ -102,7 +102,7 @@ if (!isset($_SESSION["username"])) {
       case "invalidphone":
         $errorMessage = "Número de telemovel inválido!";
         break;
-      case "userexists":
+      case "userexists2":
         $errorMessage = "Username ou Telemovel ou Email já existem!";
         break;
       case "emptyinput":

@@ -129,6 +129,7 @@
     <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
 
     <!–– Javascript ––>
+    <script src="../js/main.js"></script>
       <script src="../js/app.js"></script>
 
 </body>

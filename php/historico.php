@@ -39,7 +39,7 @@
             <div class="contact-container">
                 <div class="main-title">
                     <h2>enco<span>mendas</span><span class="bg-text">Rissois</span></h2>
-                </div>
+                </div><br>
 
                 <?php
                 include('../includes/historico_inc.php');
@@ -98,12 +98,14 @@
             </div>
         </a>
 
-        <div class="control  active-btn" data-id="contact">
+        <a href="profile.php">
+        <div class="control" data-id="contact">
             <i class="far fa-envelope-open"></i>
         </div>
+        </a>
 
         <a href="profile.php">
-            <div class="control" data-id="home">
+            <div class="control active-btn" data-id="home">
                 <i class="fas fa-user"></i>
             </div>
         </a>

@@ -53,7 +53,7 @@ session_start();
                     <i class="fas fa-phone"></i>
                 </div>
                 <div class="form-control">
-                    <input type="text" name="email" placeholder="Email" required>
+                    <input type="email" name="email" placeholder="Email" required>
                     <i class="fas fa-envelope"></i>
                 </div>
                 <div class="form-control">
