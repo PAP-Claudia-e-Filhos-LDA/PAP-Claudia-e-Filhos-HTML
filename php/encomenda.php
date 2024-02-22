@@ -76,6 +76,9 @@
             ?>
           </div>
           <div class="right-contact hidden">
+          <div class="main-title">
+          <h2> <span>Detalhes</span><span class="bg-text">Detalhes</span></h2>
+        </div>
             <form action="../includes/process_encomenda.php" method="post" class="contact-form" id="encomendaForm">
               <div class="input-control i-c-2">
                 <select required id="tipo-rissois" name="rissois">
