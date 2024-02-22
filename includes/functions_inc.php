@@ -106,9 +106,8 @@ function emptyInputLogin($username, $password)
 
 function loginUser($db, $username, $password)
 {
-    $phoneNumber="";
-    $email = "";
-    $userExists = userExists($db, $username, $phoneNumber,$email);
+
+    $userExists = userExists($db, $username);
 
     if ($userExists === false) {
         header("location: ../php/login.php?error=wronglogin");
