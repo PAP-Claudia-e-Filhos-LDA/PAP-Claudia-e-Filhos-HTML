@@ -32,6 +32,10 @@ if (!isset($_SESSION["username"])) {
           <!–– CDN para os icons ––>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+            <!–– SWEET ALERT––>
+              <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
+              <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+
 </head>
 
 <body class="main-content">
@@ -146,9 +150,31 @@ if (!isset($_SESSION["username"])) {
 
     <!–– CDN para o toast ––>
       <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
-      
-      <!–– CDN DO swiper ––>
+
+      <!–– javasprit ––>
         <script src="../js/main.js"></script>
+
+        <!–– scrpit para o sweetalert ––>
+        <script>
+          $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const errorParam = urlParams.get("error");
+
+            if (errorParam === "none") {
+              Swal.fire({
+                icon: "success",
+                title: "Mensagem enviada com sucesso",
+                showConfirmButton: false,
+                timer: 2500,
+                background: "#17191f",
+                iconColor: "#fd9c3a",
+                customClass: {
+                  title: 'text-white'
+                }
+              });
+            }
+          });
+        </script>
 </body>
 
 </html>
