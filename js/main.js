@@ -9,11 +9,35 @@ const observer = new IntersectionObserver((entries) => {
 const hiddenElements = document.querySelectorAll(".hidden");
 hiddenElements.forEach((el) => observer.observe(el));
 
-//esta funcao serve para enviar o formulario
+
 function enviarFormulario() {
   var formulario = document.getElementById("editProfileForm");
   if (formulario) {
     formulario.submit();
+  }
+}
+
+function enviarFormularioMensagem() {
+  var formulario = document.getElementById("mensagem");
+  if (formulario.checkValidity()) {
+    formulario.submit();
+  } else {
+    toastr.warning("Preencha todos os campos do checkup", "Atenção", {
+      closeButton: false,
+      progressBar: true,
+      positionClass: "toast-top-right",
+      timeOut: 3000,
+      extendedTimeOut: 1000,
+      preventDuplicates: false,
+      newestOnTop: false,
+      showDuration: 300,
+      hideDuration: 300,
+      showEasing: "swing",
+      hideEasing: "linear",
+      showMethod: "slideDown",
+      hideMethod: "slideUp",
+      toastClass: "custom-toast-class",
+    });
   }
 }
 
@@ -105,19 +129,15 @@ $(document).ready(function () {
 
     if (storedCartItems) {
       const cartItems = JSON.parse(storedCartItems);
-      // Limpar o carrinho atual
       $(".cart-content").empty();
 
-      // Adicionar itens do localStorage ao carrinho
       cartItems.forEach(function (item) {
         addProductToCart(item.title, item.price, item.imgSrc, item.quantity);
       });
 
-      // Atualizar total e distintivos do carrinho
       updateTotal();
       updateCartBadge();
     } else {
-      // Se não houver itens, exibir a mensagem
       $(".empty-cart").show();
     }
   }
@@ -135,7 +155,7 @@ $(document).ready(function () {
       updateCartBadge();
       cartProductTitles.delete(title);
 
-      // Atualize o localStorage após a remoção
+
       saveCartToLocalStorage();
     });
   }
@@ -302,7 +322,6 @@ $(document).ready(function () {
       }
     });
 
-    // Calcular o total novamente no JavaScript
     const total = cartDetails.reduce(
       (acc, item) => acc + item.price * item.quantity,
       0

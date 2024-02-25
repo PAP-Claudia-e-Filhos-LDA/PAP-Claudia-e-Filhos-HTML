@@ -7,8 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $cartDetails = isset($postData['cartDetails']) ? $postData['cartDetails'] : [];
     $total = isset($postData['total']) ? $postData['total'] : 0;
-
-    // Armazene as variáveis em uma sessão
+    
     $_SESSION['cartDetails'] = $cartDetails;
     $_SESSION['total'] = $total;
 } else {

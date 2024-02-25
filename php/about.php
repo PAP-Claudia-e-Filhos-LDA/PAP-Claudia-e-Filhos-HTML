@@ -6,13 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Claudia & Filhos</title>
-  <link rel="stylesheet" href="../styles/style.css" />
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!–– link para o style.css ––>
+    <link rel="stylesheet" href="../styles/style.css" />
+    <!–– link para o favicon ––>
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+      <!–– link para as fonts ––>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+
+        <!–– CDN para os icons ––>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+          <!–– CDN para o swiper ––>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
 <body class="main-content">
@@ -31,9 +38,9 @@
             A nossa jornada na cozinha vai além de um simples trabalho; é uma expressão de amor e dedicação. Acreditamos que a comida tem o poder de criar laços e momentos especiais, e é por isso que nos esforçamos por fazer cada cliente feliz através dos sabores irresistíveis dos nossos rissois.
           </p>
           <div class="btn-con">
-            <a href="#" class="main-btn">
+            <a href="catalogo.php" class="main-btn">
               <span class="btn-text">Catalogo</span>
-              <span class="btn-icon"><i class="fas fa-download"></i></span>
+              <span class="btn-icon"><i class="fas fa-utensils"></i></span>
             </a>
           </div>
         </div>
@@ -240,9 +247,12 @@
       </div>
     </a>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="../js/app.js"></script>
-  <script src="../js/main.js"></script>
+  <!–– script para o swiper ––>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!–– link para costumizar o swiper ––>
+      <script src="../js/app.js"></script>
+      <!–– script para o javascript>
+        <script src="../js/main.js"></script>
 </body>
 
 </html>

@@ -1,3 +1,11 @@
+<?php
+// verificar se esta logado //
+session_start();
+if (!isset($_SESSION["username"])) {
+  header("location: login.php");
+  exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,12 +14,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Claudia & Filhos</title>
-  <link rel="stylesheet" href="../styles/style.css" />
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!–– link para o style.css ––>
+    <link rel="stylesheet" href="../styles/style.css" />
+
+    <!–– link para o favicon ––>
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+      <!–– link para as fonts ––>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+        <!–– CDN para o toastr ––>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+          <!–– CDN para os icons ––>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+            <!–– SWEET ALERT––>
+              <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
+              <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+
 </head>
 
 <body class="main-content">
@@ -31,26 +55,26 @@
               <div class="contact-item">
                 <div class="icon">
                   <i class="fas fa-map-marker-alt"></i>
-                  <span>Localização</span>
+                  <span>Localização:</span>
                 </div>
-                <p>: Portugal, Leiria</p>
+                <p> Portugal, Leiria</p>
               </div>
               <div class="contact-item">
                 <div class="icon">
                   <i class="fas fa-envelope"></i>
-                  <span>Email</span>
+                  <span>Email:</span>
                 </div>
                 <p>
-                  <span>: Claudia&Filhos@gmail.com</span>
+                  <span> Claudia&Filhos@gmail.com</span>
                 </p>
               </div>
               <div class="contact-item">
                 <div class="icon">
                   <i class="fas fa-phone"></i>
-                  <span>Número de Telemovel</span>
+                  <span>Número de Telemovel:</span>
                 </div>
                 <p>
-                  <span>: 912 345 678</span>
+                  <span> 912 345 678</span>
                 </p>
               </div>
             </div>
@@ -72,20 +96,16 @@
             </div>
           </div>
           <div class="right-contact hidden">
-            <form action="" class="contact-form">
-              <div class="input-control i-c-2">
-                <input type="text" required placeholder="Nome" />
-                <input type="email" required placeholder="Email" />
+            <form action="../includes/process_mensagens.php" method="post" class="contact-form" id="mensagem">
+              <div class="input-control">
+                <input type="text" name="assunto" required placeholder="Assunto" />
               </div>
               <div class="input-control">
-                <input type="text" required placeholder="Assunto" />
-              </div>
-              <div class="input-control">
-                <textarea name="" id="" cols="15" rows="8" placeholder="A tua mensagem..."></textarea>
+                <textarea name="mensagem" id="" cols="15" rows="8" placeholder="A tua mensagem..."></textarea>
               </div>
               <div class="submit-btn">
-                <a href="#" class="main-btn">
-                  <span class="btn-text">Send</span>
+                <a href="#" class="main-btn" onclick="enviarFormularioMensagem()">
+                  <span type="submit" class="btn-text">Send</span>
                 </a>
               </div>
             </form>
@@ -122,9 +142,39 @@
       </div>
     </a>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="../js/app.js"></script>
-  <script src="../js/main.js"></script>
+
+
+
+  <!–– CDN para o JQUERY ––>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!–– CDN para o toast ––>
+      <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
+
+      <!–– javasprit ––>
+        <script src="../js/main.js"></script>
+
+        <!–– scrpit para o sweetalert ––>
+        <script>
+          $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const errorParam = urlParams.get("error");
+
+            if (errorParam === "none") {
+              Swal.fire({
+                icon: "success",
+                title: "Mensagem enviada com sucesso",
+                showConfirmButton: false,
+                timer: 2500,
+                background: "#17191f",
+                iconColor: "#fd9c3a",
+                customClass: {
+                  title: 'text-white'
+                }
+              });
+            }
+          });
+        </script>
 </body>
 
 </html>

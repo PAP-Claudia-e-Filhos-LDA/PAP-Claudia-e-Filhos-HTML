@@ -1,14 +1,10 @@
 <?php
+// verificar se esta logado //
 session_start();
-
-// Verificar se o usuário está logado
 if (!isset($_SESSION["username"])) {
-  // Se não estiver logado, redirecione para a página de login
   header("location: login.php");
   exit();
 }
-
-// Se chegou aqui, o usuário está logado e pode acessar a página
 ?>
 
 <!DOCTYPE html>
@@ -19,13 +15,23 @@ if (!isset($_SESSION["username"])) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Claudia & Filhos</title>
-  <link rel="stylesheet" href="../styles/style.css" />
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!–– link para o style.css ––>
+    <link rel="stylesheet" href="../styles/style.css" />
+
+    <!–– link para o favicon ––>
+      <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+      <!–– link para as fonts ––>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+        <!–– CDN para o toastr ––>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+          <!–– CDN para os icons––>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="main-content">
@@ -38,9 +44,7 @@ if (!isset($_SESSION["username"])) {
       <?php
       include('../includes/profile_inc.php');
 
-      // Loop para obter os resultados da consulta
       foreach ($user as $info) {
-        // Informações do cliente recebidas do banco de dados
         $username = $info[0];
         $nomeCliente = $info[1];
         $contacto = $info[2];
@@ -71,7 +75,7 @@ if (!isset($_SESSION["username"])) {
                 <input type="text" name="phone_number" required placeholder="<?php echo $contacto; ?>" />
               </div>
               <div class="input-control">
-                <input type="text" name="email" placeholder="<?php echo $email; ?>" />
+                <input type="email" name="email" required placeholder="<?php echo $email; ?>" />
               </div>
               <div class="submit-btn">
                 <a href="#" class="main-btn" onclick="enviarFormulario()">
@@ -98,7 +102,7 @@ if (!isset($_SESSION["username"])) {
       case "invalidphone":
         $errorMessage = "Número de telemovel inválido!";
         break;
-      case "userexists":
+      case "userexists2":
         $errorMessage = "Username ou Telemovel ou Email já existem!";
         break;
       case "emptyinput":
@@ -201,23 +205,28 @@ if (!isset($_SESSION["username"])) {
     </a>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
-  <script src="../js/main.js"></script>
+  <!–– CDN para o JQUERY ––>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!–– CDN para o toast ––>
+      <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
+
+      <!–– Javascript da pagina ––>
+        <script src="../js/main.js"></script>
+
+        <!–– Script para enviar form quando innserção de imagem ––>
+          <script>
+            function handleImageSelection() {
+              var fileInput = document.getElementById('fileInput');
+              fileInput.addEventListener('change', function() {
+                if (fileInput.files.length > 0) {
+                  enviarFormulario()
+
+                }
+              });
+            }
+            handleImageSelection();
+          </script>
 </body>
-<script>
-  function handleImageSelection() {
-    var fileInput = document.getElementById('fileInput');
-    fileInput.addEventListener('change', function() {
-      if (fileInput.files.length > 0) {
-        enviarFormulario()
-
-      }
-    });
-  }
-
-
-  handleImageSelection();
-</script>
 
 </html>
