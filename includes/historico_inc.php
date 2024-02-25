@@ -11,4 +11,3 @@ if (!isset($_SESSION["userid"])) {
 
 $userId = $_SESSION["userid"];
 $userOrders = getUserOrders($userId, $db);
-

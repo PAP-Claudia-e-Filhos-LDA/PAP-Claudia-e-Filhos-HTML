@@ -184,7 +184,7 @@ function emptyInputProfile($db, $username, $nome, $phoneNumber, $email)
         $email = $user['email'];
     }
 
-    $imagem_perfil = $user['imagem_perfil'];  
+    $imagem_perfil = $user['imagem_perfil'];
 
     updateUser($db, $userId, $username, $nome, $email, $phoneNumber, $imagem_perfil);
     return false;
@@ -289,11 +289,11 @@ function updateUser($db, $id_clientes, $username, $nome, $email, $phoneNumber)
 // ------------------  Functions Encomenda ---------------------
 function createOrder($db, $id_clientes, $metodo_pagamento, $metodo_entrega, $mensagem)
 {
-    $data_encomenda = date('Y-m-d'); 
+    $data_encomenda = date('Y-m-d');
     $metodo_pagamento = ($metodo_pagamento == 'mbway') ? 1 : 0;
     $metodo_entrega = ($metodo_entrega == 'domicilio') ? 1 : 0;
 
-    
+
     $sql = "INSERT INTO Encomendas (id_clientes, data_encomenda, metedo_pagamento, metedo_entrega, mensagem) VALUES (?, ?, ?, ?, ?)";
     $stmt = $db->prepare($sql);
 
@@ -454,29 +454,29 @@ function getUserOrders($userId, $db)
 
 // ------------------  Function Mensagem ---------------------
 function messageSend($db, $userId, $assunto, $mensagem)
-    {
-        $sql = "INSERT INTO Mensagens_Clientes (id_cliente, assunto, mensagem) VALUES (?, ?, ?)";
-        $stmt = $db->prepare($sql);
+{
+    $sql = "INSERT INTO Mensagens_Clientes (id_cliente, assunto, mensagem) VALUES (?, ?, ?)";
+    $stmt = $db->prepare($sql);
 
-        if (!$stmt) {
-            header("location: ../index.php?error=stmtfailed&msg=" . $db->lastErrorMsg());
-            exit();
-        }
-
-        $stmt->bindParam(1, $userId,SQLITE3_TEXT);
-        $stmt->bindParam(2, $assunto, SQLITE3_TEXT);
-        $stmt->bindParam(3, $mensagem, SQLITE3_TEXT);
-
-        $result = $stmt->execute();
-
-        if (!$result) {
-            header("location: ../php/contact.php?error=stmtexecutionfailed&msg=" . $db->lastErrorMsg());
-            exit();
-        }else{
-            header("location: ../php/contact.php?error=none");
-        }
-
-        $stmt->close();
-        
+    if (!$stmt) {
+        header("location: ../index.php?error=stmtfailed&msg=" . $db->lastErrorMsg());
         exit();
     }
+
+    $stmt->bindParam(1, $userId, SQLITE3_TEXT);
+    $stmt->bindParam(2, $assunto, SQLITE3_TEXT);
+    $stmt->bindParam(3, $mensagem, SQLITE3_TEXT);
+
+    $result = $stmt->execute();
+
+    if (!$result) {
+        header("location: ../php/contact.php?error=stmtexecutionfailed&msg=" . $db->lastErrorMsg());
+        exit();
+    } else {
+        header("location: ../php/contact.php?error=none");
+    }
+
+    $stmt->close();
+
+    exit();
+}
