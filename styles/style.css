@@ -1301,6 +1301,27 @@ button.submit:hover {
   margin-bottom: 10rem;
 }
 
+/* Dropdown estilizado */
+.cart-preference {
+  background-color: var(--color-primary); /* Cor de fundo */
+  color: #fff; /* Cor do texto */
+  border: 1px solid var(--color-grey-4); /* Borda */
+  padding: 7px;
+  font-family: inherit;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.cart-preference:focus {
+  outline: none;
+  border-color: var(--color-secondary); /* Cor da borda ao focar */
+}
+
+.cart-preference option {
+  background-color: var(--color-primary); /* Cor de fundo das opções */
+  color: var(--color-white); /* Cor do texto das opções */
+}
+
 .about-container .left-about p {
   padding-left: 0;
 }

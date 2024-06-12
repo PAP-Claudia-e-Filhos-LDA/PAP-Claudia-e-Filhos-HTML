@@ -7,11 +7,10 @@ require_once 'conn.php';
 require_once 'functions_inc.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $tipoRissois = $_POST['rissois'];
+    $tipoRissois = isset($_POST['rissois']) ? $_POST['rissois'] : [];
     $levantamento = $_POST['levantameto'];
     $metodoPagamento = $_POST['pagamento'];
     $mensagem = isset($_POST['mensagem']) ? $_POST['mensagem'] : "";
-
 
     $encomendaId = createOrder($db, $_SESSION["userid"], $metodoPagamento, $levantamento, $mensagem);
     if ($encomendaId !== false && $encomendaId !== null && $encomendaId !== 0) {

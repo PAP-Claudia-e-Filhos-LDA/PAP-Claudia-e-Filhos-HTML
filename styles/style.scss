@@ -425,7 +425,6 @@ section {
 
 /*-------------------SHOPPING CART STYLES SECTION-----------------------*/
 
-
 .cart {
   position: fixed;
   top: 0;
@@ -665,7 +664,7 @@ section {
   pointer-events: painted;
 }
 
-.btn-search:focus~.input-search {
+.btn-search:focus ~ .input-search {
   width: 300px;
   border-radius: 0px;
   background-color: transparent;
@@ -681,18 +680,11 @@ section {
   transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
 }
 
-
-
-
-
 .search-box-az {
   width: fit-content;
   height: fit-content;
   position: relative;
 }
-
-
-
 
 .btn-search-az {
   width: 50px;
@@ -826,7 +818,6 @@ section {
       justify-content: center;
     }
   }
-
 }
 
 /*-------------------PROFILE PAGE SECTION-----------------------*/
@@ -936,7 +927,6 @@ section {
   color: var(--color-secondary);
   font-weight: 500;
 }
-
 
 .profile-page .content__description p {
   margin-bottom: 0.2rem;
@@ -1052,7 +1042,6 @@ section {
   grid-template-columns: 1fr 1fr;
 }
 
-
 .container-loggin {
   display: flex;
   justify-content: center;
@@ -1133,7 +1122,7 @@ input {
   padding: 14px 64px;
 }
 
-input~i {
+input ~ i {
   position: absolute;
   left: 32px;
   top: 50%;
@@ -1142,7 +1131,7 @@ input~i {
   transition: color 0.4s;
 }
 
-input:focus~i {
+input:focus ~ i {
   color: var(--color-secondary);
 }
 
@@ -1176,11 +1165,7 @@ button.submit:hover {
   }
 }
 
-
-
 /*-------------------ECOMENDA PAGE SECTION-----------------------*/
-
-
 
 /*-------------------INDEPEDENT COMPONENTES SECTION-----------------------*/
 .btn-con {
@@ -1302,7 +1287,8 @@ button.submit:hover {
   opacity: 0;
   filter: blur(2px);
   transform: translateX(-100%);
-  transition: opacity 1s ease-in-out, filter 1s ease-in-out, transform 1s ease-in-out;
+  transition: opacity 1s ease-in-out, filter 1s ease-in-out,
+    transform 1s ease-in-out;
 }
 
 /* Atraso crescente para cada filho */
@@ -1331,7 +1317,6 @@ button.submit:hover {
 }
 
 /* Adicione mais regras conforme necessário para outros filhos */
-
 
 .show {
   opacity: 1;
@@ -1371,7 +1356,28 @@ button.submit:hover {
   color: #ffffff !important;
 }
 
-.order{
+.order {
   margin-bottom: 10rem;
 }
+/* Dropdown estilizado */
+.cart-preference {
+  background-color: var(--color-primary); /* Cor de fundo */
+  color: #fff; /* Cor do texto */
+  border: 1px solid var(--color-grey-4); /* Borda */
+  padding: 7px;
+  font-family: inherit;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.cart-preference:focus {
+  outline: none;
+  border-color: var(--color-secondary); /* Cor da borda ao focar */
+}
+
+.cart-preference option {
+  background-color: var(--color-primary); /* Cor de fundo das opções */
+  color: var(--color-white); /* Cor do texto das opções */
+}
+
 @import "./media";

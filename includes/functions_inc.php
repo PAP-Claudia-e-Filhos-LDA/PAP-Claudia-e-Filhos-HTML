@@ -364,8 +364,8 @@ function createOrderLine($db, $encomendaId, $tipoRissois, $cartDetails)
         return false;
     }
 
-    foreach ($cartDetails as $item) {
-        if (!isset($item['title'], $item['quantity'], $tipoRissois)) {
+    foreach ($cartDetails as $index => $item) {
+        if (!isset($item['title'], $item['quantity'])) {
             echo "Erro: Variáveis necessárias ausentes em um item do carrinho.<br>";
             continue;
         }
@@ -373,25 +373,20 @@ function createOrderLine($db, $encomendaId, $tipoRissois, $cartDetails)
         $nomeProduto = $item['title'];
         $quantidade = $item['quantity'];
 
-        echo "Nome do Produto: $nomeProduto<br>";
-        echo "Quantidade: $quantidade<br>";
-        echo "Tipo: $tipoRissois<br>";
-        echo "$tipoRissois <br>";
-
-
         $idProduto = getProductIdByName($db, $nomeProduto);
 
-        if ($idProduto === null) {
-            continue;
+        // Verifica se o tipo de rissole é congelado ou frito para cada item
+        if (strpos(strtolower($nomeProduto), 'rissol') !== false) {
+            $congelado = isset($tipoRissois[$index]) && $tipoRissois[$index] == 'congelado' ? 1 : 0;
+        } else {
+            $congelado = null;
         }
 
-        $congelado = ($tipoRissois == 'congelado') ? 1 : 0;
-
-        $stmt->bindParam(1, $encomendaId, SQLITE3_INTEGER);
-        $stmt->bindParam(2, $idProduto, SQLITE3_INTEGER);
-        $stmt->bindParam(3, $congelado, SQLITE3_INTEGER);
-        $stmt->bindParam(4, $quantidade, SQLITE3_INTEGER);
-        $stmt->bindParam(5, $idProduto, SQLITE3_INTEGER);
+        $stmt->bindParam(1, $encomendaId, PDO::PARAM_INT);
+        $stmt->bindParam(2, $idProduto, PDO::PARAM_INT);
+        $stmt->bindParam(3, $congelado, PDO::PARAM_INT);
+        $stmt->bindParam(4, $quantidade, PDO::PARAM_INT);
+        $stmt->bindParam(5, $idProduto, PDO::PARAM_INT);
 
         $result = $stmt->execute();
 
@@ -404,6 +399,7 @@ function createOrderLine($db, $encomendaId, $tipoRissois, $cartDetails)
     $stmt->close();
     return $encomendaId;
 }
+
 
 
 
