@@ -1,5 +1,85 @@
 <?php
 session_start();
+
+
+if (isset($_GET["error"])) {
+    $errorMessage = "";
+    $errorType = "Atenção";
+    switch ($_GET["error"]) {
+        case "wronglogin":
+            $errorMessage = "Dados inseridos não encontrados!";
+            break;
+        case "emptyinput":
+            $errorMessage = "Preencha todos os campos!";
+            break;
+        default:
+            break;
+    }
+    if (!empty($errorMessage)) {
+        echo '<script>';
+        echo 'document.addEventListener("DOMContentLoaded", function() {';
+        echo 'toastr.warning("' . $errorMessage . '", "' . $errorType . '", {
+            closeButton: false,
+            progressBar: true,
+            positionClass: "toast-top-right",
+            timeOut: 3000,
+            extendedTimeOut: 1000,
+            preventDuplicates: false,
+            newestOnTop: false,
+            showDuration: 300,
+            hideDuration: 300,
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "slideDown",
+            hideMethod: "slideUp",
+            toastClass: "custom-toast-class"
+        });';
+        echo '});';
+        echo '</script>';
+    }
+}
+
+
+
+
+
+if (isset($_GET["error"])) {
+    $errorMessage = "";
+    $errorType = "Sucesso";
+
+    switch ($_GET["error"]) {
+        case "none":
+            $errorMessage = "Registo feito com sucesso! Faz login!";
+            break;
+        default:
+            break;
+    }
+}
+
+if (!empty($errorMessage)) {
+    echo '<script>';
+    echo 'document.addEventListener("DOMContentLoaded", function() {';
+    echo 'toastr.success("' . $errorMessage . '", "' . $errorType . '", {
+            closeButton: false,
+            progressBar: true,
+            positionClass: "toast-top-right",
+            timeOut: 3000,
+            extendedTimeOut: 1000,
+            preventDuplicates: false,
+            newestOnTop: false,
+            showDuration: 300,
+            hideDuration: 300,
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "slideDown",
+            hideMethod: "slideUp",
+            toastClass: "custom-toast-class"
+        });';
+    echo '});';
+    echo '</script>';
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -57,81 +137,7 @@ session_start();
         </div>
     </div>
 
-    <?php
-    if (isset($_GET["error"])) {
-        $errorMessage = "";
-        $errorType = "Atenção";
-        switch ($_GET["error"]) {
-            case "wronglogin":
-                $errorMessage = "Dados inseridos não encontrados!";
-                break;
-            case "emptyinput":
-                $errorMessage = "Preencha todos os campos!";
-                break;
-            default:
-                break;
-        }
-        if (!empty($errorMessage)) {
-            echo '<script>';
-            echo 'document.addEventListener("DOMContentLoaded", function() {';
-            echo 'toastr.warning("' . $errorMessage . '", "' . $errorType . '", {
-            closeButton: false,
-            progressBar: true,
-            positionClass: "toast-top-right",
-            timeOut: 3000,
-            extendedTimeOut: 1000,
-            preventDuplicates: false,
-            newestOnTop: false,
-            showDuration: 300,
-            hideDuration: 300,
-            showEasing: "swing",
-            hideEasing: "linear",
-            showMethod: "slideDown",
-            hideMethod: "slideUp",
-            toastClass: "custom-toast-class"
-        });';
-            echo '});';
-            echo '</script>';
-        }
-    }
-    ?>
-    <?php
-    if (isset($_GET["error"])) {
-        $errorMessage = "";
-        $errorType = "Sucesso";
 
-        switch ($_GET["error"]) {
-            case "none":
-                $errorMessage = "Registo feito com sucesso! Faz login!";
-                break;
-            default:
-                break;
-        }
-
-        if (!empty($errorMessage)) {
-            echo '<script>';
-            echo 'document.addEventListener("DOMContentLoaded", function() {';
-            echo 'toastr.success("' . $errorMessage . '", "' . $errorType . '", {
-            closeButton: false,
-            progressBar: true,
-            positionClass: "toast-top-right",
-            timeOut: 3000,
-            extendedTimeOut: 1000,
-            preventDuplicates: false,
-            newestOnTop: false,
-            showDuration: 300,
-            hideDuration: 300,
-            showEasing: "swing",
-            hideEasing: "linear",
-            showMethod: "slideDown",
-            hideMethod: "slideUp",
-            toastClass: "custom-toast-class"
-        });';
-            echo '});';
-            echo '</script>';
-        }
-    }
-    ?>
 
     <div class="controls">
         <a href="index.php">

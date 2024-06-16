@@ -57,10 +57,138 @@ function userExists($db, $username, $phoneNumber, $email)
 }
 
 
-// ------------------  Function Register ---------------------
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+
+require '../vendor/autoload.php';
 function createUser($db, $username, $nome, $email, $phoneNumber, $password)
 {
+    $mail = new PHPMailer(true);
 
+    try {
+        // Configurações do servidor SMTP
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';  // Endereço do servidor SMTP
+        $mail->SMTPAuth = true;          // Habilita autenticação SMTP
+        $mail->Username = 'rafael17cordeiro@gmail.com'; // Seu email SMTP
+        $mail->Password = 'mntg asxi jfnj inec';        // Sua senha SMTP
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Habilita criptografia TLS
+        $mail->Port = 587;                // Porta TCP para conexão
+
+        // Define o remetente e destinatário
+        $mail->setFrom('rafael17cordeiro@gmail.com', 'rafael');
+        $mail->addAddress($email,  $nome);
+
+        // Conteúdo do email
+        $mail->isHTML(true);  // Define o email como HTML
+        $mail->Subject = 'Assunto do Email';
+        $body = '
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Confirmação de Registo</title>
+    <style>
+      /* Estilos gerais */
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        color: white; /* Texto preto */
+        background-color: #ffffff; /* Fundo cinza claro */
+      }
+
+      .container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #17191f; /* Fundo branco */
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        color: #fd9c3a; /* Laranja para o título */
+        font-size: 28px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.8;
+        margin-bottom: 20px;
+        color: white; /* Texto preto */
+        text-align: justify;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: #fd9c3a; /* Laranja para o botão */
+        color: #fff; /* Texto branco */
+        text-decoration: none;
+        padding: 12px 24px;
+        border-radius: 5px;
+        font-weight: bold;
+        text-align: center;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #e68a00; /* Tom mais escuro de laranja no hover */
+      }
+
+      .footer {
+        text-align: center;
+        font-size: 14px;
+        color: white; /* Cinza escuro */
+        margin-top: 20px;
+      }
+
+      .footer a {
+        color: #fd9c3a; /* Laranja para links no rodapé */
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Olá, Rafael</h2>
+      <p>O teu registo foi concluído com sucesso no nosso site!</p>
+      <p>
+        Agora podes começar a explorar e a fazer encomendas deliciosas atravé
+        do nosso site. Temos uma variedade incrível de sobremesas e salgados para todos os
+        gostos!
+      </p>
+
+      <p>
+        Para começares a tua jornada culinária connosco, clica no botão abaixo:
+      </p>
+      <center><a href="#" class="btn">Explorar Website</a></center>
+      <p class="footer">
+        Obrigado por te juntares a nós! &bull;
+        <a href="#">Política de Privacidade</a>
+      </p>
+    </div>
+  </body>
+</html>
+
+    ';
+
+        $mail->Body = $body;
+
+        // Envia o email
+        if ($mail->send()) {
+        } else {
+            echo 'Erro ao enviar o email: ' . $mail->ErrorInfo;
+        }
+    } catch (Exception $e) {
+        echo "Erro ao enviar o email: {$mail->ErrorInfo}";
+    }
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO clientes(username, nome_cliente, contacto, email, pass, imagem_perfil) VALUES (?, ?, ?, ?, ?, ?)";
@@ -88,6 +216,10 @@ function createUser($db, $username, $nome, $email, $phoneNumber, $password)
     }
 
     $stmt->close();
+
+
+
+    // Redireciona após a conclusão bem-sucedida
     header("location: ../php/login.php?error=none");
     exit();
 }
