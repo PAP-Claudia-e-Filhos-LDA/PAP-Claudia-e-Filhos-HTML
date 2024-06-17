@@ -84,12 +84,18 @@ function createUser($db, $username, $nome, $email, $phoneNumber, $password)
         // Conteúdo do email
         $mail->isHTML(true);  // Define o email como HTML
         $mail->Subject = 'Assunto do Email';
+        $url = 'http://127.0.0.1/PAP-Claudia-e-Filhos-LDA/php/index.php';
         $body = '
+        
 <!DOCTYPE html>
 <html lang="pt">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+    />
     <title>Confirmação de Registo</title>
     <style>
       /* Estilos gerais */
@@ -98,21 +104,21 @@ function createUser($db, $username, $nome, $email, $phoneNumber, $password)
         line-height: 1.6;
         margin: 0;
         padding: 20px;
-        color: white; /* Texto preto */
-        background-color: #ffffff; /* Fundo cinza claro */
+        color: white;
+        background-color: #ffffff;
       }
 
       .container {
         max-width: 600px;
         margin: 20px auto;
-        background-color: #17191f; /* Fundo branco */
+        background-color: #17191f;
         padding: 40px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
 
       h2 {
-        color: #fd9c3a; /* Laranja para o título */
+        color: #fd9c3a;
         font-size: 28px;
         margin-bottom: 20px;
         text-align: center;
@@ -122,14 +128,14 @@ function createUser($db, $username, $nome, $email, $phoneNumber, $password)
         font-size: 16px;
         line-height: 1.8;
         margin-bottom: 20px;
-        color: white; /* Texto preto */
+        color: white;
         text-align: justify;
       }
 
       .btn {
         display: inline-block;
-        background-color: #fd9c3a; /* Laranja para o botão */
-        color: #fff; /* Texto branco */
+        background-color: #fd9c3a;
+        color: #fff;
         text-decoration: none;
         padding: 12px 24px;
         border-radius: 5px;
@@ -139,36 +145,36 @@ function createUser($db, $username, $nome, $email, $phoneNumber, $password)
       }
 
       .btn:hover {
-        background-color: #e68a00; /* Tom mais escuro de laranja no hover */
+        background-color: #e68a00;
       }
 
       .footer {
         text-align: center;
         font-size: 14px;
-        color: white; /* Cinza escuro */
+        color: white;
         margin-top: 20px;
       }
 
       .footer a {
-        color: #fd9c3a; /* Laranja para links no rodapé */
+        color: #fd9c3a;
         text-decoration: none;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <h2>Olá, Rafael</h2>
-      <p>O teu registo foi concluído com sucesso no nosso site!</p>
+      <h2>Olá, ' . $nome . ' 🎉</h2>
+      <p>O teu registo foi concluído com sucesso no nosso site! 😊</p>
       <p>
-        Agora podes começar a explorar e a fazer encomendas deliciosas atravé
-        do nosso site. Temos uma variedade incrível de sobremesas e salgados para todos os
-        gostos!
-      </p>
+        Agora podes começar a explorar e a fazer encomendas deliciosas através
+        do nosso site. Temos uma variedade incrível de sobremesas e salgados
+        para todos os gostos! 🍰🥐
+      </p>  
 
       <p>
         Para começares a tua jornada culinária connosco, clica no botão abaixo:
       </p>
-      <center><a href="#" class="btn">Explorar Website</a></center>
+      <center><a href="' . $url . '" class="btn">Explorar Website 🚀</a></center>
       <p class="footer">
         Obrigado por te juntares a nós! &bull;
         <a href="#">Política de Privacidade</a>
@@ -176,6 +182,7 @@ function createUser($db, $username, $nome, $email, $phoneNumber, $password)
     </div>
   </body>
 </html>
+
 
     ';
 

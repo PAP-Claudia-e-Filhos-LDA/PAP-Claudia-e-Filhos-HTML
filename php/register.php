@@ -61,7 +61,7 @@ session_start();
                     <i class="fas fa-lock"></i>
                 </div>
                 <p class="welcome-message">Tens conta? <a href="login.php">Login!</a></p>
-                <button class="submit">Register</button>
+                <button class="submit">Registar</button>
             </form>
         </div>
     </div>

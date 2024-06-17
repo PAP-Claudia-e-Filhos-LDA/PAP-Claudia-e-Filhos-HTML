@@ -79,7 +79,7 @@ if (!isset($_SESSION["username"])) {
               </div>
               <div class="submit-btn">
                 <a href="#" class="main-btn" onclick="enviarFormulario()">
-                  <span type="submit" class="btn-text">Send</span>
+                  <span type="submit" class="btn-text">Enviar</span>
                 </a>
               </div>
         </form>

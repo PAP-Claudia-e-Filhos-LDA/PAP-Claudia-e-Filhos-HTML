@@ -19,6 +19,7 @@
           <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
           <!–– CDN para os icons ––>
+
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
             <!–– CDN do toastr ––>
@@ -93,18 +94,19 @@
 
               <div class="input-control i-c-2">
                 <select required id="escolha-levantameto" name="levantameto">
-                  <option value="" disabled selected>Levantamento</option>
-                  <option value="domicilio">Entrega domicilio</option>
-                  <option value="pick">Pick up</option>
+                  <option value="" disabled selected data-icon="⬇️">⬇️ Levantamento</option>
+                  <option value="domicilio" data-icon="🏠">🏠 Entrega domicilio</option>
+                  <option value="pick" data-icon="📦">📦 Pick up</option>
                 </select>
                 <select required id="escolha-pagamento" name="pagamento">
-                  <option value="" disabled selected>Metodo pagamento</option>
-                  <option value="mao">Em mão</option>
-                  <option value="mbway">Mb way</option>
+                  <option value="" disabled selected data-icon="⬇️">⬇️ Método de pagamento</option>
+                  <option value="mao" data-icon="💵">💵 Em mão</option>
+                  <option value="mbway" data-icon="💳">💳 Mb way</option>
                 </select>
               </div>
 
               <div class="input-control">
+                <!-- <textarea name="morada" id="" cols="15" rows="1" placeholder="Morada para a entrega..."></textarea> -->
                 <textarea name="mensagem" id="" cols="15" rows="8" placeholder="O que te intriga?"></textarea>
               </div>
               <div class="submit-btn">

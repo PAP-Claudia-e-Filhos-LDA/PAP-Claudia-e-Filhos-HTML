@@ -105,7 +105,7 @@ if (!isset($_SESSION["username"])) {
               </div>
               <div class="submit-btn">
                 <a href="#" class="main-btn" onclick="enviarFormularioMensagem()">
-                  <span type="submit" class="btn-text">Send</span>
+                  <span type="submit" class="btn-text">Enviar</span>
                 </a>
               </div>
             </form>
@@ -155,26 +155,26 @@ if (!isset($_SESSION["username"])) {
         <script src="../js/main.js"></script>
 
         <!–– scrpit para o sweetalert ––>
-        <script>
-          $(document).ready(function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const errorParam = urlParams.get("error");
+          <script>
+            $(document).ready(function() {
+              const urlParams = new URLSearchParams(window.location.search);
+              const errorParam = urlParams.get("error");
 
-            if (errorParam === "none") {
-              Swal.fire({
-                icon: "success",
-                title: "Mensagem enviada com sucesso",
-                showConfirmButton: false,
-                timer: 2500,
-                background: "#17191f",
-                iconColor: "#fd9c3a",
-                customClass: {
-                  title: 'text-white'
-                }
-              });
-            }
-          });
-        </script>
+              if (errorParam === "none") {
+                Swal.fire({
+                  icon: "success",
+                  title: "Mensagem enviada com sucesso",
+                  showConfirmButton: false,
+                  timer: 2500,
+                  background: "#17191f",
+                  iconColor: "#fd9c3a",
+                  customClass: {
+                    title: 'text-white'
+                  }
+                });
+              }
+            });
+          </script>
 </body>
 
 </html>
