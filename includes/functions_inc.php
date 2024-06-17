@@ -2,6 +2,11 @@
 
 use LDAP\Result;
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+
+require '../vendor/autoload.php';
 
 // ------------------  Functions Validations ---------------------
 function emptyInputSignup($username, $phoneNumber, $password)
@@ -56,135 +61,54 @@ function userExists($db, $username, $phoneNumber, $email)
     }
 }
 
-
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\SMTP;
-
-require '../vendor/autoload.php';
 function createUser($db, $username, $nome, $email, $phoneNumber, $password)
 {
     $mail = new PHPMailer(true);
 
     try {
-        // Configurações do servidor SMTP
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';  // Endereço do servidor SMTP
-        $mail->SMTPAuth = true;          // Habilita autenticação SMTP
-        $mail->Username = 'rafael17cordeiro@gmail.com'; // Seu email SMTP
-        $mail->Password = 'mntg asxi jfnj inec';        // Sua senha SMTP
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Habilita criptografia TLS
-        $mail->Port = 587;                // Porta TCP para conexão
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'rafael17cordeiro@gmail.com';
+        $mail->Password = 'mntg asxi jfnj inec';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
 
-        // Define o remetente e destinatário
+
         $mail->setFrom('rafael17cordeiro@gmail.com', 'rafael');
         $mail->addAddress($email,  $nome);
 
-        // Conteúdo do email
-        $mail->isHTML(true);  // Define o email como HTML
+
+        $mail->isHTML(true);
         $mail->Subject = 'Assunto do Email';
         $url = 'http://127.0.0.1/PAP-Claudia-e-Filhos-LDA/php/index.php';
         $body = '
-        
-<!DOCTYPE html>
-<html lang="pt">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
-    />
-    <title>Confirmação de Registo</title>
-    <style>
-      /* Estilos gerais */
-      body {
-        font-family: "Poppins", sans-serif;
-        line-height: 1.6;
-        margin: 0;
-        padding: 20px;
-        color: white;
-        background-color: #ffffff;
-      }
-
-      .container {
-        max-width: 600px;
-        margin: 20px auto;
-        background-color: #17191f;
-        padding: 40px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      h2 {
-        color: #fd9c3a;
-        font-size: 28px;
-        margin-bottom: 20px;
-        text-align: center;
-      }
-
-      p {
-        font-size: 16px;
-        line-height: 1.8;
-        margin-bottom: 20px;
-        color: white;
-        text-align: justify;
-      }
-
-      .btn {
-        display: inline-block;
-        background-color: #fd9c3a;
-        color: #fff;
-        text-decoration: none;
-        padding: 12px 24px;
-        border-radius: 5px;
-        font-weight: bold;
-        text-align: center;
-        transition: background-color 0.3s ease;
-      }
-
-      .btn:hover {
-        background-color: #e68a00;
-      }
-
-      .footer {
-        text-align: center;
-        font-size: 14px;
-        color: white;
-        margin-top: 20px;
-      }
-
-      .footer a {
-        color: #fd9c3a;
-        text-decoration: none;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <h2>Olá, ' . $nome . ' 🎉</h2>
-      <p>O teu registo foi concluído com sucesso no nosso site! 😊</p>
-      <p>
-        Agora podes começar a explorar e a fazer encomendas deliciosas através
-        do nosso site. Temos uma variedade incrível de sobremesas e salgados
-        para todos os gostos! 🍰🥐
-      </p>  
-
-      <p>
-        Para começares a tua jornada culinária connosco, clica no botão abaixo:
-      </p>
-      <center><a href="' . $url . '" class="btn">Explorar Website 🚀</a></center>
-      <p class="footer">
-        Obrigado por te juntares a nós! &bull;
-        <a href="#">Política de Privacidade</a>
-      </p>
-    </div>
-  </body>
-</html>
-
-
-    ';
+        <!DOCTYPE html>
+        <html lang="pt">
+        <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>Confirmação de Encomenda</title>
+        </head>
+        <body style="font-family: \'Poppins\', sans-serif; line-height: 1.6; margin: 0; padding: 20px; color: white; background-color: #ffffff;">
+            <div class="container" style="max-width: 600px; margin: 20px auto; background-color: #17191f; padding: 40px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                <h2 style="color: #fd9c3a; font-size: 28px; margin-bottom: 20px; text-align: center;">Olá, ' . $nome . ' 🎉</h2>
+                <p style="font-size: 16px; line-height: 1.8; margin-bottom: 20px; color: white; text-align: justify;">O teu registo foi concluído com sucesso no nosso site!😊</p>
+                <p style="font-size: 16px; line-height: 1.8; margin-bottom: 20px; color: white; text-align: justify;">
+                    Agora podes começar a explorar e a fazer encomendas deliciosas através do nosso site. Temos uma variedade incrível de sobremesas e salgados para todos os gostos! 🍰🥐
+                </p>
+                <p style="font-size: 16px; line-height: 1.8; margin-bottom: 20px; color: white; text-align: justify;">
+                    Para começares a tua jornada culinária connosco, clica no botão abaixo:
+                </p>
+                <center><b><a href="' . $url . '" class="btn" style="display: inline-block; background-color: #fd9c3a; color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 5px; font-weight: bold; text-align: center; transition: background-color 0.3s ease;">Explorar Website 🚀</a></b></center>
+                <p class="footer" style="text-align: center; font-size: 14px; color: white; margin-top: 20px;">
+                    Obrigado por te juntares <a href="#" style="color: #fd9c3a; text-decoration: none;"><b>a nós! </b></a>
+    
+                </p>
+                        </div>
+                    </body>
+                    </html>
+                        ';
 
         $mail->Body = $body;
 
@@ -196,6 +120,10 @@ function createUser($db, $username, $nome, $email, $phoneNumber, $password)
     } catch (Exception $e) {
         echo "Erro ao enviar o email: {$mail->ErrorInfo}";
     }
+
+
+
+
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO clientes(username, nome_cliente, contacto, email, pass, imagem_perfil) VALUES (?, ?, ?, ?, ?, ?)";
@@ -223,10 +151,6 @@ function createUser($db, $username, $nome, $email, $phoneNumber, $password)
     }
 
     $stmt->close();
-
-
-
-    // Redireciona após a conclusão bem-sucedida
     header("location: ../php/login.php?error=none");
     exit();
 }
@@ -428,6 +352,7 @@ function updateUser($db, $id_clientes, $username, $nome, $email, $phoneNumber)
 // ------------------  Functions Encomenda ---------------------
 function createOrder($db, $id_clientes, $metodo_pagamento, $metodo_entrega, $mensagem)
 {
+
     $data_encomenda = date('Y-m-d');
     $metodo_pagamento = ($metodo_pagamento == 'mbway') ? 1 : 0;
     $metodo_entrega = ($metodo_entrega == 'domicilio') ? 1 : 0;
@@ -446,15 +371,16 @@ function createOrder($db, $id_clientes, $metodo_pagamento, $metodo_entrega, $men
     $stmt->bindParam(4, $metodo_entrega, SQLITE3_INTEGER);
     $stmt->bindParam(5, $mensagem, SQLITE3_TEXT);
 
+
     $result = $stmt->execute();
+
+
 
     if (!$result) {
         die("Erro na execução da declaração: " . $db->lastErrorMsg());
     }
-
     $lastId = $db->lastInsertRowID();
     $stmt->close();
-
     return $lastId;
 }
 
@@ -513,8 +439,6 @@ function createOrderLine($db, $encomendaId, $tipoRissois, $cartDetails)
         $quantidade = $item['quantity'];
 
         $idProduto = getProductIdByName($db, $nomeProduto);
-
-        // Verifica se o tipo de rissole é congelado ou frito para cada item
         if (strpos(strtolower($nomeProduto), 'rissol') !== false) {
             $congelado = isset($tipoRissois[$index]) && $tipoRissois[$index] == 'congelado' ? 1 : 0;
         } else {
@@ -536,12 +460,135 @@ function createOrderLine($db, $encomendaId, $tipoRissois, $cartDetails)
     }
 
     $stmt->close();
+    $userId = $_SESSION["userid"];
+
+
+    $query = "SELECT * FROM Clientes WHERE id_clientes = :userid";
+    $stmt = $db->prepare($query);
+    $stmt->bindValue(':userid', $userId, SQLITE3_INTEGER);
+    $result = $stmt->execute();
+
+
+    $user = array();
+
+
+    while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+        $user[] = array($row['username'], $row['nome_cliente'], $row['contacto'], $row['email'], $row['imagem_perfil']);
+    }
+
+    foreach ($user as $info) {
+        $nome = $info[1];
+        $email = $info[3];
+    }
+
+
+    $mail = new PHPMailer(true);
+
+    try {
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'rafael17cordeiro@gmail.com';
+        $mail->Password = 'mntg asxi jfnj inec';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
+
+
+
+        $mail->CharSet = 'UTF-8';
+
+        $mail->setFrom('rafael17cordeiro@gmail.com', 'rafael');
+        $mail->addAddress($email, $nome);
+
+
+        $mail->isHTML(true);
+        $mail->Subject = 'Assunto do Email';
+        $url = 'http://127.0.0.1/PAP-Claudia-e-Filhos-LDA/php/historico.php';
+        $userOrders = getUserOrders($userId, $db);
+        $lastOrder = end($userOrders);
+
+
+        $total = 0;
+        $orderHtml = "<div class='order'>";
+        $orderHtml .= "<h1>Número da Encomenda: " . $lastOrder['id_Encomendas'] . "</h1>";
+
+
+
+        foreach ($lastOrder['items'] as $item) {
+            $cid = 'produto_' . uniqid();
+
+            $mail->AddEmbeddedImage($item['caminho_imagem'], $cid);
+            $orderHtml .= "<div class='cart-item' style='display: grid; grid-template-columns: 100px 1fr auto; align-items: center; gap: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.35); padding-top: 1rem;'>";
+            $orderHtml .= "<div class='cart-img-box' style='width: 100px; height: 100px; overflow: hidden; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);'>";
+
+            $orderHtml .= "<img src='cid:{$cid}' alt='{$item['nome_produto']}' class='cart-img' style='width: 100%; height: 100%; object-fit: cover;'>";
+            $orderHtml .= "</div>";
+            $orderHtml .= "<div class='detail-box' style='display: grid; row-gap: 0.5rem;'>";
+            $orderHtml .= "<div class='cart-product-title' style='font-size: 1rem; text-transform: uppercase;'><h3>{$item['nome_produto']}</h3></div>";
+            $orderHtml .= "<div class='cart-quantity-box'>";
+            $orderHtml .= "<label for='quantity'>Quantidade:</label>";
+            $orderHtml .= "<input type='text' value='{$item['quantidade']}' class='cart-quantity' id='quantity' disabled style='border: 1px solid var(--color-secondary); background-color: var(--color-primary); color: white; width: 2.4rem; text-align: center; font-size: 1rem; padding: 0.5rem; border-radius: 5px; margin-left: 0.5rem;'>";
+            $orderHtml .= "</div>";
+            $orderHtml .= "</div>";
+            $orderHtml .= "</div>";
+            $subtotal = $item['preco'] * $item['quantidade'];
+            $total += $subtotal;
+        }
+
+
+        $orderHtml .= "<div style='display: flex; justify-content: flex-end; margin-top: 1.5rem; padding-top: 1rem; transition: all 0.3s ease; border-top: 1px solid #fd9c3a;'>";
+        $orderHtml .= "<div style='font-size: 1rem; font-weight: 600;'>Total:</div>";
+        $orderHtml .= "<div style='margin-left: 0.5rem;'>{$total}€</div>";
+        $orderHtml .= "</div>";
+
+        $orderHtml .= "</div>";
+
+        echo $orderHtml;
+        // die;              
+
+
+        $body = '
+    <!DOCTYPE html>
+    <html lang="pt">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Confirmação de Encomenda</title>
+    </head>
+    <body style="font-family: \'Poppins\', sans-serif; line-height: 1.6; margin: 0; padding: 20px; color: white; background-color: #ffffff;">
+        <div class="container" style="max-width: 600px; margin: 20px auto; background-color: #17191f; padding: 40px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <h2 style="color: #fd9c3a; font-size: 28px; margin-bottom: 20px; text-align: center;">Olá, ' . $nome . ' 🎉</h2>
+            <p style="font-size: 16px; line-height: 1.8; margin-bottom: 20px; color: white; text-align: justify;">A tua encomenda foi realizada com sucesso! 😊</p>
+            <p style="font-size: 16px; line-height: 1.8; margin-bottom: 20px; color: white; text-align: justify;">
+                Obrigado por fazeres uma encomenda connosco. Estamos ansiosos para preparar e entregar os teus itens deliciosos! 🍰🥐
+            </p>
+            <p style="font-size: 16px; line-height: 1.8; margin-bottom: 20px; color: white; text-align: justify;">
+                Podes acompanhar o estado da tua encomenda clicando no botão abaixo:
+            </p>
+            <center><a href="' . $url . '" class="btn" style="display: inline-block; background-color: #fd9c3a; color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 5px; font-weight: bold; text-align: center; transition: background-color 0.3s ease;">Acompanhar Encomenda 🚀</a></center>
+            <p class="footer" style="text-align: center; font-size: 14px; color: white; margin-top: 20px;">
+                Se tiveres alguma dúvida, não hesites em <a href="#" style="color: #fd9c3a; text-decoration: none;"><b>contactar-nós! </b></a>
+
+            </p>
+            ' . $orderHtml . '
+        </div>
+    </body>
+</html>
+';
+
+        $mail->Body = $body;
+
+        $mail->send();
+        echo 'Mensagem enviada com sucesso';
+    } catch (Exception $e) {
+        echo "A mensagem não pôde ser enviada. Mailer Error: {$mail->ErrorInfo}";
+    }
     return $encomendaId;
 }
 
 
 
-
+// ------------------  Function get orders ---------------------
 function getUserOrders($userId, $db)
 {
     $queryOrders = "SELECT * FROM Encomendas WHERE id_clientes = :userid";

@@ -10,6 +10,10 @@ if (isset($_GET["error"])) {
   switch ($_GET["error"]) {
     case "none":
       $errorMessage = "login feito com sucesso!";
+      break;
+
+    case "logout":
+      $errorMessage = "Logout feito com sucesso!";
 
       break;
     default:
@@ -67,7 +71,9 @@ if (isset($_GET["error"])) {
       </div>
       <div class="right-header hidden">
         <h1 class="name">Bem vindo <span><br> Claúdia & Filhos</span></h1>
-        <p>Explore o nosso mundo de sabores caseiros com sobremesas irresistíveis e rissois cheios de tradição. Cada receita é um convite para partilhar momentos especiais à mesa. Descubra o carinho em cada sabor. Seja parte da nossa família gastronômica!</p>
+        <p>Explore o nosso mundo de sabores caseiros com sobremesas irresistíveis e rissois cheios de tradição. Cada
+          receita é um convite para partilhar momentos especiais à mesa. Descubra o carinho em cada sabor. Seja parte da
+          nossa família gastronômica!</p>
         <div class="btn-con">
           <a href="about.php" class="main-btn">
             <span class="btn-text">Quem somos</span>

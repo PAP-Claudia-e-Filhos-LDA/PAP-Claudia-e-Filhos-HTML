@@ -15,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $encomendaId = createOrder($db, $_SESSION["userid"], $metodoPagamento, $levantamento, $mensagem);
     if ($encomendaId !== false && $encomendaId !== null && $encomendaId !== 0) {
         createOrderLine($db, $encomendaId, $tipoRissois, $cartDetails);
-
         header("location: ../php/historico.php?error=none");
     } else {
         echo "Erro na criação da encomenda.";
