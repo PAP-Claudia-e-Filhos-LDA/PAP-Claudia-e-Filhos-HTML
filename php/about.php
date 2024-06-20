@@ -13,11 +13,14 @@
       <!–– link para as fonts ––>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet" />
 
 
         <!–– CDN para os icons ––>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+            integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
           <!–– CDN para o swiper ––>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
@@ -32,10 +35,14 @@
         <div class="left-about hidden">
           <h4>Quem somos?</h4>
           <p>
-            Somos uma família apaixonada pela arte de cozinhar e encantar paladares com os nossos deliciosos rissois. Cada membro da nossa equipa traz consigo uma paixão única pela culinária, dedicando-se a proporcionar experiências gastronómicas memoráveis a todos os nossos clientes.
+            Somos uma família apaixonada pela arte de cozinhar e encantar paladares com os nossos deliciosos rissois.
+            Cada membro da nossa equipa traz consigo uma paixão única pela culinária, dedicando-se a proporcionar
+            experiências gastronómicas memoráveis a todos os nossos clientes.
             <br />
             <br />
-            A nossa jornada na cozinha vai além de um simples trabalho; é uma expressão de amor e dedicação. Acreditamos que a comida tem o poder de criar laços e momentos especiais, e é por isso que nos esforçamos por fazer cada cliente feliz através dos sabores irresistíveis dos nossos rissois.
+            A nossa jornada na cozinha vai além de um simples trabalho; é uma expressão de amor e dedicação. Acreditamos
+            que a comida tem o poder de criar laços e momentos especiais, e é por isso que nos esforçamos por fazer cada
+            cliente feliz através dos sabores irresistíveis dos nossos rissois.
           </p>
           <div class="btn-con">
             <a href="catalogo.php" class="main-btn">
@@ -102,7 +109,9 @@
                       <span class="job">trabalhador/Estudante</span>
                     </div>
                   </div>
-                  <p>"Tive uma experiência incrível com o atendimento da empresa. A equipa demonstrou um compromisso genuíno com a satisfação do cliente, fazendo-me sentir valorizado. A comida também foi uma agradável surpresa, superando todas as minhas expectativas. Recomendo vivamente!"</p>
+                  <p>"Tive uma experiência incrível com o atendimento da empresa. A equipa demonstrou um compromisso
+                    genuíno com a satisfação do cliente, fazendo-me sentir valorizado. A comida também foi uma agradável
+                    surpresa, superando todas as minhas expectativas. Recomendo vivamente!"</p>
                   <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -119,7 +128,8 @@
                       <span class="job">Estudante</span>
                     </div>
                   </div>
-                  <p>"Gostei bastante do rissol de camrão porem não recomendo a ninguem, quando comi queimei me e fui para o hospital, mas do resto tudo muito bom !"</p>
+                  <p>"Gostei bastante do rissol de camrão porem não recomendo a ninguem, quando comi queimei me e fui
+                    para o hospital, mas do resto tudo muito bom !"</p>
                   <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -135,7 +145,9 @@
                       <span class="job">trabalhador/Estudante</span>
                     </div>
                   </div>
-                  <p>"Embora tenha tido uma experiência geral positiva, acho que há margem para melhorias. O atendimento foi bom, mas poderia ser mais eficiente em alguns aspectos. A qualidade da comida estava acima da média, mas algumas opções no menu poderiam ser mais diversificadas"</p>
+                  <p>"Embora tenha tido uma experiência geral positiva, acho que há margem para melhorias. O atendimento
+                    foi bom, mas poderia ser mais eficiente em alguns aspectos. A qualidade da comida estava acima da
+                    média, mas algumas opções no menu poderiam ser mais diversificadas"</p>
                   <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -151,7 +163,9 @@
                       <span class="job">Estudante</span>
                     </div>
                   </div>
-                  <p>"O atendimento foi excepcional, refletindo o comprometimento genuíno da equipa com a satisfação do cliente. A comida surpreendeu com sabores incríveis, superando todas as expectativas. Recomendo vivamente, uma experiência que vale cada estrela"</p>
+                  <p>"O atendimento foi excepcional, refletindo o comprometimento genuíno da equipa com a satisfação do
+                    cliente. A comida surpreendeu com sabores incríveis, superando todas as expectativas. Recomendo
+                    vivamente, uma experiência que vale cada estrela"</p>
                   <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -168,7 +182,9 @@
                       <span class="job">Estudante</span>
                     </div>
                   </div>
-                  <p>"Os rissóis são simplesmente fenomenais! A crocância da casca faz uma combinação perfeita com os recheios que são de deixar água na boca. É como uma explosão de sabores em cada mordida. Fiquei realmente impressionado!"</p>
+                  <p>"Os rissóis são simplesmente fenomenais! A crocância da casca faz uma combinação perfeita com os
+                    recheios que são de deixar água na boca. É como uma explosão de sabores em cada mordida. Fiquei
+                    realmente impressionado!"</p>
                   <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -185,7 +201,10 @@
                       <span class="job">Estudante</span>
                     </div>
                   </div>
-                  <p>"As sobremesas são um verdadeiro deleite. Cada pedaço é uma tentação irresistível, com texturas que se complementam e sabores que conquistam o coração. Não consigo escolher minha favorita, todas são simplesmente divinas. Uma experiência gastronómica que definitivamente vale a pena experimentar de novo!"</p>
+                  <p>"As sobremesas são um verdadeiro deleite. Cada pedaço é uma tentação irresistível, com texturas que
+                    se complementam e sabores que conquistam o coração. Não consigo escolher minha favorita, todas são
+                    simplesmente divinas. Uma experiência gastronómica que definitivamente vale a pena experimentar de
+                    novo!"</p>
                   <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -202,7 +221,9 @@
                       <span class="job">Estudante</span>
                     </div>
                   </div>
-                  <p>Para começar, gostei bastante do atendimento. Nota-se que são pessoas que se importam com o atendimento aos clientes. Comida também bastante boa. Todas as expectativas que possam ter vão ser certamente superadas!</p>
+                  <p>Para começar, gostei bastante do atendimento. Nota-se que são pessoas que se importam com o
+                    atendimento aos clientes. Comida também bastante boa. Todas as expectativas que possam ter vão ser
+                    certamente superadas!</p>
                   <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -217,6 +238,7 @@
           <div class="swiper-pagination js-testimonals-pagination"></div>
         </div>
       </div>
+
     </section>
   </main>
 

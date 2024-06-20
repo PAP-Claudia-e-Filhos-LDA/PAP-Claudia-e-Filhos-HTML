@@ -69,15 +69,17 @@ function createUser($db, $username, $nome, $email, $phoneNumber, $password)
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'rafael17cordeiro@gmail.com';
-        $mail->Password = 'mntg asxi jfnj inec';
+        $mail->Username = 'claudia.filhos.lda@gmail.com';
+        $mail->Password = 'dzhy nwoe iqox zjqp';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
 
-        $mail->setFrom('rafael17cordeiro@gmail.com', 'rafael');
-        $mail->addAddress($email,  $nome);
 
+        $mail->CharSet = 'UTF-8';
+
+        $mail->setFrom('claudia.filhos.lda@gmail.com', 'Claudia');
+        $mail->addAddress($email, $nome);
 
         $mail->isHTML(true);
         $mail->Subject = 'Assunto do Email';
@@ -488,8 +490,8 @@ function createOrderLine($db, $encomendaId, $tipoRissois, $cartDetails)
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'rafael17cordeiro@gmail.com';
-        $mail->Password = 'mntg asxi jfnj inec';
+        $mail->Username = 'claudia.filhos.lda@gmail.com';
+        $mail->Password = 'dzhy nwoe iqox zjqp';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
@@ -497,7 +499,7 @@ function createOrderLine($db, $encomendaId, $tipoRissois, $cartDetails)
 
         $mail->CharSet = 'UTF-8';
 
-        $mail->setFrom('rafael17cordeiro@gmail.com', 'rafael');
+        $mail->setFrom('claudia.filhos.lda@gmail.com', 'Claudia');
         $mail->addAddress($email, $nome);
 
 
@@ -509,25 +511,24 @@ function createOrderLine($db, $encomendaId, $tipoRissois, $cartDetails)
 
 
         $total = 0;
-        $orderHtml = "<div class='order'>";
-        $orderHtml .= "<h1>Número da Encomenda: " . $lastOrder['id_Encomendas'] . "</h1>";
 
-
+        $orderHtml = "<div class='order' style='color: white;'>";
+        $orderHtml .= "<center><h1 style='color: white; font-size: 2rem;'>Número da Encomenda: " . $lastOrder['id_Encomendas'] . "</h1></center>";
 
         foreach ($lastOrder['items'] as $item) {
             $cid = 'produto_' . uniqid();
 
             $mail->AddEmbeddedImage($item['caminho_imagem'], $cid);
-            $orderHtml .= "<div class='cart-item' style='display: grid; grid-template-columns: 100px 1fr auto; align-items: center; gap: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.35); padding-top: 1rem;'>";
-            $orderHtml .= "<div class='cart-img-box' style='width: 100px; height: 100px; overflow: hidden; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);'>";
-
+            $orderHtml .= "<div class='cart-item' style='display: grid; grid-template-columns: 100px 1fr auto; align-items: center; gap: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.35); padding-top: 1rem; padding-bottom: 1rem;'>";
+            $orderHtml .= "<div class='cart-product-title' style='font-size: 1rem; text-transform: uppercase; color: white;'><h3>{$item['nome_produto']} {$item['preco']}€</h3></div>";
+            $orderHtml .= "<div class='cart-img-box' style='width: 150px; height: 150px; overflow: hidden; margin-bottom: 40px;border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);'>";
             $orderHtml .= "<img src='cid:{$cid}' alt='{$item['nome_produto']}' class='cart-img' style='width: 100%; height: 100%; object-fit: cover;'>";
             $orderHtml .= "</div>";
             $orderHtml .= "<div class='detail-box' style='display: grid; row-gap: 0.5rem;'>";
-            $orderHtml .= "<div class='cart-product-title' style='font-size: 1rem; text-transform: uppercase;'><h3>{$item['nome_produto']}</h3></div>";
-            $orderHtml .= "<div class='cart-quantity-box'>";
-            $orderHtml .= "<label for='quantity'>Quantidade:</label>";
-            $orderHtml .= "<input type='text' value='{$item['quantidade']}' class='cart-quantity' id='quantity' disabled style='border: 1px solid var(--color-secondary); background-color: var(--color-primary); color: white; width: 2.4rem; text-align: center; font-size: 1rem; padding: 0.5rem; border-radius: 5px; margin-left: 0.5rem;'>";
+
+            $orderHtml .= "<div class='cart-quantity-box' style='color: white;'>";
+            $orderHtml .= "<label for='quantity' style='font-size: 1rem; font-weight: 500; color:white;'>Quantidade:</label>";
+            $orderHtml .= "<input type='text' value='{$item['quantidade']}' class='cart-quantity' id='quantity' disabled style='border: 1px solid #fd9c3a; background-color: #17191f; color: white; width: 2.4rem; text-align: center; font-size: 1rem; padding: 0.5rem; border-radius: 5px; margin-left: 0.5rem;'>";
             $orderHtml .= "</div>";
             $orderHtml .= "</div>";
             $orderHtml .= "</div>";
@@ -535,10 +536,8 @@ function createOrderLine($db, $encomendaId, $tipoRissois, $cartDetails)
             $total += $subtotal;
         }
 
-
-        $orderHtml .= "<div style='display: flex; justify-content: flex-end; margin-top: 1.5rem; padding-top: 1rem; transition: all 0.3s ease; border-top: 1px solid #fd9c3a;'>";
-        $orderHtml .= "<div style='font-size: 1rem; font-weight: 600;'>Total:</div>";
-        $orderHtml .= "<div style='margin-left: 0.5rem;'>{$total}€</div>";
+        $orderHtml .= "<div style='display: flex; justify-content: flex-end; margin-top: 1.5rem; padding-top: 1rem; transition: all 0.3s ease; border-top: 1px solid #fd9c3a; color: white;'>";
+        $orderHtml .= "<div style='font-size: 1rem; font-weight: 600; color: white;'>Total: {$total}€</div>";
         $orderHtml .= "</div>";
 
         $orderHtml .= "</div>";
@@ -635,30 +634,29 @@ function getUserOrders($userId, $db)
 
 
 // ------------------  Function Mensagem ---------------------
-function messageSend($db, $userId, $assunto, $mensagem)
+function messageSend($db, $userId, $assuntoId, $mensagem)
 {
-    $sql = "INSERT INTO Mensagens_Clientes (id_cliente, assunto, mensagem) VALUES (?, ?, ?)";
+    $data_mensagem = date('Y-m-d');
+
+    $sql = "INSERT INTO Mensagens_Clientes (id_cliente, id_assunto, mensagem, data_mensagem) VALUES (?, ?, ?, ?)";
     $stmt = $db->prepare($sql);
 
     if (!$stmt) {
-        header("location: ../index.php?error=stmtfailed&msg=" . $db->lastErrorMsg());
-        exit();
+        die("Erro na preparação da declaração: " . $db->lastErrorMsg());
     }
 
-    $stmt->bindParam(1, $userId, SQLITE3_TEXT);
-    $stmt->bindParam(2, $assunto, SQLITE3_TEXT);
+    $stmt->bindParam(1, $userId, SQLITE3_INTEGER);
+    $stmt->bindParam(2, $assuntoId, SQLITE3_INTEGER);
     $stmt->bindParam(3, $mensagem, SQLITE3_TEXT);
+    $stmt->bindParam(4, $data_mensagem, SQLITE3_TEXT);
 
     $result = $stmt->execute();
 
     if (!$result) {
-        header("location: ../php/contact.php?error=stmtexecutionfailed&msg=" . $db->lastErrorMsg());
-        exit();
-    } else {
-        header("location: ../php/contact.php?error=none");
+        die("Erro na execução da declaração: " . $db->lastErrorMsg());
     }
 
     $stmt->close();
-
+    header("location: ../php/contact.php?error=none");
     exit();
 }

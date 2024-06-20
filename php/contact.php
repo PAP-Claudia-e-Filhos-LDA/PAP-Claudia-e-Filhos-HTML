@@ -49,7 +49,8 @@ if (!isset($_SESSION["username"])) {
           <div class="left-contact hidden">
             <h4>Entra em contacto</h4>
             <p>
-              Aqui é o lugar ideal para nos contactares caso algo tenha corrido mal ou se precisares de ajuda com alguma coisa !
+              Aqui é o lugar ideal para nos contactares caso algo tenha corrido mal ou se precisares de ajuda com alguma
+              coisa !
             </p>
             <div class="contact-info">
               <div class="contact-item">
@@ -98,7 +99,12 @@ if (!isset($_SESSION["username"])) {
           <div class="right-contact hidden">
             <form action="../includes/process_mensagens.php" method="post" class="contact-form" id="mensagem">
               <div class="input-control">
-                <input type="text" name="assunto" required placeholder="Assunto" />
+                <select required id="escolha-assunto" name="assunto">
+                  <option value="" disabled selected data-icon="✉️">✉️ Assunto</option>
+                  <option value="products" data-icon="🥐">🥐 Problemas com Produtos</option>
+                  <option value="encomenda" data-icon="📦">📦 Problemas com a Encomenda</option>
+                  <option value="others" data-icon="🎲">🎲 Outros</option>
+                </select>
               </div>
               <div class="input-control">
                 <textarea name="mensagem" id="" cols="15" rows="8" placeholder="A tua mensagem..."></textarea>

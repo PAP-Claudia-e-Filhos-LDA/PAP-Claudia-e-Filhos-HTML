@@ -61,9 +61,9 @@
                       echo "
         <div class='cart-quantity-box'>
            <select required name='rissois[$index]' class='cart-preference'>
-    <option value='' disabled selected>Tipo rissois</option>
-    <option value='frito'>Frito</option>
-    <option value='congelado'>Congelado</option>
+    <option value='' disabled selected>Escolha</option>
+    <option value='frito'>Frito ♨️</option>
+    <option value='congelado'>Congelado ❄️</option>
 </select>
         </div>";
                     }
@@ -106,7 +106,7 @@
               </div>
 
               <div class="input-control">
-                <!-- <textarea name="morada" id="" cols="15" rows="1" placeholder="Morada para a entrega..."></textarea> -->
+                <textarea name="morada" id="" cols="10" rows="1" placeholder="Morada"></textarea>
                 <textarea name="mensagem" id="" cols="15" rows="8" placeholder="O que te intriga?"></textarea>
               </div>
               <div class="submit-btn">
