@@ -24,13 +24,16 @@ if (!isset($_SESSION["username"])) {
       <!–– link para as fonts ––>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet" />
 
         <!–– CDN para o toastr ––>
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
           <!–– CDN para os icons ––>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+              integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+              crossorigin="anonymous" referrerpolicy="no-referrer" />
 
             <!–– SWEET ALERT––>
               <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
@@ -66,7 +69,7 @@ if (!isset($_SESSION["username"])) {
                   <span>Email:</span>
                 </div>
                 <p>
-                  <span> Claudia&Filhos@gmail.com</span>
+                  <span>claudia.filhos.lda@gmail.com</span>
                 </p>
               </div>
               <div class="contact-item">
@@ -162,24 +165,24 @@ if (!isset($_SESSION["username"])) {
 
         <!–– scrpit para o sweetalert ––>
           <script>
-            $(document).ready(function() {
-              const urlParams = new URLSearchParams(window.location.search);
-              const errorParam = urlParams.get("error");
+          $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const errorParam = urlParams.get("error");
 
-              if (errorParam === "none") {
-                Swal.fire({
-                  icon: "success",
-                  title: "Mensagem enviada com sucesso",
-                  showConfirmButton: false,
-                  timer: 2500,
-                  background: "#17191f",
-                  iconColor: "#fd9c3a",
-                  customClass: {
-                    title: 'text-white'
-                  }
-                });
-              }
-            });
+            if (errorParam === "none") {
+              Swal.fire({
+                icon: "success",
+                title: "Mensagem enviada com sucesso",
+                showConfirmButton: false,
+                timer: 2500,
+                background: "#17191f",
+                iconColor: "#fd9c3a",
+                customClass: {
+                  title: 'text-white'
+                }
+              });
+            }
+          });
           </script>
 </body>
 
