@@ -1,11 +1,16 @@
 <?php
-// verificar se esta logado //
 session_start();
+
+// Verificar se o usuário está logado
 if (!isset($_SESSION["username"])) {
+  // Se não estiver logado, redirecione para a página de login
   header("location: login.php");
   exit();
 }
+
+// Se chegou aqui, o usuário está logado e pode acessar a página
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -122,6 +127,7 @@ if (!isset($_SESSION["username"])) {
         </div>
       </div>
     </section>
+
   </main>
 
   <div class="controls">

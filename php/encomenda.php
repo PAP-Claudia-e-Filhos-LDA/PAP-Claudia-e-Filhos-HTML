@@ -16,11 +16,14 @@
         <!–– link para as fonts ––>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-          <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet" />
 
           <!–– CDN para os icons ––>
 
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+              integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+              crossorigin="anonymous" referrerpolicy="no-referrer" />
 
             <!–– CDN do toastr ––>
               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -91,9 +94,8 @@
 
             </div>
             <div class="right-contact hidden">
-
               <div class="input-control i-c-2">
-                <select required id="escolha-levantameto" name="levantameto">
+                <select required id="escolha-levantameto" name="levantameto" onchange="toggleMorada()">
                   <option value="" disabled selected data-icon="⬇️">⬇️ Levantamento</option>
                   <option value="domicilio" data-icon="🏠">🏠 Entrega domicilio</option>
                   <option value="pick" data-icon="📦">📦 Pick up</option>
@@ -104,19 +106,21 @@
                   <option value="mbway" data-icon="💳">💳 Mb way</option>
                 </select>
               </div>
-
+              <div class="input-control" id="moradaContainer" style="display: none;">
+                <textarea name="morada" id="morada" cols="10" rows="1" placeholder="Morada"></textarea>
+              </div>
               <div class="input-control">
-                <textarea name="morada" id="" cols="10" rows="1" placeholder="Morada"></textarea>
                 <textarea name="mensagem" id="" cols="15" rows="8" placeholder="O que te intriga?"></textarea>
               </div>
               <div class="submit-btn">
                 <a href="#" class="main-btn" onclick="enviarEncomendaForm()">
-                  <span type="submit" class="btn-text">Send</span>
+                  <span type="submit" class="btn-text">enviar</span>
                 </a>
               </div>
-              </form>
             </div>
+            </form>
           </div>
+        </div>
         </div>
       </section>
     </main>
@@ -131,6 +135,21 @@
 
 
     </div>
+    <script>
+    function toggleMorada() {
+      const levantamentoSelect = document.getElementById('escolha-levantameto');
+      const moradaContainer = document.getElementById('moradaContainer');
+      if (levantamentoSelect.value === 'domicilio') {
+        moradaContainer.style.display = 'block';
+      } else {
+        moradaContainer.style.display = 'none';
+      }
+    }
+
+    function enviarEncomendaForm() {
+      document.getElementById('encomendaForm').submit();
+    }
+    </script>
 
     <!–– CDN do toastr ––>
       <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
