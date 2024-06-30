@@ -1380,4 +1380,95 @@ button.submit:hover {
   color: var(--color-white); /* Cor do texto das opções */
 }
 
+.leaderboard {
+  margin: 50px auto;
+  width: 100%; /* Alterado para 100% para preencher o contêiner pai */
+  max-width: 1000px;
+  border-radius: 20px;
+  border-collapse: collapse;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow-x: auto; /* Adicionado para rolagem horizontal em dispositivos menores */
+}
+
+.leaderboard th,
+.leaderboard td {
+  padding: 10px; /* Reduzido o padding para economizar espaço */
+  text-align: left;
+  background-color: var(--color-grey-5);
+  color: #fff;
+}
+
+.leaderboard th {
+  background-color: var(--color-secondary);
+}
+
+.leaderboard tr:nth-child(even) {
+  background-color: var(--color-grey-5);
+}
+
+.leaderboard tr:hover {
+  background-color: var(--color-grey-6);
+}
+
+.leaderboard img {
+  width: 40px; /* Reduzido o tamanho das imagens para economizar espaço */
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .leaderboard th,
+  .leaderboard td {
+    padding: 8px; /* Ajustes adicionais de padding para telas menores */
+  }
+
+  .leaderboard img {
+    width: 30px; /* Reduzido ainda mais o tamanho das imagens para telas menores */
+    height: 30px;
+  }
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px; /* Espaçamento entre os cards */
+}
+
+.card {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.card h3 {
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+
+.card p {
+  color: #666;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #007bff; /* Cor do botão */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Cor do botão ao passar o mouse */
+}
 @import "./media";
