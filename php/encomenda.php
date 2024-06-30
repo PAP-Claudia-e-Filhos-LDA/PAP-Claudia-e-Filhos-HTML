@@ -106,7 +106,12 @@
                   <option value="mbway" data-icon="💳">💳 Mb way</option>
                 </select>
               </div>
-              <div class="input-control" id="moradaContainer" style="display: none;">
+              <div class="input-control i-c-2" id="moradaContainer" style="display: none;">
+
+                <textarea name="distrito" id="morada" cols="10" rows="1" placeholder="Distrito"></textarea>
+                <textarea name="cod" id="cod" cols="10" rows="1" placeholder="Codigo-Postal"></textarea>
+              </div>
+              <div class="input-control" id="moradaContainer2" style="display: none;">
                 <textarea name="morada" id="morada" cols="10" rows="1" placeholder="Morada"></textarea>
               </div>
               <div class="input-control">
@@ -139,10 +144,13 @@
     function toggleMorada() {
       const levantamentoSelect = document.getElementById('escolha-levantameto');
       const moradaContainer = document.getElementById('moradaContainer');
+      const moradaContainer2 = document.getElementById('moradaContainer2');
       if (levantamentoSelect.value === 'domicilio') {
-        moradaContainer.style.display = 'block';
+        moradaContainer.style.display = 'flex';
+        moradaContainer2.style.display = 'flex';
       } else {
         moradaContainer.style.display = 'none';
+        moradaContainer.style.display = 'flex';
       }
     }
 

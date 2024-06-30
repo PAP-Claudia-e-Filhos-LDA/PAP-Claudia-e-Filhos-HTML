@@ -13,11 +13,14 @@
       <!–– link para as fonts ––>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet" />
 
 
         <!–– CDN para os icons ––>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+            integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
           <!–– CDN para o swiper ––>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
@@ -95,18 +98,19 @@
 
       <div class="catalogos hidden">
         <?php foreach ($topOrderedProducts as $product) : ?>
-          <div class="catalogo hidden">
-            <a href="../php/catalogo.php" class="fancybox" data-caption="">
-              <img src="<?php echo htmlspecialchars($product['caminho_imagem']); ?>" alt="<?php echo htmlspecialchars($product['nome_produto']); ?>" />
-            </a>
-            <div class="catalogo-text">
-              <h4><?php echo htmlspecialchars($product['nome_produto']); ?></h4>
-              <h3>Total Encomendado: <?php echo $product['total_encomendado']; ?></h3>
-              <div class="btn-con">
-                <!-- Se houver necessidade de botões ou links adicionais, podem ser adicionados aqui -->
-              </div>
+        <div class="catalogo hidden">
+          <a href="../php/catalogo.php" class="fancybox" data-caption="">
+            <img src="<?php echo htmlspecialchars($product['caminho_imagem']); ?>"
+              alt="<?php echo htmlspecialchars($product['nome_produto']); ?>" />
+          </a>
+          <div class="catalogo-text">
+            <h4><?php echo htmlspecialchars($product['nome_produto']); ?></h4>
+            <h3>Total Encomendado: <?php echo $product['total_encomendado']; ?></h3>
+            <div class="btn-con">
+              <!-- Se houver necessidade de botões ou links adicionais, podem ser adicionados aqui -->
             </div>
           </div>
+        </div>
         <?php endforeach; ?>
       </div><br><br>
       <div class="testimonals hidden">
@@ -301,6 +305,7 @@
       </table>
     </section>
   </main>
+
 
   <div class="controls">
     <a href="index.php">
