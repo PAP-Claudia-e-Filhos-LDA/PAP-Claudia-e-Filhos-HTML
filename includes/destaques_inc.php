@@ -46,5 +46,38 @@ function getTopBuyers($db)
   return $topBuyers;
 }
 
+function getTopOrderedProducts($db)
+{
+  $query = "
+        SELECT 
+            p.id_produto, 
+            p.nome_produto, 
+            p.caminho_imagem, 
+            SUM(le.quantidade) as total_encomendado
+        FROM 
+            Produtos p
+        JOIN 
+            Linha_de_Encomenda le ON p.id_produto = le.Produtos_id_produto
+        GROUP BY 
+            p.id_produto, p.nome_produto, p.caminho_imagem
+        ORDER BY 
+            total_encomendado DESC
+        LIMIT 3"; // Mostrar os top 3 produtos mais encomendados
+
+  $stmt = $db->prepare($query);
+  $result = $stmt->execute();
+
+  $topProducts = array();
+  while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+    $topProducts[] = $row;
+  }
+
+  return $topProducts;
+}
+
+// Obtendo os produtos mais encomendados
+$topOrderedProducts = getTopOrderedProducts($db);
+
+
 // Obtendo os 10 principais compradores
 $topBuyers = getTopBuyers($db);

@@ -168,15 +168,14 @@ section {
 
     .h-shape {
       transition: all 0.4s ease-in-out;
-      width: 40%;
+      width: 100%;
       height: 100%;
-
       background: var(--color-secondary);
       position: absolute;
       left: 0;
       top: 0;
       z-index: -1;
-      clip-path: polygon(0 0, 50% 0, 79% 100%, 0% 100%);
+      clip-path: polygon(0 0, 50% 0, 70% 100%, 0% 100%);
     }
 
     .image {
@@ -297,7 +296,6 @@ section {
 /*-------------------TESTIMONALS SECTION-----------------------*/
 
 .container-testimonal {
-  max-width: 1170px;
   margin: auto;
   padding: 0 15px;
 }
@@ -323,7 +321,8 @@ section {
 }
 
 .testimonals-item img {
-  max-width: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   margin-right: 20px;
   vertical-align: middle;
@@ -367,6 +366,7 @@ section {
 /*-------------------CATALOGO PAGE SECTION-----------------------*/
 .catalogos {
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 2rem;
   margin-top: 3rem;
@@ -1382,23 +1382,25 @@ button.submit:hover {
 
 .leaderboard {
   margin: 50px auto;
-  width: 100%; /* Alterado para 100% para preencher o contêiner pai */
-  max-width: 1000px;
-  border-radius: 20px;
+  width: 100%;
   border-collapse: collapse;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  overflow-x: auto; /* Adicionado para rolagem horizontal em dispositivos menores */
+  overflow-x: auto;
 }
 
 .leaderboard th,
 .leaderboard td {
-  padding: 10px; /* Reduzido o padding para economizar espaço */
+  padding: 20px; /* Reduzido o padding para economizar espaço */
   text-align: left;
   background-color: var(--color-grey-5);
   color: #fff;
 }
 
 .leaderboard th {
+  background-color: var(--color-secondary);
+}
+.leaderboard tr {
+  box-shadow: var(--box-shadow-1);
   background-color: var(--color-secondary);
 }
 
@@ -1411,8 +1413,8 @@ button.submit:hover {
 }
 
 .leaderboard img {
-  width: 40px; /* Reduzido o tamanho das imagens para economizar espaço */
-  height: 40px;
+  width: 60px; /* Reduzido o tamanho das imagens para economizar espaço */
+  height: 60px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -1429,46 +1431,4 @@ button.submit:hover {
   }
 }
 
-.card-container {
-  display: flex;
-  justify-content: space-around;
-  gap: 20px; /* Espaçamento entre os cards */
-}
-
-.card {
-  width: 300px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.card img {
-  max-width: 100%;
-  border-radius: 8px;
-}
-
-.card h3 {
-  margin-top: 10px;
-  font-size: 1.5rem;
-}
-
-.card p {
-  color: #666;
-}
-
-.btn {
-  display: inline-block;
-  padding: 8px 16px;
-  background-color: #007bff; /* Cor do botão */
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-  background-color: #0056b3; /* Cor do botão ao passar o mouse */
-}
 @import "./media";

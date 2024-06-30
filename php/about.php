@@ -13,14 +13,11 @@
       <!–– link para as fonts ––>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
 
         <!–– CDN para os icons ––>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-            integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
           <!–– CDN para o swiper ––>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
@@ -90,7 +87,28 @@
           </div>
         </div>
       </div>
+      <?php include('../includes/destaques_inc.php'); ?>
+      <div class="main-title hidden">
+        <h2>Best <span>Sellers</span><span class="bg-text"></span></h2>
+      </div>
 
+
+      <div class="catalogos hidden">
+        <?php foreach ($topOrderedProducts as $product) : ?>
+          <div class="catalogo hidden">
+            <a href="../php/catalogo.php" class="fancybox" data-caption="">
+              <img src="<?php echo htmlspecialchars($product['caminho_imagem']); ?>" alt="<?php echo htmlspecialchars($product['nome_produto']); ?>" />
+            </a>
+            <div class="catalogo-text">
+              <h4><?php echo htmlspecialchars($product['nome_produto']); ?></h4>
+              <h3>Total Encomendado: <?php echo $product['total_encomendado']; ?></h3>
+              <div class="btn-con">
+                <!-- Se houver necessidade de botões ou links adicionais, podem ser adicionados aqui -->
+              </div>
+            </div>
+          </div>
+        <?php endforeach; ?>
+      </div><br><br>
       <div class="testimonals hidden">
         <div class="container-testimonal">
           <div class="stat-title testimonal-header">
@@ -109,9 +127,9 @@
                       <span class="job">trabalhador/Estudante</span>
                     </div>
                   </div>
-                  <p>"Tive uma experiência incrível com o atendimento da empresa. A equipa demonstrou um compromisso
+                  <p>Tive uma experiência incrível com o atendimento da empresa. A equipa demonstrou um compromisso
                     genuíno com a satisfação do cliente, fazendo-me sentir valorizado. A comida também foi uma agradável
-                    surpresa, superando todas as minhas expectativas. Recomendo vivamente!"</p>
+                    surpresa, superando todas as minhas expectativas. Recomendo vivamente!</p>
                   <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -128,8 +146,8 @@
                       <span class="job">Estudante</span>
                     </div>
                   </div>
-                  <p>"Gostei bastante do rissol de camrão porem não recomendo a ninguem, quando comi queimei me e fui
-                    para o hospital, mas do resto tudo muito bom !"</p>
+                  <p>Gostei bastante do rissol de camrão porem não recomendo a ninguem, quando comi queimei me e fui
+                    para o hospital, mas do resto tudo muito bom !</p>
                   <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -145,9 +163,9 @@
                       <span class="job">trabalhador/Estudante</span>
                     </div>
                   </div>
-                  <p>"Embora tenha tido uma experiência geral positiva, acho que há margem para melhorias. O atendimento
+                  <p>Embora tenha tido uma experiência geral positiva, acho que há margem para melhorias. O atendimento
                     foi bom, mas poderia ser mais eficiente em alguns aspectos. A qualidade da comida estava acima da
-                    média, mas algumas opções no menu poderiam ser mais diversificadas"</p>
+                    média, mas algumas opções no menu poderiam ser mais diversificadas</p>
                   <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -163,9 +181,9 @@
                       <span class="job">Estudante</span>
                     </div>
                   </div>
-                  <p>"O atendimento foi excepcional, refletindo o comprometimento genuíno da equipa com a satisfação do
+                  <p>O atendimento foi excepcional, refletindo o comprometimento genuíno da equipa com a satisfação do
                     cliente. A comida surpreendeu com sabores incríveis, superando todas as expectativas. Recomendo
-                    vivamente, uma experiência que vale cada estrela"</p>
+                    vivamente, uma experiência que vale cada estrela</p>
                   <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -182,9 +200,9 @@
                       <span class="job">Estudante</span>
                     </div>
                   </div>
-                  <p>"Os rissóis são simplesmente fenomenais! A crocância da casca faz uma combinação perfeita com os
+                  <p>Os rissóis são simplesmente fenomenais! A crocância da casca faz uma combinação perfeita com os
                     recheios que são de deixar água na boca. É como uma explosão de sabores em cada mordida. Fiquei
-                    realmente impressionado!"</p>
+                    realmente impressionado!</p>
                   <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -201,10 +219,10 @@
                       <span class="job">Estudante</span>
                     </div>
                   </div>
-                  <p>"As sobremesas são um verdadeiro deleite. Cada pedaço é uma tentação irresistível, com texturas que
+                  <p>As sobremesas são um verdadeiro deleite. Cada pedaço é uma tentação irresistível, com texturas que
                     se complementam e sabores que conquistam o coração. Não consigo escolher minha favorita, todas são
                     simplesmente divinas. Uma experiência gastronómica que definitivamente vale a pena experimentar de
-                    novo!"</p>
+                    novo!</p>
                   <div class="rating">
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
@@ -238,17 +256,17 @@
           <div class="swiper-pagination js-testimonals-pagination"></div>
         </div>
       </div>
-
-
-
-
-
       </div>
+
+
+
+
+
       <div class="main-title hidden">
         <h2>Melhores <span>Compradores</span><span class="bg-text"></span></h2>
       </div>
 
-      <?php include('../includes/buyers_inc.php'); ?>
+
 
       <table class="leaderboard hidden">
         <thead>
@@ -266,7 +284,14 @@
             echo "<tr>";
             echo "<td>{$position}</td>";
             echo "<td><img src='" . htmlspecialchars($buyer['imagem_perfil']) . "' alt='" . htmlspecialchars($buyer['nome_cliente']) . "'></td>";
-            echo "<td>" . htmlspecialchars($buyer['nome_cliente']) . "</td>";
+            echo "<td>" . htmlspecialchars($buyer['nome_cliente']);
+
+            // Adicionando coroa ao primeiro colocado
+            if ($position === 1) {
+              echo " 👑"; // Emoji de coroa
+            }
+
+            echo "</td>";
             echo "<td>" . htmlspecialchars($buyer['numEncomendas']) . "</td>";
             echo "</tr>";
             $position++;
@@ -274,8 +299,6 @@
           ?>
         </tbody>
       </table>
-
-
     </section>
   </main>
 

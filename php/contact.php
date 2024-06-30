@@ -83,13 +83,13 @@ if (!isset($_SESSION["username"])) {
                   <span>Número de Telemovel:</span>
                 </div>
                 <p>
-                  <span> 912 345 678</span>
+                  <span>960 017 557</span>
                 </p>
               </div>
             </div>
             <div class="contact-icons">
               <div class="contact-icon">
-                <a href="www.facebook.com" target="_blank">
+                <a href="https://www.facebook.com/claudia.pereira.792303" target="_blank">
                   <i class="fab fa-facebook-f"></i>
                 </a>
                 <a href="#" target="_blank">
