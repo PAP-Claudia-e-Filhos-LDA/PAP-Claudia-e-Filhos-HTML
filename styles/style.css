@@ -642,6 +642,44 @@ section {
   pointer-events: painted;
 }
 
+.input-search2 {
+  height: 50px;
+  width: 50px;
+  border-style: none;
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  outline: none;
+  border-radius: 25px;
+  font-family: inherit;
+  transition: all 0.5s ease-in-out;
+  background-color: var(--color-grey-5);
+  padding-right: 40px;
+  color: #fff;
+  transition: all 0.4s ease-in-out;
+}
+
+.btn-search2:hover {
+  transition: all 0.4s ease-in-out;
+  background-color: var(--color-secondary);
+}
+
+.btn-search2 {
+  width: 50px;
+  height: 50px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  color: #ffffff;
+  background-color: transparent;
+  pointer-events: painted;
+}
+
 .btn-search:focus ~ .input-search {
   width: 300px;
   border-radius: 0px;

@@ -107,7 +107,6 @@
                 </select>
               </div>
               <div class="input-control i-c-2" id="moradaContainer" style="display: none;">
-
                 <textarea name="distrito" id="morada" cols="10" rows="1" placeholder="Distrito"></textarea>
                 <textarea name="cod" id="cod" cols="10" rows="1" placeholder="Codigo-Postal"></textarea>
               </div>
@@ -115,8 +114,22 @@
                 <textarea name="morada" id="morada" cols="10" rows="1" placeholder="Morada"></textarea>
               </div>
               <div class="input-control">
-                <textarea name="mensagem" id="" cols="15" rows="8" placeholder="O que te intriga?"></textarea>
+                <textarea name="mensagem" id="" cols="10" rows="8" placeholder="O que te intriga?"></textarea>
               </div>
+              <center>
+                <div class="input-controlr">
+                  <img class="mb-logo" src="../img/mbway.svg" alt="">
+                  <span class="mb-way-number">960 017 557</span>
+                </div>
+                <style>
+                .mb-logo {
+                  width: 100px;
+                  height: 100px;
+                  margin-right: 20px;
+                  vertical-align: middle;
+                }
+                </style>
+              </center>
               <div class="submit-btn">
                 <a href="#" class="main-btn" onclick="enviarEncomendaForm()">
                   <span type="submit" class="btn-text">enviar</span>
@@ -150,7 +163,7 @@
         moradaContainer2.style.display = 'flex';
       } else {
         moradaContainer.style.display = 'none';
-        moradaContainer.style.display = 'flex';
+        moradaContainer2.style.display = 'none';
       }
     }
 

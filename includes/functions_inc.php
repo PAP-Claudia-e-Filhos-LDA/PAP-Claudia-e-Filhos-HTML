@@ -82,7 +82,7 @@ function createUser($db, $username, $nome, $email, $phoneNumber, $password)
         $mail->addAddress($email, $nome);
 
         $mail->isHTML(true);
-        $mail->Subject = 'Assunto do Email';
+        $mail->Subject = 'Registo feito com sucesso!';
         $url = 'http://127.0.0.1/PAP-Claudia-e-Filhos-LDA/php/index.php';
         $body = '
         <!DOCTYPE html>
@@ -504,7 +504,7 @@ function createOrderLine($db, $encomendaId, $tipoRissois, $cartDetails)
 
 
         $mail->isHTML(true);
-        $mail->Subject = 'Assunto do Email';
+        $mail->Subject = 'Encomenda feita com sucesso!';
         $url = 'http://127.0.0.1/PAP-Claudia-e-Filhos-LDA/php/historico.php';
         $userOrders = getUserOrders($userId, $db);
         $lastOrder = end($userOrders);
