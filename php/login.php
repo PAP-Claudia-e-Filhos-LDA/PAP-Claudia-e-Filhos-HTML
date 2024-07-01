@@ -113,11 +113,11 @@ if (!empty($errorMessage)) {
 <body class="body-login">
 
     <div class="container-loggin side hidden">
-        <img src="./images/img.svg" alt="">
+        <img src="./images/img.svg" class="hidden" alt="">
     </div>
 
     <div class="container-loggin main hidden">
-        <div class="login-container">
+        <div class="login-container hidden">
             <p class="title">Bem vindo de volta</p>
             <div class="separator"></div>
             <p class="welcome-message">Preenche os campos com a tua informação</p>
