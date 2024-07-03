@@ -125,7 +125,7 @@
       </div>
 
       <div class="main-title ">
-        <h2>Time <span>line</span><span class="bg-text">timeline</span></h2>
+        <h2>Time<span>line</span><span class="bg-text">timeline</span></h2>
       </div>
       <ul class="timeline hidden">
 
@@ -133,8 +133,8 @@
         <li>
           <div class="direction-r ">
             <div class="flag-wrapper">
-              <span class="flag">Freelancer</span>
-              <span class="time-wrapper"><span class="time">2013 - present</span></span>
+              <span class="flag">Inicio</span>
+              <span class="time-wrapper"><span class="time">2018</span></span>
             </div>
             <div class="desc">My current employment. Way better than the position before!</div>
           </div>
@@ -144,8 +144,8 @@
         <li>
           <div class="direction-l">
             <div class="flag-wrapper">
-              <span class="flag">Apple Inc.</span>
-              <span class="time-wrapper"><span class="time">2011 - 2013</span></span>
+              <span class="flag">Primeiras Vendas</span>
+              <span class="time-wrapper"><span class="time">2019</span></span>
             </div>
             <div class="desc">My first employer. All the stuff I've learned and projects I've been working on.</div>
           </div>
@@ -155,8 +155,8 @@
         <li>
           <div class="direction-r ">
             <div class="flag-wrapper ">
-              <span class="flag">Harvard University</span>
-              <span class="time-wrapper"><span class="time">2008 - 2011</span></span>
+              <span class="flag">Presente</span>
+              <span class="time-wrapper"><span class="time">2020 - 2024</span></span>
             </div>
             <div class="desc">A description of all the lectures and courses I have taken and my final degree?</div>
           </div>
