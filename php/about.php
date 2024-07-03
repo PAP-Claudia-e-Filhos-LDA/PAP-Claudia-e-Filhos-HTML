@@ -54,7 +54,9 @@
         <div class="right-about hidden">
           <div class="about-item">
             <div class="abt-text">
-              <p class="large-text">3000+</p>
+              <p class="large-text">
+                <span class="count" data-target="3000">0</span>+
+              </p>
               <p class="small-text">
                 Rissois <br />
                 feitos
@@ -63,7 +65,9 @@
           </div>
           <div class="about-item">
             <div class="abt-text">
-              <p class="large-text">10+</p>
+              <p class="large-text">
+                <span class="count" data-target="10">0</span>+
+              </p>
               <p class="small-text">
                 Anos de <br />
                 experiência
@@ -72,7 +76,9 @@
           </div>
           <div class="about-item">
             <div class="abt-text">
-              <p class="large-text">300+</p>
+              <p class="large-text">
+                <span class="count" data-target="300">0</span>+
+              </p>
               <p class="small-text">
                 Clientes <br />
                 Felizes
@@ -81,7 +87,9 @@
           </div>
           <div class="about-item">
             <div class="abt-text">
-              <p class="large-text">50+</p>
+              <p class="large-text">
+                <span class="count" data-target="50">0</span>+
+              </p>
               <p class="small-text">
                 Opiniões de <br />
                 Clientes
@@ -89,10 +97,74 @@
             </div>
           </div>
         </div>
+
+
+        <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const counters = document.querySelectorAll('.count');
+          const duration = 2000; // Duração total da animação em milissegundos
+
+          counters.forEach(counter => {
+            const updateCount = () => {
+              const target = +counter.getAttribute('data-target');
+              const count = +counter.innerText;
+              const increment = target / (duration / 1000 * 60); // Incremento baseado na duração total
+
+              if (count < target) {
+                counter.innerText = Math.ceil(count + increment);
+                setTimeout(updateCount, 1000 / 60); // Atualiza a cada 1/60 de segundo (~16.7ms)
+              } else {
+                counter.innerText = target; // Define o valor final quando atinge o alvo
+              }
+            };
+
+            updateCount(); // Chama a função de atualização para iniciar a animação
+          });
+        });
+        </script>
       </div>
+
+      <div class="main-title ">
+        <h2>Time <span>line</span><span class="bg-text">timeline</span></h2>
+      </div>
+      <ul class="timeline hidden">
+
+        <!-- Item 1 -->
+        <li>
+          <div class="direction-r ">
+            <div class="flag-wrapper">
+              <span class="flag">Freelancer</span>
+              <span class="time-wrapper"><span class="time">2013 - present</span></span>
+            </div>
+            <div class="desc">My current employment. Way better than the position before!</div>
+          </div>
+        </li>
+
+        <!-- Item 2 -->
+        <li>
+          <div class="direction-l">
+            <div class="flag-wrapper">
+              <span class="flag">Apple Inc.</span>
+              <span class="time-wrapper"><span class="time">2011 - 2013</span></span>
+            </div>
+            <div class="desc">My first employer. All the stuff I've learned and projects I've been working on.</div>
+          </div>
+        </li>
+
+        <!-- Item 3 -->
+        <li>
+          <div class="direction-r ">
+            <div class="flag-wrapper ">
+              <span class="flag">Harvard University</span>
+              <span class="time-wrapper"><span class="time">2008 - 2011</span></span>
+            </div>
+            <div class="desc">A description of all the lectures and courses I have taken and my final degree?</div>
+          </div>
+        </li>
+      </ul><br><br><br><br><br>
       <?php include('../includes/destaques_inc.php'); ?>
       <div class="main-title hidden">
-        <h2>Best <span>Sellers</span><span class="bg-text"></span></h2>
+        <h2>Best <span>Sellers</span><span class="bg-text">Destaques</span></h2>
       </div>
 
 
@@ -113,6 +185,8 @@
         </div>
         <?php endforeach; ?>
       </div><br><br>
+
+
       <div class="testimonals hidden">
         <div class="container-testimonal">
           <div class="stat-title testimonal-header">
@@ -256,53 +330,13 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div><br>
           <div class="swiper-pagination js-testimonals-pagination"></div>
         </div>
       </div>
       </div>
 
 
-
-
-
-      <div class="main-title hidden">
-        <h2>Melhores <span>Compradores</span><span class="bg-text"></span></h2>
-      </div>
-
-
-
-      <table class="leaderboard hidden">
-        <thead>
-          <tr>
-            <th>Posição</th>
-            <th>Foto</th>
-            <th>Nome</th>
-            <th>Encomendas</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-          $position = 1;
-          foreach ($topBuyers as $buyer) {
-            echo "<tr>";
-            echo "<td>{$position}</td>";
-            echo "<td><img src='" . htmlspecialchars($buyer['imagem_perfil']) . "' alt='" . htmlspecialchars($buyer['nome_cliente']) . "'></td>";
-            echo "<td>" . htmlspecialchars($buyer['nome_cliente']);
-
-            // Adicionando coroa ao primeiro colocado
-            if ($position === 1) {
-              echo " 👑"; // Emoji de coroa
-            }
-
-            echo "</td>";
-            echo "<td>" . htmlspecialchars($buyer['numEncomendas']) . "</td>";
-            echo "</tr>";
-            $position++;
-          }
-          ?>
-        </tbody>
-      </table>
     </section>
   </main>
 

@@ -44,59 +44,59 @@ session_start();
 
       <form action="../includes/process_register.php" class="login-form" method="post">
         <div class="form-control">
-          <input type="text" name="username" placeholder="Username" required>
+          <input style="  border-radius: 30px;" type="text" name="username" placeholder="Username" required>
           <i class="fas fa-user"></i>
         </div>
         <div class="form-control">
-          <input type="text" name="nome" placeholder="Nome">
+          <input style="  border-radius: 30px;" type="text" name="nome" placeholder="Nome">
           <i class="fas fa-user"></i>
         </div>
         <div class="form-control">
-          <input type="text" name="phone_number" placeholder="Telemóvel" required>
+          <input style="  border-radius: 30px;" type="text" name="phone_number" placeholder="Telemóvel" required>
           <i class="fas fa-phone"></i>
         </div>
         <div class="form-control">
-          <input type="email" name="email" placeholder="Email" required>
+          <input style="  border-radius: 30px;" type="email" name="email" placeholder="Email" required>
           <i class="fas fa-envelope"></i>
         </div>
         <div class="form-control">
-          <input type="password" name="password" placeholder="Password" required>
+          <input style="  border-radius: 30px;" type="password" name="password" placeholder="Password" required>
           <i class="fas fa-lock"></i>
         </div>
         <p class="welcome-message">Tens conta? <a href="login.php">Login!</a></p>
-        <button class="submit">Registar</button>
+        <button style="  border-radius: 30px;" class="submit">Registar</button>
       </form>
     </div>
   </div>
 
   <?php
-    if (isset($_GET["error"])) {
-        $errorMessage = "";
-        $errorType = "Atenção";
-        switch ($_GET["error"]) {
-            case "ivalidusername":
-                $errorMessage = "Escolha um username válido!";
-                break;
-            case "emptyinput":
-                $errorMessage = "Preencha todos os campos!";
-                break;
-            case "ivalidphone":
-                $errorMessage = "Número de telefone inválido!";
-                break;
-            case "userexists":
-                $errorMessage = "Dados inseridos já existem!";
-                break;
-            case "stmtfailded":
-                $errorMessage = "Erro desconhecido!";
-                break;
-            default:
-                break;
-        }
+  if (isset($_GET["error"])) {
+    $errorMessage = "";
+    $errorType = "Atenção";
+    switch ($_GET["error"]) {
+      case "ivalidusername":
+        $errorMessage = "Escolha um username válido!";
+        break;
+      case "emptyinput":
+        $errorMessage = "Preencha todos os campos!";
+        break;
+      case "ivalidphone":
+        $errorMessage = "Número de telefone inválido!";
+        break;
+      case "userexists":
+        $errorMessage = "Dados inseridos já existem!";
+        break;
+      case "stmtfailded":
+        $errorMessage = "Erro desconhecido!";
+        break;
+      default:
+        break;
+    }
 
-        if (!empty($errorMessage)) {
-            echo '<script>';
-            echo 'document.addEventListener("DOMContentLoaded", function() {';
-            echo 'toastr.warning("' . $errorMessage . '", "' . $errorType . '", {
+    if (!empty($errorMessage)) {
+      echo '<script>';
+      echo 'document.addEventListener("DOMContentLoaded", function() {';
+      echo 'toastr.warning("' . $errorMessage . '", "' . $errorType . '", {
             closeButton: false,
             progressBar: true,
             positionClass: "toast-top-right",
@@ -112,11 +112,11 @@ session_start();
             hideMethod: "slideUp",
             toastClass: "custom-toast-class"
         });';
-            echo '});';
-            echo '</script>';
-        }
+      echo '});';
+      echo '</script>';
     }
-    ?>
+  }
+  ?>
 
 
   <div class="controls">

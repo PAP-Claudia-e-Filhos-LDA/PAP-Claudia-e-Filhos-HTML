@@ -16,14 +16,11 @@
         <!–– link para as fonts ––>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-          <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-            rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
           <!–– CDN para os icons ––>
 
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-              integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-              crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
             <!–– CDN do toastr ––>
               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -49,42 +46,42 @@
 
                   foreach ($cartDetails as $index => $item) {
                     echo "
-<div class='cart-item'>
-    <div class='cart-img-box' class='fancybox'>
-        <img src='{$item['imgSrc']}' alt='{$item['title']}' class='cart-img'>
-    </div>
-    <div class='detail-box'>
-        <div class='cart-product-title'><h3>{$item['title']} {$item['price']}€</h3></div>
-        <div class='cart-quantity-box'>
-            <label for='quantity'>Quantidade:</label>
-            <input type='text' value='{$item['quantity']}' class='cart-quantity' id='quantity' disabled>
-        </div>";
+  <div class='cart-item'>
+      <div class='cart-img-box' class='fancybox'>
+          <img src='{$item['imgSrc']}' alt='{$item['title']}' class='cart-img'>
+      </div>
+      <div class='detail-box'>
+          <div class='cart-product-title'><h3>{$item['title']} {$item['price']}€</h3></div>
+          <div class='cart-quantity-box'>
+              <label for='quantity'>Quantidade:</label>
+              <input type='text' value='{$item['quantity']}' class='cart-quantity' id='quantity' disabled>
+          </div>";
 
                     if (strpos(strtolower($item['title']), 'rissol') !== false) {
                       echo "
-        <div class='cart-quantity-box'>
-           <select required name='rissois[$index]' class='cart-preference'>
-    <option value='' disabled selected>Escolha</option>
-    <option value='frito'>Frito ♨️</option>
-    <option value='congelado'>Congelado ❄️</option>
-</select>
-        </div>";
+          <div class='cart-quantity-box'>
+            <select required name='rissois[$index]' class='cart-preference'>
+      <option value='' disabled selected>Escolha</option>
+      <option value='frito'>Frito ♨️</option>
+      <option value='congelado'>Congelado ❄️</option>
+  </select>
+          </div>";
                     }
 
                     echo "
-    </div>
-</div><br>
-";
+      </div>
+  </div><br>
+  ";
                   }
 
                   // Imprimir o total formatado
                   echo "
-<div class='total'>
-    <div class='total-title'></div>
-    <div>{$total}€</div>
-  </div>
-  
-";
+  <div class='total'>
+      <div class='total-title'></div>
+      <div>{$total}€</div>
+    </div>
+    
+  ";
                 } else if (!empty($_GET['details']) && !empty($_GET['total']) && count(json_decode($_GET['details'])) > 0) {
                   // Não imprima a mensagem se houver itens no carrinho
                 } else {
@@ -107,12 +104,13 @@
                 </select>
               </div>
               <div class="input-control i-c-2" id="moradaContainer" style="display: none;">
-                <textarea name="distrito" id="morada" cols="10" rows="1" placeholder="Distrito"></textarea>
-                <textarea name="cod" id="cod" cols="10" rows="1" placeholder="Codigo-Postal"></textarea>
+                <textarea required name="distrito" id="distrito" cols="10" rows="1" placeholder="Distrito"></textarea>
+                <textarea required name="cod" id="cod" cols="10" rows="1" placeholder="Codigo-Postal"></textarea>
               </div>
               <div class="input-control" id="moradaContainer2" style="display: none;">
-                <textarea name="morada" id="morada" cols="10" rows="1" placeholder="Morada"></textarea>
+                <textarea required name="morada" id="morada" cols="10" rows="1" placeholder="Morada"></textarea>
               </div>
+
               <div class="input-control">
                 <textarea name="mensagem" id="" cols="10" rows="8" placeholder="O que te intriga?"></textarea>
               </div>
@@ -122,17 +120,17 @@
                   <span class="mb-way-number">960 017 557</span>
                 </div>
                 <style>
-                .mb-logo {
-                  width: 100px;
-                  height: 100px;
-                  margin-right: 20px;
-                  vertical-align: middle;
-                }
+                  .mb-logo {
+                    width: 100px;
+                    height: 100px;
+                    margin-right: 20px;
+                    vertical-align: middle;
+                  }
                 </style>
               </center>
               <div class="submit-btn">
                 <a href="#" class="main-btn" onclick="enviarEncomendaForm()">
-                  <span type="submit" class="btn-text">enviar</span>
+                  <span type="submit" class="btn-text">Encomendar</span>
                 </a>
               </div>
             </div>
@@ -154,22 +152,37 @@
 
     </div>
     <script>
-    function toggleMorada() {
-      const levantamentoSelect = document.getElementById('escolha-levantameto');
-      const moradaContainer = document.getElementById('moradaContainer');
-      const moradaContainer2 = document.getElementById('moradaContainer2');
-      if (levantamentoSelect.value === 'domicilio') {
-        moradaContainer.style.display = 'flex';
-        moradaContainer2.style.display = 'flex';
-      } else {
-        moradaContainer.style.display = 'none';
-        moradaContainer2.style.display = 'none';
-      }
-    }
+      function toggleMorada() {
+        const levantamentoSelect = document.getElementById('escolha-levantameto');
+        const moradaContainer = document.getElementById('moradaContainer');
+        const moradaContainer2 = document.getElementById('moradaContainer2');
+        const distritoInput = document.getElementById('distrito');
+        const codInput = document.getElementById('cod');
+        const moradaInput = document.getElementById('morada');
 
-    function enviarEncomendaForm() {
-      document.getElementById('encomendaForm').submit();
-    }
+        if (levantamentoSelect.value === 'domicilio') {
+          moradaContainer.style.display = 'flex';
+          moradaContainer2.style.display = 'flex';
+
+          // Tornar os campos visíveis requeridos
+          distritoInput.required = true;
+          codInput.required = true;
+          moradaInput.required = true;
+        } else {
+          moradaContainer.style.display = 'none';
+          moradaContainer2.style.display = 'none';
+
+          // Ocultar os campos não visíveis e remover a obrigatoriedade
+          distritoInput.required = false;
+          codInput.required = false;
+          moradaInput.required = false;
+        }
+      }
+
+
+      function enviarEncomendaForm() {
+        document.getElementById('encomendaForm').submit();
+      }
     </script>
 
     <!–– CDN do toastr ––>

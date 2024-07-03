@@ -28,10 +28,13 @@ if (!isset($_SESSION["username"])) {
       <!–– link para as fonts––>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet" />
 
         <!–– link para os icons>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+            integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
@@ -51,27 +54,27 @@ if (!isset($_SESSION["username"])) {
         $email = $info[3];
         $imagem_perfil = $info[4];
       ?>
-        <div class="profile-page hidden">
-          <div class="content">
-            <div class="content__cover">
-              <div class="content__avatar">
-                <img src="<?php echo $imagem_perfil; ?>" alt="">
-              </div>
-              <div class="content__bull">
-              </div>
+      <div class="profile-page hidden">
+        <div class="content">
+          <div class="content__cover">
+            <div class="content__avatar">
+              <img src="<?php echo $imagem_perfil; ?>" alt="">
             </div>
-            <div class="content__actions">
-              <a href="editProfile.php"><i class="fas fa-pencil-alt"></i></a>
+            <div class="content__bull">
             </div>
-            <div class="content__title">
-              <div class="content__header">
-                <h1><?php echo $username; ?></h1>
-              </div>
-              <div class="content__description">
-                <p>Nome: <b><?php echo $nomeCliente; ?></b></p>
-                <p>Contacto: <b><?php echo $contacto; ?></b></p>
-                <p>Email: <b><?php echo $email; ?></b></p>
-              </div>
+          </div>
+          <div class="content__actions">
+            <a href="editProfile.php"><i class="fas fa-pencil-alt"></i></a>
+          </div>
+          <div class="content__title">
+            <div class="content__header">
+              <h1><?php echo $username; ?></h1>
+            </div>
+            <div class="content__description">
+              <p>Nome: <b><?php echo $nomeCliente; ?></b></p>
+              <p>Contacto: <b><?php echo $contacto; ?></b></p>
+              <p>Email: <b><?php echo $email; ?></b></p>
+            </div>
             <?php
           }
             ?>
@@ -88,9 +91,9 @@ if (!isset($_SESSION["username"])) {
                 <div class="button__bg"></div>
                 <p class="button__text">Logout</p>
               </a></div>
-            </div>
-
           </div>
+
+        </div>
     </section>
   </main>
 

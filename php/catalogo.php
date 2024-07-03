@@ -75,14 +75,7 @@ $userLoggedIn = isset($_SESSION['userid'])
               <input type="text" name="search" class="input-search" placeholder="Procure alguma coisa..." />
             </form>
           </div>
-          <div class="search-box">
-            <button type="submit" class="btn-search2"><i class="">A-z</i></button>
-            <input type="text" name="search" class="input-search2" placeholder="Procure alguma coisa..." />
-          </div>
-          <div class="search-box">
-            <button type="submit" class="btn-search2"><i class="fas fa-arrow-up"></i></button>
-            <input type="text" name="search" class="input-search2" placeholder="Procure alguma coisa..." />
-          </div>
+
         </div>
 
         <div class="catalogos hidden">
@@ -153,6 +146,12 @@ $userLoggedIn = isset($_SESSION['userid'])
     </a>
   </div>
 
+
+  <?php if ($userLoggedIn) { ?>
+
+  <?php } else { ?>
+
+  <?php } ?>
   <div class="cart-btn" id="cart-icon">
     <i class="fas fa-shopping-cart"> </i>
     <div style="display: none;" class="cart-badge"></div>

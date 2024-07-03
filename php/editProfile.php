@@ -25,16 +25,13 @@ if (!isset($_SESSION["username"])) {
       <!–– link para as fonts ––>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
         <!–– CDN para o toastr ––>
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
           <!–– CDN para os icons––>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-              integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-              crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="main-content">
@@ -54,46 +51,47 @@ if (!isset($_SESSION["username"])) {
         $email = $info[3];
         $imagem_perfil = $info[4];
       ?>
-      <form action="../includes/editProfile_inc.php" method="post" class="contact-form" id="editProfileForm"
-        enctype="multipart/form-data">
-        <div class="contact-content-con">
-          <div class="left-profile">
-            <div class="profileImage-container">
-              <input type="file" name="profile_image" id="fileInput" class="hidden-input" accept="image/*" />
-              <label for="fileInput" class="profileImage-label">
-                <img src="<?php echo $imagem_perfil; ?>" alt="Profile Image">
-                <span class="change-badge"><i class="fas fa-plus"></i></span> <!-- Ícone de mais da Font Awesome -->
-              </label>
-            </div>
-          </div>
+        <form action="../includes/editProfile_inc.php" method="post" class="contact-form" id="editProfileForm" enctype="multipart/form-data">
+          <div class="contact-content-con">
+            <div class="left-contact"><br><br><br>
 
-          <div class="right-contact hidden">
+              <div class="profileImage-container">
+                <input type="file" name="profile_image" id="fileInput" class="hidden-input" accept="image/*" />
+                <label for="fileInput" class="profileImage-label">
+                  <img src="<?php echo $imagem_perfil; ?>" alt="Profile Image">
+                  <span class="change-badge"><i class="fas fa-plus"></i></span> <!-- Ícone de mais da Font Awesome -->
+                </label>
+              </div>
+            </div>
 
-            <div class="input-control i-c-2">
-              <input type="text" name="username" required placeholder="<?php echo $username; ?>" />
-              <input type="text" name="nome" required placeholder="<?php echo $nomeCliente; ?>" />
-            </div>
-            <div class="input-control i-c-2">
+            <div class="right-contact hidden">
 
-            </div>
-            <div class="input-control">
-              <input type="text" name="phone_number" required placeholder="<?php echo $contacto; ?>" />
-            </div>
-            <div class="input-control">
-              <input type="email" name="email" required placeholder="<?php echo $email; ?>" />
-            </div>
-            <div class="submit-btn">
-              <a href="#" class="main-btn" onclick="enviarFormulario()">
-                <span type="submit" class="btn-text">Atualizar Perfil</span>
-              </a>
-            </div>
-      </form>
+
+
+              <div class="input-control">
+                <input type="text" name="username" required placeholder="<?php echo $username; ?>" />
+              </div>
+              <div class="input-control">
+                <input type="text" name="nome" required placeholder="<?php echo $nomeCliente; ?>" />
+              </div>
+              <div class="input-control">
+                <input type="text" name="phone_number" required placeholder="<?php echo $contacto; ?>" />
+              </div>
+              <div class="input-control">
+                <input type="email" name="email" required placeholder="<?php echo $email; ?>" />
+              </div>
+              <div class="submit-btn">
+                <a href="#" class="main-btn" onclick="enviarFormulario()">
+                  <span type="submit" class="btn-text">Atualizar Perfil</span>
+                </a>
+              </div>
+        </form>
     </div>
     </div>
-    <?php
+  <?php
       }
   ?>
-    </div>
+  </div>
   </section>
   <?php
   if (isset($_GET["error"])) {
@@ -221,16 +219,16 @@ if (!isset($_SESSION["username"])) {
 
         <!–– Script para enviar form quando innserção de imagem ––>
           <script>
-          function handleImageSelection() {
-            var fileInput = document.getElementById('fileInput');
-            fileInput.addEventListener('change', function() {
-              if (fileInput.files.length > 0) {
-                enviarFormulario()
+            function handleImageSelection() {
+              var fileInput = document.getElementById('fileInput');
+              fileInput.addEventListener('change', function() {
+                if (fileInput.files.length > 0) {
+                  enviarFormulario()
 
-              }
-            });
-          }
-          handleImageSelection();
+                }
+              });
+            }
+            handleImageSelection();
           </script>
 </body>
 

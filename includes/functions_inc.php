@@ -352,7 +352,7 @@ function updateUser($db, $id_clientes, $username, $nome, $email, $phoneNumber)
 
 
 // ------------------  Functions Encomenda ---------------------
-function createOrder($db, $id_clientes, $metodo_pagamento, $metodo_entrega, $mensagem)
+function createOrder($db, $id_clientes, $metodo_pagamento, $metodo_entrega, $mensagem, $distrito, $codigoPostal, $morada)
 {
 
     $data_encomenda = date('Y-m-d');
@@ -360,7 +360,8 @@ function createOrder($db, $id_clientes, $metodo_pagamento, $metodo_entrega, $men
     $metodo_entrega = ($metodo_entrega == 'domicilio') ? 1 : 0;
 
 
-    $sql = "INSERT INTO Encomendas (id_clientes, data_encomenda, metedo_pagamento, metedo_entrega, mensagem) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO Encomendas (id_clientes, data_encomenda, metedo_pagamento, metedo_entrega, mensagem, distrito, codigo_postal, morada) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $db->prepare($sql);
 
     if (!$stmt) {
@@ -372,6 +373,9 @@ function createOrder($db, $id_clientes, $metodo_pagamento, $metodo_entrega, $men
     $stmt->bindParam(3, $metodo_pagamento, SQLITE3_INTEGER);
     $stmt->bindParam(4, $metodo_entrega, SQLITE3_INTEGER);
     $stmt->bindParam(5, $mensagem, SQLITE3_TEXT);
+    $stmt->bindParam(6, $distrito, SQLITE3_TEXT);
+    $stmt->bindParam(7, $codigoPostal, SQLITE3_TEXT);
+    $stmt->bindParam(8, $morada, SQLITE3_TEXT);
 
 
     $result = $stmt->execute();
