@@ -16,11 +16,14 @@
         <!–– link para as fonts ––>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-          <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet" />
 
           <!–– CDN para os icons ––>
 
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+              integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+              crossorigin="anonymous" referrerpolicy="no-referrer" />
 
             <!–– CDN do toastr ––>
               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -114,20 +117,23 @@
               <div class="input-control">
                 <textarea name="mensagem" id="" cols="10" rows="8" placeholder="O que te intriga?"></textarea>
               </div>
-              <center>
-                <div class="input-controlr">
-                  <img class="mb-logo" src="../img/mbway.svg" alt="">
-                  <span class="mb-way-number">960 017 557</span>
-                </div>
-                <style>
-                  .mb-logo {
-                    width: 100px;
-                    height: 100px;
-                    margin-right: 20px;
-                    vertical-align: middle;
-                  }
-                </style>
-              </center>
+
+              <div class="">
+                <i class="fa fa-phone"> </i>
+                <span class="mb-way-number">960 017 557</span><br><br>
+                <i class="fa fa-home"> </i>
+                <span class="mb-way-number">Amor , Rua Da Fé Nº56</span>
+              </div>
+
+              <style>
+              .mb-logo {
+                width: 100px;
+                height: 100px;
+                margin-right: 20px;
+                vertical-align: middle;
+              }
+              </style>
+
               <div class="submit-btn">
                 <a href="#" class="main-btn" onclick="enviarEncomendaForm()">
                   <span type="submit" class="btn-text">Encomendar</span>
@@ -152,37 +158,37 @@
 
     </div>
     <script>
-      function toggleMorada() {
-        const levantamentoSelect = document.getElementById('escolha-levantameto');
-        const moradaContainer = document.getElementById('moradaContainer');
-        const moradaContainer2 = document.getElementById('moradaContainer2');
-        const distritoInput = document.getElementById('distrito');
-        const codInput = document.getElementById('cod');
-        const moradaInput = document.getElementById('morada');
+    function toggleMorada() {
+      const levantamentoSelect = document.getElementById('escolha-levantameto');
+      const moradaContainer = document.getElementById('moradaContainer');
+      const moradaContainer2 = document.getElementById('moradaContainer2');
+      const distritoInput = document.getElementById('distrito');
+      const codInput = document.getElementById('cod');
+      const moradaInput = document.getElementById('morada');
 
-        if (levantamentoSelect.value === 'domicilio') {
-          moradaContainer.style.display = 'flex';
-          moradaContainer2.style.display = 'flex';
+      if (levantamentoSelect.value === 'domicilio') {
+        moradaContainer.style.display = 'flex';
+        moradaContainer2.style.display = 'flex';
 
-          // Tornar os campos visíveis requeridos
-          distritoInput.required = true;
-          codInput.required = true;
-          moradaInput.required = true;
-        } else {
-          moradaContainer.style.display = 'none';
-          moradaContainer2.style.display = 'none';
+        // Tornar os campos visíveis requeridos
+        distritoInput.required = true;
+        codInput.required = true;
+        moradaInput.required = true;
+      } else {
+        moradaContainer.style.display = 'none';
+        moradaContainer2.style.display = 'none';
 
-          // Ocultar os campos não visíveis e remover a obrigatoriedade
-          distritoInput.required = false;
-          codInput.required = false;
-          moradaInput.required = false;
-        }
+        // Ocultar os campos não visíveis e remover a obrigatoriedade
+        distritoInput.required = false;
+        codInput.required = false;
+        moradaInput.required = false;
       }
+    }
 
 
-      function enviarEncomendaForm() {
-        document.getElementById('encomendaForm').submit();
-      }
+    function enviarEncomendaForm() {
+      document.getElementById('encomendaForm').submit();
+    }
     </script>
 
     <!–– CDN do toastr ––>
