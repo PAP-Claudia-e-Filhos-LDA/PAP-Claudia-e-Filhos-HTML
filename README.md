@@ -40,6 +40,9 @@ The order details will be sent by email according to your configured settings.
 
 For questions or suggestions, please open an issue or get in touch.
 
-## Repository Link
+To view the website locally:
 
-https://github.com/PAP-Claudia-e-Filhos-LDA/PAP-Claudia-e-Filhos-HTML
+## To view the website locally::
+
+   ```bash
+   git clone https://github.com/rafael17cordeiro/Personal-Website.git
