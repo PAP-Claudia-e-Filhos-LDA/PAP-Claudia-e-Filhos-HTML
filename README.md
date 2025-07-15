@@ -36,13 +36,8 @@ Access the website via your browser and place an order.
 
 The order details will be sent by email according to your configured settings.
 
-## Contact
 
-For questions or suggestions, please open an issue or get in touch.
-
-To view the website locally:
-
-## To view the website locally::
+## To view the website locally:
 
    ```bash
    git clone https://github.com/rafael17cordeiro/Personal-Website.git
