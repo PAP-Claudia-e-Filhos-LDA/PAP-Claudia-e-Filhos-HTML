@@ -40,4 +40,4 @@ The order details will be sent by email according to your configured settings.
 ## To view the website locally:
 
    ```bash
-   git clone https://github.com/rafael17cordeiro/Personal-Website.git
+   git clone https://github.com/PAP-Claudia-e-Filhos-LDA/PAP-Claudia-e-Filhos-HTML
